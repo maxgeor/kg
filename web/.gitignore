@@ -1,0 +1,14 @@
+.next/
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+bower_components
+
+psd
+thumb
+sketch
+
+node_modules
+.env
