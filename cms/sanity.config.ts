@@ -8,7 +8,7 @@ const devOnlyPlugins = [getStartedPlugin()]
 
 export default defineConfig({
   name: 'default',
-  title: 'aqua-seahorse',
+  title: 'kg-handcrafted',
 
   projectId: 'yjqbprae',
   dataset: 'production',

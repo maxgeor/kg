@@ -12,3 +12,4 @@ sketch
 
 node_modules
 .env
+.env.local
