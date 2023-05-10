@@ -27,7 +27,8 @@ export default function Card({
     <Modal.Root open={open} onOpenChange={setOpen}>
       <Modal.Trigger className="col-span-2 lg:col-span-1 relative group flex flex-col gap-6 brightness-[85%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300">
         {isSpecialProject ? (
-          <div className="bg-opacity-[85%] text-neutral-100 group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
+          // <div className="bg-opacity-[85%] text-neutral-100 group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
+          <div className="text-neutral-100 group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
             Special Project
           </div>
         ) : null}
@@ -35,7 +36,8 @@ export default function Card({
         <h3 className="absolute z-[1] transform translate-x-3 group-hover:translate-x-0 top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 text-right transition-all duration-300 ease-out">
           {name}
         </h3>
-        <div className="bg-opacity-[85%] absolute transform top-0 left-0 right-0 bg-black h-6 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></div>
+        {/* <div className="bg-opacity-[85%] absolute transform top-0 left-0 right-0 bg-black h-6 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></div> */}
+        <div className="absolute transform top-0 left-0 right-0 bg-black h-6 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></div>
         <Image
           src={coverImageUrl}
           alt={name || "knife"}
@@ -46,7 +48,8 @@ export default function Card({
         />
       </Modal.Trigger>
       <Modal.Portal className="fixed inset-0 z-[30] h-screen">
-        <Modal.Overlay className="fixed inset-0 bg-black/[95%] z-[40] h-full" />
+        {/* <Modal.Overlay className="fixed inset-0 bg-black/[95%] z-[40] h-full" /> */}
+        <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
           <div className="relative flex sm:items-center justify-center h-full w-full p-6 pb-[96px] sm:p-[96px]">
             <Profile
@@ -67,14 +70,14 @@ export default function Card({
               alt="close"
               height={48}
               width={48}
-              className="fixed bottom-6 sm:bottom-auto sm:top-1/2 left-6 transform sm:-translate-y-1/2"
+              className="fixed bottom-6 sm:bottom-auto sm:top-1/2 left-5 transform sm:-translate-y-1/2"
             />
             <Image
               src="/icons/chevron-right-lg.svg"
               alt="close"
               height={48}
               width={48}
-              className="fixed bottom-6 sm:bottom-auto sm:top-1/2 right-6 transform sm:-translate-y-1/2"
+              className="fixed bottom-6 sm:bottom-auto sm:top-1/2 right-5 transform sm:-translate-y-1/2"
             />
           </div>
         </Modal.Content>

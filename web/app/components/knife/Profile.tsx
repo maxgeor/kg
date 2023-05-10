@@ -56,8 +56,8 @@ export default function Profile({
           }}
           priority
         />
-        <ChevronCircleLeft classes="z-10 shrink-0 opacity-[80%] hover:text-opacity-100 transition absolute top-1/2 left-3 transform -translate-y-1/2" />
-        <ChevronCircleRight classes="z-10 shrink-0 opacity-[80%] hover:text-opacity-100 transition absolute top-1/2 right-3 transform -translate-y-1/2" />
+        <ChevronCircleLeft classes="z-10 shrink-0 opacity-[80%] hover:text-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
+        <ChevronCircleRight classes="z-10 shrink-0 opacity-[80%] hover:text-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
         <div className="flex gap-2 absolute bottom-6 transform left-1/2 -translate-x-1/2">
           {galleryImageUrls?.map((url, i) => (
             <span

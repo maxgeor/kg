@@ -33,11 +33,11 @@ export default function Subscribe() {
       <p className="col-span-full -my-1">Subscribe and never miss a batch</p>
       <form
         action={subscribe}
-        className="relative self-end col-span-full flex items-center md:grid grid-cols-2 lg:grid-cols-3 gap-6 -mt-2.5"
+        className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mt-4"
       >
         <label
           htmlFor="email"
-          className="lg:col-span-2 peer group relative w-full"
+          className="md:col-span-3 lg:col-span-2 peer group relative w-full"
         >
           <input
             type="email"
