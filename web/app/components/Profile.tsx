@@ -1,7 +1,8 @@
-import Grid from "../Grid";
+import React from "react";
+import Grid from "./Grid";
 import Image from "next/image";
-import ChevronCircleLeft from "../icons/ChevronCircleLeft";
-import ChevronCircleRight from "../icons/ChevronCircleRight";
+import ChevronCircleLeft from "./icons/ChevronCircleLeft";
+import ChevronCircleRight from "./icons/ChevronCircleRight";
 
 export default function Profile({
   name,
@@ -33,7 +34,6 @@ export default function Profile({
         ${classes}
       `}
     >
-      {galleryImageUrls?.toString()}
       <h3 className="md:hidden text-md col-span-full text-right pt-2 -my-1 ">
         {name}
       </h3>
@@ -56,8 +56,8 @@ export default function Profile({
           }}
           priority
         />
-        <ChevronCircleLeft classes="z-10 shrink-0 backdrop-opacity-[75%] hover:text-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
-        <ChevronCircleRight classes="z-10 shrink-0 backdrop-opacity-[75%] hover:text-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
+        <ChevronCircleLeft classes="z-10 shrink-0 opacity-80 hover:text-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
+        <ChevronCircleRight classes="z-10 shrink-0 opacity-80 hover:text-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
         <div className="flex gap-2 absolute bottom-6 transform left-1/2 -translate-x-1/2">
           {galleryImageUrls?.map((url, i) => (
             <span

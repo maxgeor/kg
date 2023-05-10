@@ -3,10 +3,12 @@ import type { Knife } from "./types/knife";
 import { sanityClient as sanity } from "./lib/sanity/client";
 import groq from "groq";
 
+import React from "react";
 import Grid from "./components/Grid";
 import Card from "./components/knife/Card";
-import Profile from "./components/knife/Profile";
+import Profile from "./components/Profile";
 import Subscribe from "./components/Subscribe";
+import Gallery from "./components/Gallery";
 
 async function getKnives(): Promise<Knife[]> {
   return await sanity.fetch(
@@ -86,7 +88,8 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 lg:decoration-[3px] underline-offset-[2px] lg:underline-offset-[4px] font-light tracking-[-0.05em] lg:tracking-[-0.055em] text-2xl lg:text-3xl lg:leading-[56px] -my-1.5 -ml-0.5 lg:-ml-1">
+            {/* <h2 className="hover:underline decoration-2 lg:decoration-[3px] underline-offset-[2px] lg:underline-offset-[4px] font-light tracking-[-0.05em] lg:tracking-[-0.055em] text-2xl lg:text-3xl lg:leading-[56px] -my-1.5 -ml-0.5 lg:-ml-1"> */}
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.05em] text-2xl -my-1.5 -ml-0.5">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">
@@ -102,7 +105,8 @@ export default async function Home() {
         <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1.5">
           All Knives
         </h2>
-        <Grid>
+        <Gallery knives={knives} />
+        {/* <Grid>
           {knives?.map((knife) => (
             <Card
               key={knife._id}
@@ -115,7 +119,7 @@ export default async function Home() {
               isSpecialProject={knife.isSpecialProject}
             />
           ))}
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

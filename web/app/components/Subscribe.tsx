@@ -18,7 +18,7 @@ export default function Subscribe() {
       body: JSON.stringify({ email }),
     });
     if (res.status === 200) {
-      emailRef.current.value = "";
+      // emailRef.current.value = "";
       setJustSubscribed(true);
       setTimeout(() => setJustSubscribed(false), 5000);
     }

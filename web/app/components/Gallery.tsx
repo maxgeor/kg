@@ -1,5 +1,130 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import Grid from "./Grid";
+import Image from "next/image";
+import Profile from "./Profile";
+import * as Modal from "@radix-ui/react-dialog";
+
+function GalleryList({ knives, openModal }) {
+  return (
+    <Grid tag="ul">
+      {knives?.map((knife, index) => (
+        <li key={knife._id} id={index} className="col-span-2 md:col-span-1">
+          <button
+            className="relative group flex flex-col gap-6 brightness-[90%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300"
+            onClick={() => openModal(index)}
+          >
+            {knife.isSpecialProject ? (
+              <div className="text-white group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
+                Special Project
+              </div>
+            ) : null}
+            <div className="absolute z-[2] transform top-0 right-0 h-px bg-white w-0 group-hover:w-full opacity-0 group-hover:opacity-100 transition-all ease-out duration-500"></div>
+            <h3 className="absolute z-[1] transform translate-x-3 group-hover:translate-x-0 top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 text-right transition-all duration-300 ease-out">
+              {knife.name}
+            </h3>
+            <div className="absolute transform top-0 left-0 right-0 bg-black h-6 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></div>
+            <Image
+              src={knife.coverImageUrl}
+              alt={knife.name || "knife"}
+              width={1000}
+              height={1000}
+              className="object-cover aspect-square height-auto max-w-full "
+              priority
+            />
+          </button>
+        </li>
+      ))}
+    </Grid>
+  );
+}
+
+function GalleryModal({
+  open,
+  setOpen,
+  knives,
+  spotlitKifeIndex,
+  setSpotlitKifeIndex,
+}) {
+  const prev = () => {
+    setSpotlitKifeIndex(
+      (prevIndex) => (prevIndex - 1 + knives.length) % knives.length
+    );
+  };
+
+  const next = () => {
+    setSpotlitKifeIndex((prevIndex) => (prevIndex + 1) % knives.length);
+  };
+
+  const spotlitKnife = knives[spotlitKifeIndex];
+
+  return (
+    <Modal.Root open={open} onOpenChange={setOpen}>
+      <Modal.Portal className="fixed inset-0 z-[30] h-screen">
+        <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
+        <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
+          <div className="relative flex sm:items-center justify-center h-full w-full p-6 pb-[72px] sm:p-[72px]">
+            <Profile
+              name={spotlitKnife.name}
+              wrap={spotlitKnife.wrap}
+              sheath={spotlitKnife.sheath}
+              coverImageUrl={spotlitKnife.coverImageUrl}
+              description={spotlitKnife.description}
+              galleryImageUrls={spotlitKnife.galleryImageUrls}
+              isSpecialProject={spotlitKnife.isSpecialProject}
+              classes="h-min max-h-[calc(100vh-72px)] md:max-h-none max-w-[400px] md:max-w-4xl shadow-2xl"
+            />
+            <Modal.Close className="fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3">
+              <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />
+            </Modal.Close>
+            {spotlitKifeIndex !== 0 ? (
+              <button onClick={prev}>
+                <Image
+                  src="/icons/chevron-left-lg.svg"
+                  alt="close"
+                  height={48}
+                  width={48}
+                  className="fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
+                />
+              </button>
+            ) : null}
+            {knives.length !== spotlitKifeIndex + 1 ? (
+              <button onClick={next}>
+                <Image
+                  src="/icons/chevron-right-lg.svg"
+                  alt="close"
+                  height={48}
+                  width={48}
+                  className="fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
+                />
+              </button>
+            ) : null}
+          </div>
+        </Modal.Content>
+      </Modal.Portal>
+    </Modal.Root>
+  );
+}
 
 export default function Gallery({ knives }) {
-  return <div>Gallery</div>;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const openModal = (index) => {
+    setSelectedImageIndex(index);
+    setIsModalOpen(true);
+  };
+  return (
+    <>
+      <GalleryList knives={knives} openModal={openModal} />
+      <GalleryModal
+        knives={knives}
+        open={isModalOpen}
+        setOpen={setIsModalOpen}
+        spotlitKifeIndex={selectedImageIndex}
+        setSpotlitKifeIndex={setSelectedImageIndex}
+      />
+    </>
+  );
 }
