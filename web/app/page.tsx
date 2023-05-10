@@ -48,7 +48,7 @@ export default async function Home() {
   return (
     <>
       <Grid classes="relative border-white w-full ">
-        <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-light font-inter tracking-tighter -my-2.5 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
+        <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-light font-inter tracking-[-0.06em] lg:tracking-[-0.065em] -my-2.5 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
       </Grid>
@@ -85,9 +85,8 @@ export default async function Home() {
           cols="grid-cols-4 lg:grid-cols-3"
           gap="gap-y-12 gap-x-6"
         >
-          {/* <div className="group flex flex-col gap-6 col-span-full lg:col-span-2"> */}
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 lg:decoration-[3px] lg:underline-offset-[4px] font-light tracking-[-0.045em] text-2xl lg:text-3xl lg:leading-[56px] -my-1.5 -ml-0.5 lg:-ml-1">
+            <h2 className="hover:underline decoration-2 lg:decoration-[3px] underline-offset-[2px] lg:underline-offset-[4px] font-light tracking-[-0.05em] lg:tracking-[-0.055em] text-2xl lg:text-3xl lg:leading-[56px] -my-1.5 -ml-0.5 lg:-ml-1">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">

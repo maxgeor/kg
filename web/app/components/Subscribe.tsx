@@ -30,7 +30,7 @@ export default function Subscribe() {
       cols="grid-cols-4 lg:grid-cols-3"
       classes="text-md"
     >
-      <p className="col-span-full -my-1">Subscribe and never miss a batch</p>
+      <p className="col-span-full -my-1">Subscribe and never miss a drop</p>
       <form
         action={subscribe}
         className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mb-1 -mt-4 md:-mt-3"

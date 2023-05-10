@@ -1,3 +1,5 @@
-// Pass knife collection (all or filtered)
-// Add the grid of knives
-// Add the Carousel Modal
+import React from "react";
+
+export default function Gallery({ knives }) {
+  return <div>Gallery</div>;
+}
