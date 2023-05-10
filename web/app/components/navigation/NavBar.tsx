@@ -11,7 +11,7 @@ export default function NavBar() {
       <div className="relative grid grid-cols-4 gap-y-3 gap-x-6 p-6">
         <Link
           href="/"
-          className="h-full z-10 absolute md:static top-6 right-6 text-lg leading-6 font-serif self-start -mr-0.5 md:-ml-0.5"
+          className="h-full z-10 absolute md:static top-6 right-6 text-md leading-5 font-serif self-start -my-0.5 -mr-px md:-ml-px"
         >
           KG
         </Link>

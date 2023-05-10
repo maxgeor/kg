@@ -1,2 +1,3 @@
 import knife from './knife'
-export const schemaTypes = [knife]
+import news from './news'
+export const schemaTypes = [knife, news]
