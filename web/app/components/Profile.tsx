@@ -10,6 +10,7 @@ export default function Profile({
   sheath,
   coverImageUrl,
   description,
+  descriptionSpan = { mobile: "full", tablet: "full", desktop: 1 },
   galleryImageUrls,
   cols = { mobile: 4, desktop: 4 },
   isSpecialProject = false,
@@ -20,6 +21,11 @@ export default function Profile({
   sheath: string;
   coverImageUrl: string;
   description?: string;
+  descriptionSpan?: {
+    mobile: "full" | 1 | 2;
+    tablet: "full" | 1 | 2;
+    desktop: "full" | 1 | 2;
+  };
   galleryImageUrls?: string[];
   isSpecialProject?: boolean;
   cols?: { mobile: 3 | 4; desktop: 3 | 4 };
@@ -30,7 +36,7 @@ export default function Profile({
       cols={`grid-cols-${cols.mobile} lg:grid-cols-${cols.desktop}`}
       gap="gap-y-4 gap-x-6 md:gap-6"
       classes={`
-        bg-black border-t-2 md:border-0 border-white
+        bg-black border-t-2 md:border-0 border-neutral-200
         ${classes}
       `}
     >
@@ -56,23 +62,17 @@ export default function Profile({
           }}
           priority
         />
-        <ChevronCircleLeft classes="z-10 shrink-0 opacity-80 hover:text-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
-        <ChevronCircleRight classes="z-10 shrink-0 opacity-80 hover:text-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
-        <div className="flex gap-2 absolute bottom-6 transform left-1/2 -translate-x-1/2">
-          {galleryImageUrls?.map((url, i) => (
-            <span
-              key={url}
-              className="w-6 h-6 rounded-full bg-white opacity-[85%] hover:opacity-100 transition cursor-pointer"
-            ></span>
-          ))}
-        </div>
+        <ChevronCircleLeft classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
+        <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
       <div className="col-span-full md:col-span-2 grid grid-cols-2 gap-4 md:gap-6">
-        <h3 className="col-span-full md:col-span-2 hidden md:inline-block text-lg text-right border-t-2 border-white pt-1">
+        <h3 className="col-span-full md:col-span-2 hidden md:inline-block text-lg text-right border-t-2 border-neutral-200 pt-1">
           {name}
         </h3>
         {description && (
-          <p className="col-span-full md:col-span-2 xl:col-span-1 -my-1">
+          <p
+            className={`col-span-${descriptionSpan.mobile} md:col-span-${descriptionSpan.tablet} xl:col-span-${descriptionSpan.desktop} -my-1`}
+          >
             {description.trim()}
           </p>
         )}
@@ -83,15 +83,15 @@ export default function Profile({
         >
           <tbody>
             {isSpecialProject ? (
-              <tr className="border-t border-white">
+              <tr className="border-t border-neutral-200">
                 <td>Special Project</td>
               </tr>
             ) : null}
-            <tr className="flex gap-6 border-y border-white">
+            <tr className="flex gap-6 border-y border-neutral-200">
               <td className="flex-1 leading-4 my-0.5">Wrap</td>
               <td className="flex-1 leading-4 my-0.5">{wrap}</td>
             </tr>
-            <tr className="flex gap-6 border-b border-white">
+            <tr className="flex gap-6 border-b border-neutral-200">
               <td className="flex-1 leading-4 my-0.5">Sheath</td>
               <td className="flex-1 leading-4 my-0.5">{sheath}</td>
             </tr>

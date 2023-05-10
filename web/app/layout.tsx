@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={`
         ${inter.className}
-        relative bg-black text-white text-sm min-h-screen
+        relative bg-black text-neutral-200 text-sm min-h-screen
       `}
       >
         <Grid gap="gap-x-6 gap-y-24" classes="max-w-[1800px] mx-auto">

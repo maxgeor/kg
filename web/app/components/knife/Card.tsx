@@ -27,11 +27,11 @@ export default function Card({
     <Modal.Root open={open} onOpenChange={setOpen}>
       <Modal.Trigger className="col-span-2 md:col-span-1 relative group flex flex-col gap-6 brightness-[90%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300">
         {isSpecialProject ? (
-          <div className="text-white group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
+          <div className="text-neutral-200 group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
             Special Project
           </div>
         ) : null}
-        <div className="absolute z-[2] transform top-0 right-0 h-px bg-white w-0 group-hover:w-full opacity-0 group-hover:opacity-100 transition-all ease-out duration-500"></div>
+        <div className="absolute z-[2] transform top-0 right-0 h-px bg-neutral-200 w-0 group-hover:w-full opacity-0 group-hover:opacity-100 transition-all ease-out duration-500"></div>
         <h3 className="absolute z-[1] transform translate-x-3 group-hover:translate-x-0 top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 text-right transition-all duration-300 ease-out">
           {name}
         </h3>

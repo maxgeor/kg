@@ -24,11 +24,11 @@ function GalleryList({ knives, openModal }) {
             onClick={() => openModal(index)}
           >
             {knife.isSpecialProject ? (
-              <div className="text-white group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
+              <div className="text-neutral-200 group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
                 Special Project
               </div>
             ) : null}
-            <div className="absolute z-[2] transform top-0 right-0 h-px bg-white w-0 group-hover:w-full opacity-0 group-hover:opacity-100 transition-all ease-out duration-500"></div>
+            <div className="absolute z-[2] transform top-0 right-0 h-px bg-neutral-200 w-0 group-hover:w-full opacity-0 group-hover:opacity-100 transition-all ease-out duration-500"></div>
             <h3 className="absolute z-[1] transform translate-x-3 group-hover:translate-x-0 top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 text-right transition-all duration-300 ease-out">
               {knife.name}
             </h3>
@@ -74,27 +74,32 @@ function GalleryModal({
       <Modal.Portal className="fixed inset-0 z-[30] h-screen">
         <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
-          <div className="relative flex sm:items-center justify-center h-full w-full p-6 pb-[72px] sm:p-[72px]">
+          <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
             <Profile
               name={spotlitKnife.name}
               wrap={spotlitKnife.wrap}
               sheath={spotlitKnife.sheath}
               coverImageUrl={spotlitKnife.coverImageUrl}
               description={spotlitKnife.description}
+              descriptionSpan={{
+                mobile: "full",
+                tablet: "full",
+                desktop: "full",
+              }}
               galleryImageUrls={spotlitKnife.galleryImageUrls}
               isSpecialProject={spotlitKnife.isSpecialProject}
-              classes="h-min max-h-[calc(100vh-72px)] md:max-h-none max-w-[400px] md:max-w-4xl shadow-2xl"
+              classes="h-min md:max-h-none sm:max-w-[375px] md:max-w-4xl shadow-2xl "
             />
-            <div className="fixed top-6 left-6 text-neutral-500 text-md font-mono text-white">
+            <div className="absolute sm:fixed top-8 sm:top-6 left-6 sm:text-base -my-1 font-light">
               {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
                 knivesLength
               )}`}
             </div>
-            <Modal.Close className="fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3">
+            <Modal.Close className="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3">
               <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />
             </Modal.Close>
             {spotlitKifeIndex !== 0 ? (
-              <button onClick={prev}>
+              <button className="hidden sm:block" onClick={prev}>
                 <Image
                   src="/icons/chevron-left-lg.svg"
                   alt="close"
@@ -105,7 +110,7 @@ function GalleryModal({
               </button>
             ) : null}
             {knivesLength !== spotlitKifeIndex + 1 ? (
-              <button onClick={next}>
+              <button className="hidden sm:block" onClick={next}>
                 <Image
                   src="/icons/chevron-right-lg.svg"
                   alt="close"
@@ -115,6 +120,39 @@ function GalleryModal({
                 />
               </button>
             ) : null}
+            <nav className=" sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0 p-3">
+              <div className="flex justify-between relative">
+                {spotlitKifeIndex !== 0 ? (
+                  <button onClick={prev}>
+                    <Image
+                      src="/icons/chevron-left-lg.svg"
+                      alt="close"
+                      height={48}
+                      width={48}
+                    />
+                  </button>
+                ) : null}
+                <Modal.Close>
+                  <Image
+                    src="/icons/x-lg.svg"
+                    alt="close"
+                    height={48}
+                    width={48}
+                    className="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+                  />
+                </Modal.Close>
+                {knivesLength !== spotlitKifeIndex + 1 ? (
+                  <button onClick={next}>
+                    <Image
+                      src="/icons/chevron-right-lg.svg"
+                      alt="close"
+                      height={48}
+                      width={48}
+                    />
+                  </button>
+                ) : null}
+              </div>
+            </nav>
           </div>
         </Modal.Content>
       </Modal.Portal>

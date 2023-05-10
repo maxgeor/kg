@@ -35,7 +35,7 @@ module.exports = {
   },
   extend: {
     screens: {
-      'tiny': '375px'
+      'xs': '400px'
     },
   },
   plugins: [],
