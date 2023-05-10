@@ -27,14 +27,14 @@ export default function Profile({
   return (
     <Grid
       cols={`grid-cols-${cols.mobile} lg:grid-cols-${cols.desktop}`}
-      gap="gap-4 md:gap-6"
+      gap="gap-y-4 gap-x-6 md:gap-6"
       classes={`
-        bg-black border-t md:border-0 border-neutral-200
+        bg-black border-t-2 md:border-0 border-white
         ${classes}
       `}
     >
       {galleryImageUrls?.toString()}
-      <h3 className="md:hidden text-lg col-span-full text-right pt-2 -my-1.5 ">
+      <h3 className="md:hidden text-md col-span-full text-right pt-2 -my-1 ">
         {name}
       </h3>
       <div
@@ -56,8 +56,8 @@ export default function Profile({
           }}
           priority
         />
-        <ChevronCircleLeft classes="z-10 shrink-0 opacity-[80%] hover:text-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
-        <ChevronCircleRight classes="z-10 shrink-0 opacity-[80%] hover:text-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
+        <ChevronCircleLeft classes="z-10 shrink-0 backdrop-opacity-[75%] hover:text-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
+        <ChevronCircleRight classes="z-10 shrink-0 backdrop-opacity-[75%] hover:text-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
         <div className="flex gap-2 absolute bottom-6 transform left-1/2 -translate-x-1/2">
           {galleryImageUrls?.map((url, i) => (
             <span
@@ -68,7 +68,7 @@ export default function Profile({
         </div>
       </div>
       <div className="col-span-full md:col-span-2 grid grid-cols-2 gap-4 md:gap-6">
-        <h3 className="col-span-full md:col-span-2 hidden md:inline-block text-lg xl:text-xl text-right border-t border-neutral-200 pt-1">
+        <h3 className="col-span-full md:col-span-2 hidden md:inline-block text-lg text-right border-t-2 border-white pt-1">
           {name}
         </h3>
         {description && (
@@ -83,15 +83,15 @@ export default function Profile({
         >
           <tbody>
             {isSpecialProject ? (
-              <tr className="border-t-[0.5px] border-neutral-200">
+              <tr className="border-t border-white">
                 <td>Special Project</td>
               </tr>
             ) : null}
-            <tr className="flex gap-6 border-y-[0.5px] border-neutral-200">
+            <tr className="flex gap-6 border-y border-white">
               <td className="flex-1 leading-4 my-0.5">Wrap</td>
               <td className="flex-1 leading-4 my-0.5">{wrap}</td>
             </tr>
-            <tr className="flex gap-6 border-b-[0.5px] border-neutral-200">
+            <tr className="flex gap-6 border-b border-white">
               <td className="flex-1 leading-4 my-0.5">Sheath</td>
               <td className="flex-1 leading-4 my-0.5">{sheath}</td>
             </tr>

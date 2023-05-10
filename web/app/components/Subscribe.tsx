@@ -28,12 +28,12 @@ export default function Subscribe() {
     <Grid
       span="col-span-full lg:col-span-3"
       cols="grid-cols-4 lg:grid-cols-3"
-      classes="text-lg"
+      classes="text-md"
     >
       <p className="col-span-full -my-1">Subscribe and never miss a batch</p>
       <form
         action={subscribe}
-        className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mt-4"
+        className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mb-1 -mt-4 md:-mt-3"
       >
         <label
           htmlFor="email"
@@ -45,12 +45,12 @@ export default function Subscribe() {
             id="email"
             value={email}
             placeholder="Your email"
-            className="w-full peer flex-grow placeholder:text-neutral-500 leading-[40px] h-[40px] border-box bg-transparent border-neutral-500 border-b-2 focus:outline-none "
+            className="w-full peer flex-grow placeholder:text-neutral-500 leading-8 h-8 border-box bg-transparent border-neutral-500 border-b-2 focus:outline-none "
           />
-          <span className="z-10 h-[2px] absolute bottom-0 left-0 bg-neutral-200 w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
+          <span className="z-10 h-[2px] absolute bottom-0 left-0 bg-white w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
         </label>
         <button
-          className={`col-span-1 w-fit -ml-1 -mb-1 text-neutral-500 peer-valid:text-neutral-200 flex items-center shrink-0 text-xl transition duration-300`}
+          className={`col-span-1 w-fit -my-1 text-neutral-500 peer-valid:text-white flex items-center shrink-0 text-xl transition duration-300`}
         >
           <ArrowRight classes="text-neutral-500" />
         </button>

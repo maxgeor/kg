@@ -47,27 +47,19 @@ export default async function Home() {
 
   return (
     <>
-      <Grid classes="relative border-neutral-200 w-full ">
-        <h1 className="text-neutral-200 col-span-full md:col-start-2 md:col-end-5 text-2xl lg:text-3xl 2xl:text-4xl font-light font-inter tracking-tighter -my-2.5 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
+      <Grid classes="relative border-white w-full ">
+        <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-light font-inter tracking-tighter -my-2.5 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
       </Grid>
-      {/* <Grid classes="relative border-y-2 border-neutral-200 w-full ">
-        <h1 className="py-6 text-neutral-200 col-span-full md:col-start-2 md:col-end-5 text-2xl lg:text-3xl 2xl:text-4xl font-light font-inter tracking-tighter -my-2.5 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
-          Hartsfield-inspired blades, carefully crafted, one at a time
-        </h1>
-      </Grid> */}
-      {featuredKnives ? (
-        // <Grid gap="gap-y-12 gap-x-6" classes="border-t-2">
+      {featuredKnives.length ? (
         <Grid>
-          {/* <h2 className="col-span-full lg:col-span-1 text-lg lg:text-xl text-neutral-200 -my-1 pt-2"> */}
-          <h2 className="col-span-full lg:col-span-1 text-lg lg:text-xl text-neutral-200 -my-1">
+          <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1.5">
             Featured Knives
           </h2>
           <Grid
             span="col-span-full lg:col-span-3"
             cols="grid-cols-4 lg:grid-cols-3"
-            // classes="lg:pt-12"
           >
             {featuredKnives?.map((knife) => (
               <Profile
@@ -84,20 +76,18 @@ export default async function Home() {
           </Grid>
         </Grid>
       ) : null}
-      {/* <Grid gap="gap-y-12 gap-x-6" classes="border-t-2"> */}
       <Grid>
-        {/* <h2 className="col-span-full lg:col-span-1 text-lg lg:text-xl text-neutral-200 -my-1 pt-2"> */}
-        <h2 className="col-span-full lg:col-span-1 text-lg lg:text-xl text-neutral-200 -my-1">
+        <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1.5">
           News
         </h2>
         <Grid
           span="col-span-full lg:col-span-3"
           cols="grid-cols-4 lg:grid-cols-3"
           gap="gap-y-12 gap-x-6"
-          // classes="lg:pt-12"
         >
-          <div className="group flex flex-col gap-6 col-span-full lg:col-span-2">
-            <h2 className="group-hover:underline decoration-4 font-light tracking-tighter text-2xl leading-[56px] -my-1.5 -ml-1">
+          {/* <div className="group flex flex-col gap-6 col-span-full lg:col-span-2"> */}
+          <div className="group flex flex-col gap-6 col-span-full">
+            <h2 className="hover:underline decoration-2 lg:decoration-[3px] lg:underline-offset-[4px] font-light tracking-[-0.045em] text-2xl lg:text-3xl lg:leading-[56px] -my-1.5 -ml-0.5 lg:-ml-1">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">
@@ -109,16 +99,11 @@ export default async function Home() {
           <Subscribe />
         </Grid>
       </Grid>
-      {/* <Grid classes="border-t-2"> */}
       <Grid>
-        {/* <h2 className="col-span-full text-lg lg:text-xl -my-1 text-neutral-200 pt-2"> */}
-        <h2 className="col-span-full lg:col-span-1 text-lg lg:text-xl -my-1 text-neutral-200">
+        <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1.5">
           All Knives
         </h2>
-        <Grid
-          cols="grid-cols-4 lg:grid-cols-3"
-          span="col-span-full lg:col-span-3"
-        >
+        <Grid>
           {knives?.map((knife) => (
             <Card
               key={knife._id}
