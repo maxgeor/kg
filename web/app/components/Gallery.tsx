@@ -1,16 +1,24 @@
 "use client";
 
+import { Knife } from "../types/knife";
+
 import React, { useState } from "react";
 import Grid from "./Grid";
 import Image from "next/image";
 import Profile from "./Profile";
 import * as Modal from "@radix-ui/react-dialog";
 
+import { paddedNumber } from "../utils/formatting";
+
 function GalleryList({ knives, openModal }) {
   return (
     <Grid tag="ul">
-      {knives?.map((knife, index) => (
-        <li key={knife._id} id={index} className="col-span-2 md:col-span-1">
+      {knives?.map((knife: Knife, index: number) => (
+        <li
+          key={knife._id}
+          id={`knife-${index}`}
+          className="col-span-2 md:col-span-1"
+        >
           <button
             className="relative group flex flex-col gap-6 brightness-[90%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300"
             onClick={() => openModal(index)}
@@ -47,14 +55,16 @@ function GalleryModal({
   spotlitKifeIndex,
   setSpotlitKifeIndex,
 }) {
+  const knivesLength = knives.length;
+
   const prev = () => {
     setSpotlitKifeIndex(
-      (prevIndex) => (prevIndex - 1 + knives.length) % knives.length
+      (prevIndex) => (prevIndex - 1 + knivesLength) % knivesLength
     );
   };
 
   const next = () => {
-    setSpotlitKifeIndex((prevIndex) => (prevIndex + 1) % knives.length);
+    setSpotlitKifeIndex((prevIndex) => (prevIndex + 1) % knivesLength);
   };
 
   const spotlitKnife = knives[spotlitKifeIndex];
@@ -75,6 +85,11 @@ function GalleryModal({
               isSpecialProject={spotlitKnife.isSpecialProject}
               classes="h-min max-h-[calc(100vh-72px)] md:max-h-none max-w-[400px] md:max-w-4xl shadow-2xl"
             />
+            <div className="fixed top-6 left-6 text-neutral-500 text-md font-mono text-white">
+              {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
+                knivesLength
+              )}`}
+            </div>
             <Modal.Close className="fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3">
               <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />
             </Modal.Close>
@@ -89,7 +104,7 @@ function GalleryModal({
                 />
               </button>
             ) : null}
-            {knives.length !== spotlitKifeIndex + 1 ? (
+            {knivesLength !== spotlitKifeIndex + 1 ? (
               <button onClick={next}>
                 <Image
                   src="/icons/chevron-right-lg.svg"
@@ -111,7 +126,7 @@ export default function Gallery({ knives }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const openModal = (index) => {
+  const openModal = (index: number): void => {
     setSelectedImageIndex(index);
     setIsModalOpen(true);
   };

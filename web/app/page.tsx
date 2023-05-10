@@ -10,8 +10,8 @@ import Profile from "./components/Profile";
 import Subscribe from "./components/Subscribe";
 import Gallery from "./components/Gallery";
 
-async function getKnives(): Promise<Knife[]> {
-  return await sanity.fetch(
+async function getKnives() {
+  return (await sanity.fetch(
     groq`*[_type == "knife" && (!defined(isFeatured) || !isFeatured)]{
       _id,
       name,
@@ -22,11 +22,11 @@ async function getKnives(): Promise<Knife[]> {
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
     }`
-  );
+  )) as Knife[];
 }
-async function getFeaturedKnives(): Promise<Knife[]> {
-  return await sanity.fetch(
-    groq`*[_type == "knife" && defined(isFeatured) && isFeatured]{
+async function getFeaturedKnives() {
+  return (await sanity.fetch(
+    groq`*[_type == "knife" && isFeatured]{
       _id,
       name,
       wrap,
@@ -35,17 +35,15 @@ async function getFeaturedKnives(): Promise<Knife[]> {
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
     }`
-  );
+  )) as Knife[];
 }
 
 export default async function Home() {
   const featuredKnivesData = await getFeaturedKnives();
   const knivesData = await getKnives();
 
-  const [featuredKnives, knives] = await Promise.all([
-    featuredKnivesData,
-    knivesData,
-  ]);
+  const [featuredKnives, knives]: [featuredKnives: Knife[], knives: Knife[]] =
+    await Promise.all([featuredKnivesData, knivesData]);
 
   return (
     <>
