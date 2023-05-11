@@ -39,14 +39,14 @@ export default {
     {
       name: 'coverImage',
       title: 'Cover Image',
-      description: "Image on the knife card & the first gallary image",
+      description: "Only use square pictures (you can crop them here after uploading)",
       type: 'image',
       validation: Rule => Rule.required()
     },
     {
       name: 'gallaryImages',
       title: 'Gallary Images',
-      description: "All other images people can swipe through",
+      description: "Only use square pictures (you can crop them here after uploading)",
       type: 'array',
       of: [{ type: 'image' }]
     }
