@@ -12,7 +12,7 @@ export default function Profile({
   imageUrls,
   index,
   description,
-  descriptionSpan = { mobile: "full", tablet: "full", desktop: 1 },
+  descriptionSpan = { mobile: "full", desktop: 1 },
   cols = { mobile: 4, desktop: 4 },
   isSpecialProject = false,
   isShowingIndex = false,
@@ -26,7 +26,6 @@ export default function Profile({
   description?: string;
   descriptionSpan?: {
     mobile: "full" | 1 | 2;
-    tablet: "full" | 1 | 2;
     desktop: "full" | 1 | 2;
   };
   isSpecialProject?: boolean;
@@ -50,7 +49,7 @@ export default function Profile({
       ) : null}
       <div
         className={`
-        col-span-full sm:col-span-2 relative 
+        col-span-full sm:col-span-2 relative h-fit
         ${cols.desktop === 3 ? "lg:col-span-1" : null}
       `}
       >
@@ -80,13 +79,16 @@ export default function Profile({
         {description && (
           <div
             className={`
-              col-span-${descriptionSpan.mobile} sm:col-span-${descriptionSpan.tablet} xl:col-span-${descriptionSpan.desktop} 
-              -my-1
+              col-span-${descriptionSpan.mobile} xl:col-span-${descriptionSpan.desktop} 
+              max-w-prose -my-1
             `}
           >
             {description.trim()}
           </div>
         )}
+        {/* {description && (
+          <div className="max-w-prose -my-1">{description.trim()}</div>
+        )} */}
         <table
           className="col-span-full sm:col-span-2 self-end w-full transition-all ease-out duration-150 "
           cellSpacing="0"

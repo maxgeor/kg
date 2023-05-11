@@ -41,9 +41,12 @@ export default async function SpecialProjects() {
                 name={project.name}
                 wrap={project.wrap}
                 sheath={project.sheath}
-                coverImageUrl={project.coverImageUrl}
+                imageUrls={
+                  project.galleryImageUrls
+                    ? [project.coverImageUrl, ...project.galleryImageUrls]
+                    : [project.coverImageUrl]
+                }
                 description={project.description}
-                galleryImageUrls={project.galleryImageUrls}
                 cols={{ mobile: 4, desktop: 3 }}
               />
             ))}
