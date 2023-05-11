@@ -39,14 +39,14 @@ export default {
     {
       name: 'coverImage',
       title: 'Cover Image',
-      description: "Only use square pictures (you can crop them here after uploading)",
+      description: "Use a square image (you can crop after uploading)",
       type: 'image',
       validation: Rule => Rule.required()
     },
     {
-      name: 'gallaryImages',
-      title: 'Gallary Images',
-      description: "Only use square pictures (you can crop them here after uploading)",
+      name: 'galleryImages',
+      title: 'Gallery Images',
+      description: "Use a square image (you can crop after uploading)",
       type: 'array',
       of: [{ type: 'image' }]
     }

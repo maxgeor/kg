@@ -1,61 +1,28 @@
 export default {
   name: 'about',
-  title: 'About Page',
+  title: 'About Page Sections',
   type: 'document',
-   groups: [
-    {
-      name: 'bio',
-      title: 'Bio',
-    },
-    {
-      name: 'philosophy',
-      title: 'Philosophy',
-    },
-    {
-      name: 'inspiration',
-      title: 'Inspiration',
-    }
-  ],
   fields: [
     {
-      name: 'bioimage',
-      title: 'Bio Image',
-      type: 'image',
-      group: 'bio'
-    },
-    {
-      name: 'biocontent',
-      title: 'Bio Content',
-      type: 'array',
-      of: [{type: 'block'}],
-      group: 'bio',
+      name: 'title',
+      title: 'Title',
+      description: "ex: Bio, Philosophy",
+      type: 'string',
       validation: Rule => Rule.required()
     },
     {
-      name: 'philosophyimage',
-      title: 'Philosophy Image',
-      type: 'image',
-      group: 'philosophy'
-    },
-    {
-      name: 'philosophycontent',
-      title: 'Philosophy Content',
+      name: 'content',
+      title: 'Content',
+      description: "ex: I'm a knife maker from the mountains of North Carolina...",
       type: 'array',
       of: [{type: 'block'}],
-      group: 'philosophy'
+      validation: Rule => Rule.required()
     },
     {
-      name: 'inspirationimage',
-      title: 'Inspiration Image',
+      name: 'image',
+      title: 'Image',
+      description: "Use a square image (you can crop after uploading)",
       type: 'image',
-      group: 'inspiration'
-    },
-    {
-      name: 'inspirationcontent',
-      title: 'Inspiration Content',
-      type: 'array',
-      of: [{type: 'block'}],
-      group: 'inspiration'
     },
   ]
 }
