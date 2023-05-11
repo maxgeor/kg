@@ -27,30 +27,27 @@ export default async function SpecialProjects() {
 
   return (
     <>
-      <Grid span="col-span-full lg:col-start-2 lg:col-end-5">
-        <h1 className="text-3xl">These are my one-off experiments</h1>
-      </Grid>
+      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-2xl md:text-3xl font-light tracking-tighter -ml-0.5 lg:-ml-3 -my-1.5 md:-my-2">
+        One-off, experimental knives I don&apos;t plan on making any more of
+      </h1>
       {specialProjects.length ? (
-        <Grid gap="gap-6 lg:gap-0">
-          <h2 className="cols-span-full text-lg -my-1">Special Projects</h2>
-          <Grid>
-            {specialProjects?.map((project, index) => (
-              <Profile
-                index={index}
-                key={project._id}
-                name={project.name}
-                wrap={project.wrap}
-                sheath={project.sheath}
-                imageUrls={
-                  project.galleryImageUrls
-                    ? [project.coverImageUrl, ...project.galleryImageUrls]
-                    : [project.coverImageUrl]
-                }
-                description={project.description}
-                cols={{ mobile: 4, desktop: 3 }}
-              />
-            ))}
-          </Grid>
+        <Grid>
+          {specialProjects?.map((project, index) => (
+            <Profile
+              index={index}
+              key={project._id}
+              name={project.name}
+              wrap={project.wrap}
+              sheath={project.sheath}
+              imageUrls={
+                project.galleryImageUrls
+                  ? [project.coverImageUrl, ...project.galleryImageUrls]
+                  : [project.coverImageUrl]
+              }
+              description={project.description}
+              isShowingIndex={true}
+            />
+          ))}
         </Grid>
       ) : null}
     </>

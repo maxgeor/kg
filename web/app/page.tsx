@@ -47,7 +47,7 @@ export default async function Home() {
 
   return (
     <>
-      <Grid classes="relative border-neutral-200 w-full border-y-2 py-6">
+      <Grid classes="relative border-neutral-200 w-full">
         <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-4xl md:text-5xl 2xl:text-6xl font-light font-inter tracking-[-0.06em] lg:tracking-[-0.065em] -my-2.5 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
@@ -55,7 +55,7 @@ export default async function Home() {
       {featuredKnives.length ? (
         <Grid>
           <h2 className="col-span-full lg:col-span-1 text-lg text-neutral-200 -my-1 z-10">
-            Featured Knives
+            Featured Work
           </h2>
           <Grid
             cols="grid-cols-4 lg:grid-cols-3"
@@ -90,7 +90,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.05em] text-2xl -my-1 -ml-0.5 leading-10">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.05em] text-2xl lg:text-3xl -my-1 lg:-my-2 -ml-0.5 leading-10">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">
@@ -104,7 +104,7 @@ export default async function Home() {
       </Grid>
       <Grid>
         <h2 className="col-span-full lg:col-span-1 text-lg text-neutral-200 -my-1">
-          All Knives
+          All Work
         </h2>
         <Gallery knives={knives} />
       </Grid>

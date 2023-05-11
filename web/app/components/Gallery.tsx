@@ -134,7 +134,7 @@ function GalleryModal({
               description={spotlitKnife.description}
               descriptionSpan={{ mobile: "full", desktop: "full" }}
               isSpecialProject={spotlitKnife.isSpecialProject}
-              classes="h-min md:max-h-none sm:max-w-[375px] md:max-w-4xl shadow-2xl"
+              classes="h-min md:max-h-none sm:max-w-[375px] md:max-w-5xl shadow-2xl"
             />
             <PrevButton
               goBack={prev}

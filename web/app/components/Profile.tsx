@@ -50,7 +50,7 @@ export default function Profile({
       <div
         className={`
         col-span-full sm:col-span-2 relative h-fit
-        ${cols.desktop === 3 ? "lg:col-span-1" : null}
+        ${cols.desktop === 3 || isShowingIndex ? "lg:col-span-1" : null}
       `}
       >
         {imageUrls.map((url, index) => (
@@ -73,7 +73,7 @@ export default function Profile({
         <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
       <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
-        <h3 className="col-span-full sm:col-span-2 hidden sm:inline-block text-lg text-right border-t-2 border-neutral-200 pt-1 -mb-1">
+        <h3 className="col-span-full sm:col-span-2 hidden sm:inline-block text-lg lg:text-[29px] 2xl text-right border-t-2 border-neutral-200 pt-1 -mb-1">
           {name}
         </h3>
         {description && (
@@ -86,9 +86,6 @@ export default function Profile({
             {description.trim()}
           </div>
         )}
-        {/* {description && (
-          <div className="max-w-prose -my-1">{description.trim()}</div>
-        )} */}
         <table
           className="col-span-full sm:col-span-2 self-end w-full transition-all ease-out duration-150 "
           cellSpacing="0"
