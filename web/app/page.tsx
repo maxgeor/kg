@@ -11,7 +11,7 @@ import Subscribe from "./components/Subscribe";
 import Gallery from "./components/Gallery";
 
 async function getFeaturedKnives() {
-  return (await sanity.fetch(
+  return await sanity.fetch(
     groq`*[_type == "knife" && isFeatured]{
       _id,
       name,
@@ -21,11 +21,11 @@ async function getFeaturedKnives() {
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
     }`
-  )) as Knife[];
+  );
 }
 
 async function getKnives() {
-  return (await sanity.fetch(
+  return await sanity.fetch(
     groq`*[_type == "knife" && (!defined(isFeatured) || !isFeatured)]{
       _id,
       name,
@@ -36,7 +36,7 @@ async function getKnives() {
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
     }`
-  )) as Knife[];
+  );
 }
 
 export default async function Home() {
@@ -48,17 +48,18 @@ export default async function Home() {
 
   return (
     <>
-      <Grid classes="relative border-neutral-200 w-full border-y-2 py-6">
+      <Grid
+        gap="gap-y-9 gap-x-6"
+        classes="relative border-neutral-200 w-full border-y-2 pt-6 pb-3 lg:py-6"
+      >
         <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl lg:text-5xl lg:leading-[88px] 2xl:text-6xl font-light font-inter tracking-[-0.06em] lg:tracking-[-0.065em] -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
-        <div className="col-span-full lg:col-span-1 flex lg:flex-col justify-between gap-5 lg:order-first lg:w-1/2">
-          <p className="self-end lg:self-auto -my-0.5 lg:-my-1 leading-4 lg:leading-5">
+        <div className="col-span-full lg:col-span-1 flex lg:flex-col justify-between gap-6 lg:order-first lg:w-1/2">
+          <p className="self-end lg:self-auto -my-1">
             Functional, subtracted knives built with natural materials
           </p>
-          <p className="self-end lg:self-auto -my-0.5 lg:-my-1 leading-4 lg:leading-5">
-            Crafted in Canada
-          </p>
+          <p className="self-end lg:self-auto -my-1">Crafted in Canada</p>
         </div>
       </Grid>
       {featuredKnives.length ? (
