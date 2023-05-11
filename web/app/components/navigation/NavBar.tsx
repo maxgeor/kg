@@ -7,7 +7,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-40 bg-black/[85%] col-span-full text-sm">
+    <nav className="sticky top-0 z-40 bg-black/90 col-span-full text-sm">
       <div className="relative grid grid-cols-4 gap-y-3 gap-x-6 p-6">
         <Link
           href="/"
