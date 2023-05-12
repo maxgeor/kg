@@ -28,7 +28,7 @@ export default async function About() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl md:text-4xl font-light tracking-[-0.07em] -ml-1 -my-1.5 md:-my-2">
+      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl md:text-5xl font-light tracking-[-0.07em] -ml-1 -my-1.5 md:-my-2">
         Kevin Georgopoulos
       </h1>
       {sections?.map((section) => (

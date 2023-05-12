@@ -58,7 +58,6 @@ export default async function Home() {
               Functional, subtracted knives built with natural materials
             </p>
             <p className="text-right sm:text-left col-span-2 sm:col-start-4 text-[11px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wide">
-              {/* <p className="text-right sm:text-left col-span-2 sm:col-start-4 font-mono text-[12px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wider"> */}
               Crafted in
               <br className="lg:hidden" /> Canada
             </p>
@@ -88,7 +87,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-lg: lg:text-3xl -my-1 lg:-my-2 -ml-0.5 ">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-lg lg:text-3xl -my-1 lg:-my-2 -ml-0.5 ">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">
