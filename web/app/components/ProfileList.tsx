@@ -37,7 +37,7 @@ export default function ProfileList({
       variant={container}
       className={`
         ${cols} ${span}
-        grid grid-cols-4 gap-4 col-span-full
+        grid grid-cols-4 gap-6 col-span-full
       `}
     >
       {knives?.map((knife, index) => (

@@ -1,28 +1,44 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+
 import Grid from "./Grid";
 import Image from "next/image";
 import ArrowRight from "./icons/ArrowRight";
 
 export default function Subscribe() {
   const [email, setEmail] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [justSubscribed, setJustSubscribed] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
 
-  const subscribe = async (formData: FormData) => {
-    const email = formData.get("email");
-    if (!email) return;
-    const res = await fetch("/api/subscribe", {
-      method: "POST",
-      body: JSON.stringify({ email }),
-    });
-    if (res.status === 200) {
-      // emailRef.current.value = "";
-      setJustSubscribed(true);
-      setTimeout(() => setJustSubscribed(false), 5000);
+  async function subscribe(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault;
+    if (!email) return setError("Add your email");
+
+    setError("");
+    setSubscribed(false);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setEmail("");
+        setSubscribed(true);
+      } else {
+        setError(data?.error || "Something went wrong, please try again later");
+      }
+    } catch (e) {
+      setError((e as Error).message);
     }
-  };
+
+    setLoading(false);
+  }
 
   return (
     <Grid
@@ -34,7 +50,7 @@ export default function Subscribe() {
         Subscribe and never miss a drop
       </p>
       <form
-        action={subscribe}
+        onSubmit={subscribe}
         className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mt-3"
       >
         <label
@@ -42,23 +58,28 @@ export default function Subscribe() {
           className="md:col-span-3 lg:col-span-2 peer group relative w-full"
         >
           <input
+            required
             type="email"
             name="email"
             id="email"
             value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            className="w-full peer flex-grow placeholder:text-neutral-500 leading-8 h-8 border-box bg-transparent border-neutral-500 border-b-2 focus:outline-none "
+            className="w-full peer flex-grow placeholder:text-neutral-500 leading-8 h-8 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
           />
-          <span className="z-10 h-[2px] absolute bottom-0 left-0 bg-neutral-200 w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
+          <span className="z-10 h-px absolute bottom-0 left-0 bg-neutral-200 w-0 peer-focus:w-full transition-all duration-300 ease-out"></span>
         </label>
         <button
-          className={`col-span-1 w-fit -my-1 text-neutral-500 peer-valid:text-neutral-200 flex items-center shrink-0 text-xl transition duration-300`}
+          className={`col-span-1 w-fit -my-1 text-neutral-200 disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
+          disabled={loading}
         >
           <ArrowRight classes="text-neutral-500" />
         </button>
-
-        {justSubscribed ? (
-          <div className="absolute -bottom-10 text-sm flex items-center gap-2 text-green-500">
+        {error ? (
+          <p className="absolute -bottom-10 text-sm text-red-400">{error}</p>
+        ) : null}
+        {subscribed ? (
+          <div className=" text-sm flex items-center gap-2 text-green-500">
             <Image
               src="/icons/check.svg"
               alt="checkmark"

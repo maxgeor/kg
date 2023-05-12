@@ -12,7 +12,6 @@ export default function Profile({
   imageUrls,
   index,
   description,
-  descriptionSpan = { mobile: "full", desktop: 1 },
   cols = { mobile: 4, desktop: 4 },
   isSpecialProject = false,
   isShowingIndex = false,
@@ -24,10 +23,6 @@ export default function Profile({
   imageUrls: string[];
   index?: number;
   description?: string;
-  descriptionSpan?: {
-    mobile: "full" | 1 | 2;
-    desktop: "full" | 1 | 2;
-  };
   isSpecialProject?: boolean;
   isShowingIndex?: boolean;
   cols?: { mobile: 3 | 4; desktop: 3 | 4 };
@@ -39,7 +34,7 @@ export default function Profile({
       gap="gap-y-4 gap-x-6 sm:gap-6"
       classes={`bg-black ${classes}`}
     >
-      <h3 className="sm:hidden text-lg col-span-full text-right pt-1 border-t-2 border-neutral-200">
+      <h3 className="sm:hidden text-lg col-span-full text-right pt-1 border-t border-neutral-200">
         {name}
       </h3>
       {isShowingIndex ? (
@@ -73,16 +68,11 @@ export default function Profile({
         <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
       <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
-        <h3 className="col-span-full sm:col-span-2 hidden sm:inline-block text-lg lg:text-[29px] 2xl text-right border-t-2 border-neutral-200 pt-1 -mb-1">
+        <h3 className="col-span-full sm:col-span-2 hidden sm:inline-block text-lg lg:text-[29px] 2xl text-right border-t border-neutral-200 pt-1 -mb-1">
           {name}
         </h3>
         {description && (
-          <div
-            className={`
-              col-span-${descriptionSpan.mobile} xl:col-span-${descriptionSpan.desktop} 
-              max-w-prose -my-1
-            `}
-          >
+          <div className="col-span-full max-w-prose -my-1">
             {description.trim()}
           </div>
         )}
