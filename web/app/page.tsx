@@ -49,7 +49,7 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-y-12 gap-x-6" classes="relative border-white w-full ">
-        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl md:leading-[88px] lg:leading-[104px] lg:text-6xl font-light md:font-extralight tracking-[-0.07em] md:tracking-[-0.08em] -my-2 lg:-my-3 lg:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
+        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl md:leading-[88px] lg:leading-[100px] lg:text-6xl font-light md:font-extralight tracking-[-0.07em] md:tracking-[-0.08em] -my-2 lg:-my-3 lg:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
         <div className="h-full col-span-full lg:col-span-1 flex flex-col justify-between lg:order-first lg:pr-[72px]">
@@ -57,7 +57,7 @@ export default async function Home() {
             <p className="col-span-2 -my-1">
               Functional, subtracted knives built with natural materials
             </p>
-            <p className="text-right sm:text-left col-span-2 sm:col-start-4 text-[11px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wide">
+            <p className="text-right sm:text-left col-span-2 sm:col-start-4 text-[10px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wider">
               Crafted in
               <br className="lg:hidden" /> Canada
             </p>
@@ -87,7 +87,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-lg lg:text-3xl -my-1 lg:-my-2 -ml-0.5 ">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-3xl -my-1 lg:-my-2 -ml-[3px]">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">
