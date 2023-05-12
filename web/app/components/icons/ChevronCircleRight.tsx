@@ -22,8 +22,8 @@ export default function ChevronCircleRight({
       <path
         d="M12 20L18 14L12 8"
         stroke={iconColor}
-        stroke-width="1.66667"
-        stroke-linecap="square"
+        strokeWidth="1.66667"
+        strokeLinecap="square"
       />
     </svg>
   );

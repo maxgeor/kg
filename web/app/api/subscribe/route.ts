@@ -1,15 +1,12 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function GET() {
+  return new Response.json({ response: 'Working!' });
+}
+
+export async function POST(req: Request) {
   const { email } = JSON.parse(req.body);
-
-  if (!email) {
-    res.status(401).json({ error: 'Email is required' });
-    return;
-  }
+  if (!email) return NextResponse.json({ error: 'Email is required' });
 
   const mailChimpData = {
     members: [
@@ -36,11 +33,11 @@ export default async function handler(
     const data = await response.json()
 
     if (data.errors[0]?.error) {
-      return res.status(401).json({ error: data.errors[0].error });
+      return NextResponse.json({ error: data.errors[0].error });
     } else {
-      res.status(200).json({ success: true });
+      NextResponse.json({ success: true });
     }
   } catch (e) {
-    res.status(401).json({ error: 'Something went wrong, please try again later.' })
+    NextResponse.json({ error: 'Something went wrong, please try again later.' })
   }
 }

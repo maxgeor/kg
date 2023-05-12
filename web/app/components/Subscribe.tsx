@@ -12,7 +12,7 @@ export default function Subscribe() {
   const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
 
-  async function subscribe(e: FormEvent<HTMLFormElement>) {
+  async function subscribe(e: React.SyntheticEvent) {
     e.preventDefault;
     if (!email) return setError("Add your email");
 
@@ -50,7 +50,8 @@ export default function Subscribe() {
         Subscribe and never miss a drop
       </p>
       <form
-        onSubmit={subscribe}
+        method="post"
+        onSubmit={(e) => subscribe(e)}
         className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mt-3"
       >
         <label
@@ -70,6 +71,7 @@ export default function Subscribe() {
           <span className="z-10 h-px absolute bottom-0 left-0 bg-neutral-200 w-0 peer-focus:w-full transition-all duration-300 ease-out"></span>
         </label>
         <button
+          type="submit"
           className={`col-span-1 w-fit -my-1 text-neutral-200 disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
           disabled={loading}
         >

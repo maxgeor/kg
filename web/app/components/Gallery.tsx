@@ -12,7 +12,7 @@ import { paddedNumber } from "../utils/formatting";
 
 function GalleryList({ knives, openModal }) {
   return (
-    <Grid tag="ul">
+    <Grid tag="ul" gap="gap-1 md:gap-6" classes="-mx-6 md:mx-0">
       {knives?.map((knife: Knife, index: number) => (
         <li
           key={knife._id}
@@ -85,7 +85,6 @@ function NextButton({ goToNext, isOnLastImage, classes = "" }) {
     </button>
   );
 }
-
 function GalleryModal({
   open,
   setOpen,
@@ -114,8 +113,8 @@ function GalleryModal({
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
           <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
             <span className="absolute sm:fixed top-8 sm:top-6 left-6 text-base sm:text-md font-mono font-light -my-1.5 sm:-my-1  ">
-              {`${paddedNumber(spotlitKifeIndex)}/${paddedNumber(
-                knivesLength - 1
+              {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
+                knivesLength
               )}`}
             </span>
             <CloseButton classes="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />

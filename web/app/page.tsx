@@ -49,18 +49,22 @@ export default async function Home() {
   return (
     <>
       <Grid
-        gap="gap-y-9 gap-x-6"
-        classes="relative border-neutral-200 w-full border-y pt-6 pb-3 lg:py-6"
+        gap="gap-y-12 gap-x-6"
+        classes="relative border-neutral-200 w-full "
       >
-        {/* <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl lg:text-5xl lg:leading-[88px] 2xl:text-6xl font-thin font-inter tracking-tighter -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]"> */}
-        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl xl:text-5xl xl:leading-[88px] font-inter tracking-tighter font-light -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
+        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl lg:text-5xl lg:leading-[88px] 2xl:text-6xl font-thin font-inter tracking-tighter -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
-        <div className="col-span-full lg:col-span-1 flex lg:flex-col justify-between gap-6 lg:order-first lg:w-1/2">
-          <p className="self-end lg:self-auto -my-1">
-            Functional, subtracted knives built with natural materials
-          </p>
-          <p className="self-end lg:self-auto -my-1">Crafted in Canada</p>
+        <div className="h-full col-span-full lg:col-span-1 flex flex-col justify-between lg:order-first lg:pr-[72px]">
+          <div className="grid grid-cols-4 lg:flex lg:flex-col justify-between lg:justify-start gap-x-6 gap-y-12">
+            <p className="col-span-2 -my-1">
+              Functional, subtracted knives built with natural materials
+            </p>
+            <p className="text-right sm:text-left col-span-2 sm:col-start-4 text-[11px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wide">
+              Crafted in
+              <br className="lg:hidden" /> Canada
+            </p>
+          </div>
         </div>
       </Grid>
       {featuredKnives.length ? (

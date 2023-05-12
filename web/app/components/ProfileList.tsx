@@ -34,14 +34,14 @@ export default function ProfileList({
 }) {
   return (
     <motion.ul
-      variant={container}
+      variants={container}
       className={`
         ${cols} ${span}
         grid grid-cols-4 gap-6 col-span-full
       `}
     >
       {knives?.map((knife, index) => (
-        <motion.li key={knife._id} variant={item} className="col-span-full">
+        <motion.li key={knife._id} variants={item} className="col-span-full">
           <Profile
             index={index}
             name={knife.name}
@@ -53,6 +53,7 @@ export default function ProfileList({
                 : [knife.coverImageUrl]
             }
             description={knife.description}
+            descriptionSpan="col-span-full lg:col-span-1"
             cols={itemCols}
             isShowingIndex={isShowingIndex}
           />

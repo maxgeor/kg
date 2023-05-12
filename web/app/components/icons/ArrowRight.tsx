@@ -2,25 +2,6 @@ import React from "react";
 
 export default function ArrowRight({ classes }: { classes?: string }) {
   return (
-    // <svg
-    //   width="40"
-    //   height="40"
-    //   viewBox="0 0 40 40"
-    //   fill="none"
-    //   xmlns="http://www.w3.org/2000/svg"
-    //   className={classes}
-    // >
-    //   <path
-    //     d="M8.33334 20H31.6667"
-    //     stroke="currentColor"
-    //     stroke-width="1.66667"
-    //   />
-    //   <path
-    //     d="M20 8.33334L31.6667 20L20 31.6667"
-    //     stroke="currentColor"
-    //     stroke-width="1.66667"
-    //   />
-    // </svg>
     <svg
       width="40"
       height="40"
@@ -36,8 +17,8 @@ export default function ArrowRight({ classes }: { classes?: string }) {
       <path
         d="M23 8L34.6667 19.6667L23 31.3333"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
       />
     </svg>
   );
