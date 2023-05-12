@@ -24,6 +24,7 @@ export default function Subscribe() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         body: JSON.stringify({ email }),
+        headers: { "content-type": "application/json" },
       });
       const data = await res.json();
 
@@ -68,11 +69,11 @@ export default function Subscribe() {
             placeholder="Your email"
             className="w-full peer flex-grow placeholder:text-neutral-500 leading-8 h-8 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
           />
-          <span className="z-10 h-px absolute bottom-0 left-0 bg-neutral-200 w-0 peer-focus:w-full transition-all duration-300 ease-out"></span>
+          <span className="z-10 h-px absolute bottom-0 left-0 bg-neutral-200 w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
         </label>
         <button
           type="submit"
-          className={`col-span-1 w-fit -my-1 text-neutral-200 disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
+          className={`col-span-1 w-fit -m-1 text-neutral-200 disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
           disabled={loading}
         >
           <ArrowRight classes="text-neutral-500" />

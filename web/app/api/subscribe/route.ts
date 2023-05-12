@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
-  return new Response.json({ response: 'Working!' });
-}
-
 export async function POST(req: Request) {
+  console.log(req)
   const { email } = JSON.parse(req.body);
   if (!email) return NextResponse.json({ error: 'Email is required' });
 
@@ -16,6 +13,8 @@ export async function POST(req: Request) {
       }
     ]
   }
+
+  console.log(`mailChimpData: ${mailChimpData}`);
 
   try {
     const audienceId = process.env.MAILCHIMP_AUDIENCE_ID as string

@@ -1,19 +1,20 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import NavLink from "./NavLink";
 
 export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-40 bg-black/90 col-span-full text-sm">
+    <nav className="sticky top-0 z-40 bg-black/[85%] col-span-full text-sm">
       <div className="relative grid grid-cols-4 gap-y-3 gap-x-6 p-6">
         <Link
           href="/"
-          className="h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start -my-0.5 -mr-px sm:-ml-px"
+          className="-mt-px h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start -my-0.5 -mr-px sm:-ml-px"
         >
-          KG
+          <Image src="/logo-old.svg" alt="Logo" height={28} width={28} />
         </Link>
         <div className="col-span-2 sm:col-span-1 flex flex-col gap-y-3 self-start">
           <NavLink

@@ -40,7 +40,7 @@ export default function Profile({
         {name}
       </h3>
       {isShowingIndex ? (
-        <span className="hidden lg:block font-mono font-light text-lg">
+        <span className="hidden lg:block font-mono text-lg">
           {paddedNumber(index)}
         </span>
       ) : null}
@@ -69,12 +69,11 @@ export default function Profile({
         <ChevronCircleLeft classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
         <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
-      <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6 border-t-2 border-neutral-200">
-        <h3 className="col-span-full hidden sm:inline-block text-lg lg:text-[29px] text-right pt-1 -mb-1">
+      <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
+        <h3 className="col-span-full hidden sm:inline-block text-lg lg:text-[29px] text-right border-t-2 border-neutral-200 pt-1 -mb-1">
           {name}
         </h3>
         {description && (
-          // <div className={`"col-start-1 col-end-2 max-w-prose -my-1`}>
           <div className={`${descriptionSpan} max-w-prose -my-1`}>
             {description.trim()}
           </div>
