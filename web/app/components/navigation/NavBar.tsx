@@ -12,9 +12,9 @@ export default function NavBar() {
       <div className="relative grid grid-cols-4 gap-y-3 gap-x-6 p-6">
         <Link
           href="/"
-          className="-mt-px h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start -my-0.5 -mr-px sm:-ml-px"
+          className="h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start -mr-px sm:-ml-px"
         >
-          <Image src="/logo-old.svg" alt="Logo" height={28} width={28} />
+          <Image src="/logo-thin.svg" alt="Logo" height={24} width={24} />
         </Link>
         <div className="col-span-2 sm:col-span-1 flex flex-col gap-y-3 self-start">
           <NavLink

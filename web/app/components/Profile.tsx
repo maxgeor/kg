@@ -36,7 +36,7 @@ export default function Profile({
       gap="gap-y-4 gap-x-6 sm:gap-6"
       classes={`bg-black ${classes}`}
     >
-      <h3 className="sm:hidden text-lg col-span-full text-right pt-1 border-t-2 border-neutral-200">
+      <h3 className="sm:hidden text-lg col-span-full text-right pt-1 border-t-2 border-white">
         {name}
       </h3>
       {isShowingIndex ? (
@@ -70,7 +70,7 @@ export default function Profile({
         <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
       <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
-        <h3 className="col-span-full hidden sm:inline-block text-lg lg:text-[29px] text-right border-t-2 border-neutral-200 pt-1 -mb-1">
+        <h3 className="col-span-full hidden sm:inline-block text-lg lg:text-[29px] text-right border-t-2 border-white pt-1 -mb-1">
           {name}
         </h3>
         {description && (
@@ -85,15 +85,15 @@ export default function Profile({
         >
           <tbody>
             {isSpecialProject ? (
-              <tr className="border-t-[0.5px] border-neutral-200">
+              <tr className="border-t-[0.5px] border-white">
                 <td>Special Project</td>
               </tr>
             ) : null}
-            <tr className="flex gap-6 border-y-[0.5px] border-neutral-200">
+            <tr className="flex gap-6 border-y-[0.5px] border-white">
               <td className="flex-1 leading-4 my-0.5">Wrap</td>
               <td className="flex-1 leading-4 my-0.5">{wrap}</td>
             </tr>
-            <tr className="flex gap-6 border-b-[0.5px] border-neutral-200">
+            <tr className="flex gap-6 border-b-[0.5px] border-white">
               <td className="flex-1 leading-4 my-0.5">Sheath</td>
               <td className="flex-1 leading-4 my-0.5">{sheath}</td>
             </tr>

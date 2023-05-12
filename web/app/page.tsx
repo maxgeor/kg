@@ -48,12 +48,8 @@ export default async function Home() {
 
   return (
     <>
-      <Grid
-        gap="gap-y-12 gap-x-6"
-        classes="relative border-neutral-200 w-full "
-      >
-        {/* <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl lg:text-5xl lg:leading-[88px] 2xl:text-6xl font-extralight tracking-[-0.07em] -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]"> */}
-        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl lg:text-5xl lg:leading-[88px] 2xl:text-6xl font-light tracking-tighter -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
+      <Grid gap="gap-y-12 gap-x-6" classes="relative border-white w-full ">
+        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl lg:text-5xl lg:leading-[88px] 2xl:text-6xl font-light lg:font-extralight tracking-[-0.07em] lg:tracking-[-0.08em] -my-2 lg:-my-3 2xl:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
         <div className="h-full col-span-full lg:col-span-1 flex flex-col justify-between lg:order-first lg:pr-[72px]">
@@ -62,6 +58,7 @@ export default async function Home() {
               Functional, subtracted knives built with natural materials
             </p>
             <p className="text-right sm:text-left col-span-2 sm:col-start-4 text-[11px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wide">
+              {/* <p className="text-right sm:text-left col-span-2 sm:col-start-4 font-mono text-[12px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wider"> */}
               Crafted in
               <br className="lg:hidden" /> Canada
             </p>
@@ -70,7 +67,7 @@ export default async function Home() {
       </Grid>
       {featuredKnives.length ? (
         <Grid>
-          <h2 className="col-span-full lg:col-span-1 text-lg text-neutral-200 -my-1 z-10">
+          <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1 z-10">
             Featured Work
           </h2>
           <ProfileList
@@ -82,7 +79,7 @@ export default async function Home() {
         </Grid>
       ) : null}
       <Grid>
-        <h2 className="col-span-full lg:col-span-1 text-lg text-neutral-200 -my-1">
+        <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1">
           News
         </h2>
         <Grid
@@ -91,7 +88,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-extralight tracking-[-0.07em] text-2xl lg:text-3xl -my-1 lg:-my-2 -ml-0.5 ">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-2xl lg:text-3xl -my-1 lg:-my-2 -ml-0.5 ">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">
@@ -104,7 +101,7 @@ export default async function Home() {
         </Grid>
       </Grid>
       <Grid>
-        <h2 className="col-span-full lg:col-span-1 text-lg text-neutral-200 -my-1">
+        <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1">
           All Work
         </h2>
         <Gallery knives={knives} />
