@@ -14,7 +14,7 @@ export default function NavBar() {
           href="/"
           className="h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start -mr-px sm:-ml-px"
         >
-          <Image src="/logo-thin.svg" alt="Logo" height={24} width={24} />
+          <Image src="/logo.svg" alt="Logo" height={24} width={24} />
         </Link>
         <div className="col-span-2 sm:col-span-1 flex flex-col gap-y-3 self-start">
           <NavLink
