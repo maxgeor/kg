@@ -63,14 +63,14 @@ export default function Card({
               <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />
             </Modal.Close>
             <Image
-              src="/icons/chevron-left-lg.svg"
+              src="/icons/chevron-left.svg"
               alt="close"
               height={48}
               width={48}
               className="fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
             />
             <Image
-              src="/icons/chevron-right-lg.svg"
+              src="/icons/chevron-right.svg"
               alt="close"
               height={48}
               width={48}

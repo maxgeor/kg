@@ -12,7 +12,7 @@ import { paddedNumber } from "../utils/formatting";
 
 function GalleryList({ knives, openModal }) {
   return (
-    <Grid tag="ul" gap="gap-1 md:gap-6" classes="-mx-6 md:mx-0">
+    <Grid tag="ul" gap="sm:gap-6" classes="-mx-6 sm:mx-0">
       {knives?.map((knife: Knife, index: number) => (
         <li
           key={knife._id}
@@ -60,9 +60,9 @@ function PrevButton({ goToPrev, isOnFirstImage, classes = "" }) {
   if (isOnFirstImage) return null;
 
   return (
-    <button className={classes} onClick={goToPrev}>
+    <button className={`${classes}`} onClick={goToPrev}>
       <Image
-        src="/icons/chevron-left-lg.svg"
+        src="/icons/chevron-left.svg"
         alt="Go to previous image"
         height={48}
         width={48}
@@ -75,9 +75,9 @@ function NextButton({ goToNext, isOnLastImage, classes = "" }) {
   if (isOnLastImage) return null;
 
   return (
-    <button className={classes} onClick={goToNext}>
+    <button className={`justify-self-end ${classes}`} onClick={goToNext}>
       <Image
-        src="/icons/chevron-right-lg.svg"
+        src="/icons/chevron-right.svg"
         alt="Go to next image"
         height={48}
         width={48}
@@ -128,16 +128,18 @@ function GalleryModal({
               isOnLastImage={knivesLength !== spotlitKifeIndex + 1}
               classes="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
             />
-            <nav className=" sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0 p-3">
-              <div className="flex justify-between relative">
+            <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0">
+              <div className="flex justify-between relative w-full h-[72px]">
                 <PrevButton
                   goBack={prev}
                   isOnFirstImage={spotlitKifeIndex !== 0}
+                  classes="absolute left-2 transform top-1/2 -translate-y-1/2"
                 />
                 <CloseButton classes="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
                 <NextButton
                   goForward={next}
                   isOnLastImage={knivesLength !== spotlitKifeIndex + 1}
+                  classes="absolute right-2 transform top-1/2 -translate-y-1/2"
                 />
               </div>
             </nav>

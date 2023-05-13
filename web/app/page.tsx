@@ -49,7 +49,7 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-y-12 gap-x-6" classes="relative border-white w-full ">
-        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl md:leading-[88px] lg:leading-[100px] lg:text-6xl font-light md:font-extralight tracking-[-0.07em] md:tracking-[-0.08em] -my-2 lg:-my-3 lg:-my-3.5 -ml-0.5 md:-ml-1.5 max-w-[1400px]">
+        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl md:leading-[88px] lg:leading-[100px] lg:text-6xl font-light md:font-extralight tracking-[-0.07em] md:tracking-[-0.085em] -my-2 lg:-my-3 lg:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
         <div className="h-full col-span-full lg:col-span-1 flex flex-col justify-between lg:order-first lg:pr-[72px]">

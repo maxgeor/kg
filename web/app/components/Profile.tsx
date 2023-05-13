@@ -36,7 +36,7 @@ export default function Profile({
       gap="gap-y-4 gap-x-6 sm:gap-6"
       classes={`bg-black ${classes}`}
     >
-      <h3 className="sm:hidden text-lg col-span-full text-right pt-1 border-t-2 border-white">
+      <h3 className="sm:hidden text-lg leading-6 col-span-full text-right pt-1 border-t-2 border-white pl-16">
         {name}
       </h3>
       {isShowingIndex ? (
@@ -70,7 +70,7 @@ export default function Profile({
         <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
       <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
-        <h3 className="col-span-full hidden sm:inline-block text-lg lg:text-[29px] text-right border-t-2 border-white pt-1 -mb-1">
+        <h3 className="col-span-full hidden sm:inline-block text-lg leading-6 lg:text-[29px] lg:leading-7 text-right border-t-2 border-white pt-1 -mb-1">
           {name}
         </h3>
         {description && (
