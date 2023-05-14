@@ -26,13 +26,14 @@ export default function Subscribe() {
         body: JSON.stringify({ email }),
         headers: { "content-type": "application/json" },
       });
+
       const data = await res.json();
 
       if (data.success) {
         setEmail("");
         setSubscribed(true);
       } else {
-        setError(data?.error || "Something went wrong, please try again later");
+        setError("Something went wrong, please try again later");
       }
     } catch (e) {
       setError((e as Error).message);
@@ -79,10 +80,12 @@ export default function Subscribe() {
           <ArrowRight classes="text-neutral-500" />
         </button>
         {error ? (
-          <p className="absolute -bottom-10 text-sm text-red-400">{error}</p>
+          <p className="col-span-full absolute -bottom-10 text-sm text-red-400">
+            {error}
+          </p>
         ) : null}
         {subscribed ? (
-          <div className=" text-sm flex items-center gap-2 text-green-500">
+          <div className="col-span-full text-sm flex items-center gap-2 text-green-500">
             <Image
               src="/icons/check.svg"
               alt="checkmark"
