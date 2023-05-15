@@ -10,6 +10,18 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      description: "The end of this news item's unique link (ex: kghandcrafted/news/this-is-the-slug)",
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 200,
+        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
+      }
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image'
