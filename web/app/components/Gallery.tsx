@@ -12,7 +12,7 @@ import { paddedNumber } from "../utils/formatting";
 
 function GalleryList({ knives, openModal }) {
   return (
-    <Grid tag="ul" gap="sm:gap-6" classes="-mx-6 sm:mx-0">
+    <Grid tag="ul" gap="sm:gap-6" className="-mx-6 sm:mx-0">
       {knives?.map((knife: Knife, index: number) => (
         <li
           key={knife._id}
@@ -48,19 +48,19 @@ function GalleryList({ knives, openModal }) {
   );
 }
 
-function CloseButton({ classes = "" }) {
+function CloseButton({ className = "" }) {
   return (
-    <Modal.Close className={classes}>
+    <Modal.Close className={className}>
       <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />
     </Modal.Close>
   );
 }
 
-function PrevButton({ goToPrev, isOnFirstImage, classes = "" }) {
+function PrevButton({ goToPrev, isOnFirstImage, className = "" }) {
   if (isOnFirstImage) return null;
 
   return (
-    <button className={`${classes}`} onClick={goToPrev}>
+    <button className={`${className}`} onClick={goToPrev}>
       <Image
         src="/icons/chevron-left.svg"
         alt="Go to previous image"
@@ -71,11 +71,11 @@ function PrevButton({ goToPrev, isOnFirstImage, classes = "" }) {
   );
 }
 
-function NextButton({ goToNext, isOnLastImage, classes = "" }) {
+function NextButton({ goToNext, isOnLastImage, className = "" }) {
   if (isOnLastImage) return null;
 
   return (
-    <button className={`justify-self-end ${classes}`} onClick={goToNext}>
+    <button className={`justify-self-end ${className}`} onClick={goToNext}>
       <Image
         src="/icons/chevron-right.svg"
         alt="Go to next image"
@@ -115,29 +115,29 @@ function GalleryModal({
                 knivesLength - 1
               )}`}
             </span>
-            <CloseButton classes="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
+            <CloseButton className="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
             <PrevButton
               goToPrev={prev}
               isOnFirstImage={spotlitKifeIndex === 0}
-              classes="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
+              className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
             />
             <NextButton
               goToNext={next}
               isOnLastImage={knivesLength === spotlitKifeIndex + 1}
-              classes="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
+              className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
             />
             <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0">
               <div className="flex justify-between relative w-full h-[72px]">
                 <PrevButton
                   goToPrev={prev}
                   isOnFirstImage={spotlitKifeIndex === 0}
-                  classes="absolute left-2 transform top-1/2 -translate-y-1/2"
+                  className="absolute left-2 transform top-1/2 -translate-y-1/2"
                 />
-                <CloseButton classes="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
+                <CloseButton className="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
                 <NextButton
                   goToNext={next}
                   isOnLastImage={knivesLength === spotlitKifeIndex + 1}
-                  classes="absolute right-2 transform top-1/2 -translate-y-1/2"
+                  className="absolute right-2 transform top-1/2 -translate-y-1/2"
                 />
               </div>
             </nav>
@@ -155,7 +155,7 @@ function GalleryModal({
               }
               description={spotlitKnife.description}
               isSpecialProject={spotlitKnife.isSpecialProject}
-              classes="h-min md:max-h-none sm:max-w-5xl shadow-2xl"
+              className="h-min md:max-h-none sm:max-w-5xl shadow-2xl"
             />
           </div>
         </Modal.Content>
@@ -166,10 +166,10 @@ function GalleryModal({
 
 export default function Gallery({ knives }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [spotlightKnifeIndex, setSpotlightKnifeIndex] = useState(0);
 
   const openModal = (index: number): void => {
-    setSelectedImageIndex(index);
+    setSpotlightKnifeIndex(index);
     setIsModalOpen(true);
   };
 
@@ -180,8 +180,8 @@ export default function Gallery({ knives }) {
         knives={knives}
         open={isModalOpen}
         setOpen={setIsModalOpen}
-        spotlitKifeIndex={selectedImageIndex}
-        setSpotlitKifeIndex={setSelectedImageIndex}
+        spotlitKifeIndex={spotlightKnifeIndex}
+        setSpotlitKifeIndex={setSpotlightKnifeIndex}
       />
     </>
   ) : null;

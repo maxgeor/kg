@@ -16,7 +16,7 @@ export default function Profile({
   cols = { mobile: 4, desktop: 4 },
   isSpecialProject = false,
   isShowingIndex = false,
-  classes = "",
+  className = "",
 }: {
   name: string;
   wrap: string;
@@ -28,13 +28,13 @@ export default function Profile({
   isSpecialProject?: boolean;
   isShowingIndex?: boolean;
   cols?: { mobile: 3 | 4; desktop: 3 | 4 };
-  classes?: string;
+  className?: string;
 }) {
   return (
     <Grid
       cols={`grid-cols-${cols.mobile} lg:grid-cols-${cols.desktop}`}
       gap="gap-y-4 gap-x-6 sm:gap-6"
-      classes={`bg-black ${classes}`}
+      className={`bg-black ${className}`}
     >
       <h3 className="sm:hidden text-md leading-5 col-span-full text-right pt-1 border-t-2 border-white pl-16">
         {name}
@@ -66,8 +66,8 @@ export default function Profile({
             priority
           />
         ))}
-        <ChevronCircleLeft classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
-        <ChevronCircleRight classes="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
+        <ChevronCircleLeft className="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2" />
+        <ChevronCircleRight className="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2" />
       </div>
       <div className="col-span-full sm:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
         <h3 className="col-span-full hidden sm:inline-block text-md leading-5 md:text-lg md:leading-6 lg:text-[29px] lg:leading-7 text-right border-t-2 border-white pt-1 -mb-1">

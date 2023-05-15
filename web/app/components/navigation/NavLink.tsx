@@ -5,13 +5,13 @@ export default function NavLink({
   name,
   isActive = false,
   children,
-  classes,
+  className,
 }: {
   href: string;
   name?: string;
   isActive?: boolean;
   children?: React.ReactNode;
-  classes?: string;
+  className?: string;
 }) {
   return (
     <Link
@@ -23,7 +23,7 @@ export default function NavLink({
             ? "before:absolute before:-left-3.5 before:bg-white before:h-1.5 before:w-1.5 before:rounded-full"
             : null
         }
-        ${classes}
+        ${className}
       `}
     >
       {name || children}

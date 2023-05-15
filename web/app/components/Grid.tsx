@@ -6,19 +6,19 @@ export default function Grid({
   span = "col-span-full",
   cols = "grid-cols-4",
   gap = "gap-6",
-  classes = "",
+  className = "",
 }: {
   children: React.ReactNode;
   tag?: string;
   span?: string;
   cols?: string;
   gap?: string;
-  classes?: string;
+  className?: string;
 }) {
   return createElement(
     tag,
     {
-      className: `${span} grid ${cols} ${gap} ${classes}`,
+      className: `${span} grid ${cols} ${gap} ${className}`,
     },
     children
   );

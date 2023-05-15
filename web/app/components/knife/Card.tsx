@@ -57,7 +57,7 @@ export default function Card({
               description={description}
               galleryImageUrls={galleryImageUrls}
               isSpecialProject={isSpecialProject}
-              classes="h-min max-h-[calc(100vh-72px)] md:max-h-none max-w-[400px] md:max-w-4xl shadow-2xl"
+              className="h-min max-h-[calc(100vh-72px)] md:max-h-none max-w-[400px] md:max-w-4xl shadow-2xl"
             />
             <Modal.Close className="fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3">
               <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />

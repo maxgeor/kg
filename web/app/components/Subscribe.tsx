@@ -46,7 +46,7 @@ export default function Subscribe() {
     <Grid
       span="col-span-full lg:col-span-3"
       cols="grid-cols-4 lg:grid-cols-3"
-      classes="text-md"
+      className="text-md"
     >
       <p className="col-span-full -my-1 mr-12">
         Subscribe and never miss a drop
@@ -77,7 +77,7 @@ export default function Subscribe() {
           className={`col-span-1 w-fit -m-1 text-white disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
           disabled={loading}
         >
-          <ArrowRight classes="text-neutral-500" />
+          <ArrowRight className="text-neutral-500" />
         </button>
         {error ? (
           <p className="col-span-full absolute -bottom-10 text-sm text-red-400">

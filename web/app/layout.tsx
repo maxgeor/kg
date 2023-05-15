@@ -24,12 +24,12 @@ export default function RootLayout({
           relative bg-black text-white text-sm min-h-screen antialiased
         `}
       >
-        <Grid gap="gap-x-6 gap-y-24" classes="max-w-[1800px] mx-auto">
+        <Grid gap="gap-x-6 gap-y-24" className="max-w-[1800px] mx-auto">
           <NavBar />
           <Grid
             tag="main"
             gap="gap-x-6 gap-y-24"
-            classes="pt-0 px-6 pb-24 -mt-6"
+            className="pt-0 px-6 pb-24 -mt-6"
           >
             {children}
           </Grid>

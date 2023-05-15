@@ -58,7 +58,7 @@ export default function NavBar() {
             href="/contact"
             name="Contact"
             isActive={pathname.startsWith("/contact")}
-            classes="self-start"
+            className="self-start"
           />
         </div>
       </div>
