@@ -94,15 +94,13 @@ function GalleryModal({
 }) {
   const knivesLength = knives.length;
 
-  const prev = () => {
+  const prev = () =>
     setSpotlitKifeIndex(
       (prevIndex) => (prevIndex - 1 + knivesLength) % knivesLength
     );
-  };
 
-  const next = () => {
+  const next = () =>
     setSpotlitKifeIndex((prevIndex) => (prevIndex + 1) % knivesLength);
-  };
 
   const spotlitKnife = knives[spotlitKifeIndex];
 

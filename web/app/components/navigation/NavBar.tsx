@@ -17,8 +17,8 @@ export default function NavBar() {
           <Image
             src="/logo.svg"
             alt="Logo"
-            height={36}
-            width={36}
+            height={34}
+            width={34}
             className="sm:hidden"
           />
           <Image

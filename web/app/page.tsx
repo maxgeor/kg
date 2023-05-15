@@ -66,7 +66,7 @@ export default async function Home() {
       </Grid>
       {featuredKnives.length ? (
         <Grid>
-          <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1 z-10">
+          <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5 z-10">
             Featured Work
           </h2>
           <ProfileList
@@ -78,7 +78,7 @@ export default async function Home() {
         </Grid>
       ) : null}
       <Grid>
-        <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1">
+        <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5">
           News
         </h2>
         <Grid
@@ -100,7 +100,7 @@ export default async function Home() {
         </Grid>
       </Grid>
       <Grid>
-        <h2 className="col-span-full lg:col-span-1 text-lg text-white -my-1">
+        <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5">
           All Work
         </h2>
         <Gallery knives={knives} />
