@@ -6,17 +6,33 @@ import {getStartedPlugin} from './plugins/sanity-plugin-tutorial'
 
 const devOnlyPlugins = [getStartedPlugin()]
 
-export default defineConfig({
-  name: 'default',
-  title: 'kg-handcrafted',
+export default defineConfig([
+  {
+    projectId: 'yjqbprae',
+    dataset: 'production',
+    basePath: '/production',
 
-  projectId: 'yjqbprae',
-  dataset: 'production',
+    name: 'production',
+    title: 'KG Handcrafted (Production)',
 
-  plugins: [deskTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
+    plugins: [deskTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
 
-  schema: {
-    types: schemaTypes,
+    schema: {
+      types: schemaTypes,
+    },
+  }, {
+    projectId: 'yjqbprae',
+    dataset: 'development',
+    basePath: '/development',
+
+    name: 'development',
+    title: 'KG Handcrafted (Development)',
+    
+    plugins: [deskTool(), visionTool()],
+
+    schema: {
+      types: schemaTypes,
+    },
   },
-})
+])
 
