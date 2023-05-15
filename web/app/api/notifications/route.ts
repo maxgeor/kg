@@ -12,34 +12,32 @@ mailchimp.setConfig({
     // title
     // imageUrl
     // description
-    // link to knife (slug? id?)
+    // slug
   // if new news item
     // title
     // content
-    // link to page
+    // slug
 
 export async function POST(request: Request) {
-  const { email } = await request.json();
+  console.log("New thing added in Sanity!")
+  // check if knife or news was created
+  // trigger batch operation to send knife or news template and pass in the data
 
-  if (!email) {
-    return NextResponse.json({ error: 'Email is required' }, { status: 400 });
-  }
+  // try {
+  //   const listId = process.env.MAILCHIMP_LIST_ID as string;
+  //   const response = await mailchimp.lists.addListMember(listId, {
+  //     email_address: email,
+  //     status: "subscribed",
+  //   });
+  //   console.log(response);
 
-  try {
-    const listId = process.env.MAILCHIMP_LIST_ID as string;
-    const response = await mailchimp.lists.addListMember(listId, {
-      email_address: email,
-      status: "subscribed",
-    });
-    console.log(response);
-
-    if (response.status === 'subscribed') {
-      return NextResponse.json({ success: true }, { status: 200 });
-    } else {
-      return NextResponse.json({ error: response.status }, { status: 400 });
-    }
-  } catch (e) {
-    console.log(e)
-    return NextResponse.json({ error: e.response?.res?.text?.detail || 'Something went wrong, try again later.' }, { status: 500 });
-  }
+  //   if (response.status === 'subscribed') {
+  //     return NextResponse.json({ success: true }, { status: 200 });
+  //   } else {
+  //     return NextResponse.json({ error: response.status }, { status: 400 });
+  //   }
+  // } catch (e) {
+  //   console.log(e)
+  //   return NextResponse.json({ error: e.response?.res?.text?.detail || 'Something went wrong, try again later.' }, { status: 500 });
+  // }
 }

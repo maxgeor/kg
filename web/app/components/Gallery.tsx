@@ -111,32 +111,32 @@ function GalleryModal({
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
           <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
             <span className="absolute sm:fixed top-8 sm:top-6 left-6 text-base sm:text-md font-mono -my-1.5 sm:-my-1  ">
-              {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
-                knivesLength
+              {`${paddedNumber(spotlitKifeIndex)}/${paddedNumber(
+                knivesLength - 1
               )}`}
             </span>
             <CloseButton classes="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
             <PrevButton
               goToPrev={prev}
-              isOnFirstImage={spotlitKifeIndex !== 0}
+              isOnFirstImage={spotlitKifeIndex === 0}
               classes="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
             />
             <NextButton
               goToNext={next}
-              isOnLastImage={knivesLength !== spotlitKifeIndex + 1}
+              isOnLastImage={knivesLength === spotlitKifeIndex + 1}
               classes="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
             />
             <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0">
               <div className="flex justify-between relative w-full h-[72px]">
                 <PrevButton
-                  goBack={prev}
-                  isOnFirstImage={spotlitKifeIndex !== 0}
+                  goToPrev={prev}
+                  isOnFirstImage={spotlitKifeIndex === 0}
                   classes="absolute left-2 transform top-1/2 -translate-y-1/2"
                 />
                 <CloseButton classes="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
                 <NextButton
-                  goForward={next}
-                  isOnLastImage={knivesLength !== spotlitKifeIndex + 1}
+                  goToNext={next}
+                  isOnLastImage={knivesLength === spotlitKifeIndex + 1}
                   classes="absolute right-2 transform top-1/2 -translate-y-1/2"
                 />
               </div>
@@ -173,7 +173,7 @@ export default function Gallery({ knives }) {
     setIsModalOpen(true);
   };
 
-  return (
+  return knives ? (
     <>
       <GalleryList knives={knives} openModal={openModal} />
       <GalleryModal
@@ -184,5 +184,5 @@ export default function Gallery({ knives }) {
         setSpotlitKifeIndex={setSelectedImageIndex}
       />
     </>
-  );
+  ) : null;
 }
