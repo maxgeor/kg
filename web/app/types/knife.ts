@@ -1,6 +1,7 @@
 export type Knife = {
   _id: number;
   name: string;
+  slug: string;
   wrap: string;
   sheath: string;
   coverImageUrl: string;

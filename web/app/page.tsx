@@ -5,7 +5,6 @@ import groq from "groq";
 
 import React from "react";
 import Grid from "./components/Grid";
-import Profile from "./components/Profile";
 import ProfileList from "./components/ProfileList";
 import Subscribe from "./components/Subscribe";
 import Gallery from "./components/Gallery";
@@ -24,7 +23,7 @@ async function getFeaturedKnives() {
   );
 }
 
-async function getKnives() {
+async function getNonFeaturedKnives() {
   return await sanity.fetch(
     groq`*[_type == "knife" && (!defined(isFeatured) || !isFeatured)]{
       _id,
@@ -41,10 +40,12 @@ async function getKnives() {
 
 export default async function Home() {
   const featuredKnivesData = await getFeaturedKnives();
-  const knivesData = await getKnives();
+  const nonFeaturedKnivesData = await getNonFeaturedKnives();
 
-  const [featuredKnives, knives]: [featuredKnives: Knife[], knives: Knife[]] =
-    await Promise.all([featuredKnivesData, knivesData]);
+  const [featuredKnives, nonFeaturedKnives]: [
+    featuredKnives: Knife[],
+    nonFeaturedKnives: Knife[]
+  ] = await Promise.all([featuredKnivesData, nonFeaturedKnivesData]);
 
   return (
     <>
@@ -103,7 +104,7 @@ export default async function Home() {
         <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5">
           All Work
         </h2>
-        <Gallery knives={knives} />
+        <Gallery knives={nonFeaturedKnives} />
       </Grid>
     </>
   );

@@ -19,7 +19,10 @@ mailchimp.setConfig({
     // slug
 
 export async function POST(request: Request) {
-  console.log("New thing added in Sanity!")
+  console.log("New thing added in Sanity!");
+
+  return NextResponse.json({ success: true }, { status: 200 });
+
   // check if knife or news was created
   // trigger batch operation to send knife or news template and pass in the data
 
