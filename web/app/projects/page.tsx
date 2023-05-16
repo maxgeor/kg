@@ -26,7 +26,7 @@ export default async function SpecialProjects() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl md:text-4xl font-light tracking-[-0.07em] -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
+      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl sm:text-4xl tracking-[-0.07em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
         One-off, experimental knives I don&apos;t plan on making any more of
       </h1>
       {specialProjects.length ? (

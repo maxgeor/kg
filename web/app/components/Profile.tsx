@@ -43,7 +43,8 @@ export default function Profile({
         <span className="hidden lg:block font-mono text-lg">
           {paddedNumber(index)}
         </span>
-      ) : null}
+      ) : // <span className="hidden lg:block text-md">{paddedNumber(index)}</span>
+      null}
       <div
         className={`
         col-span-full sm:col-span-2 relative h-fit

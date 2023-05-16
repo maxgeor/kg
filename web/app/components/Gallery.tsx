@@ -110,7 +110,8 @@ function GalleryModal({
         <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
           <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
-            <span className="absolute sm:fixed top-8 sm:top-6 left-6 text-base sm:text-md font-mono -my-1.5 sm:-my-1  ">
+            {/* <span className="absolute sm:fixed top-8 sm:top-6 left-6 sm:text-md -my-1.5 sm:-my-1  "> */}
+            <span className="absolute sm:fixed top-8 sm:top-6 left-6 text-base sm:text-md font-mono -my-1.5 sm:-my-2 ">
               {`${paddedNumber(spotlitKifeIndex)}/${paddedNumber(
                 knivesLength - 1
               )}`}

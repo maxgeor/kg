@@ -77,7 +77,7 @@ export default function Subscribe() {
           className={`col-span-1 w-fit -m-1 text-white disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
           disabled={loading}
         >
-          <ArrowRight className="text-neutral-500" />
+          <ArrowRight />
         </button>
         {error ? (
           <p className="col-span-full absolute -bottom-10 text-sm text-red-400">

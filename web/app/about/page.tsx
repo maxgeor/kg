@@ -28,8 +28,10 @@ export default async function About() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-4xl md:text-5xl font-light md:font-extralight tracking-[-0.07em] md:tracking-[-0.08em] -ml-1 -my-1.5 md:-my-2">
-        Kevin Georgopoulos
+      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl sm:text-4xl tracking-[-0.07em] font-light -ml-1 -my-1.5 md:-my-2">
+        Kevin
+        <br />
+        Georgopoulos
       </h1>
       {sections?.map((section) => (
         <Grid key={section.title}>

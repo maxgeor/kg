@@ -23,9 +23,9 @@ export async function POST(request: Request) {
 
       if (response.status === 'subscribed') {
         return NextResponse.json({ success: true }, { status: 200 });
-      } else {
-        return NextResponse.json({ error: response.status }, { status: 400 });
       }
+      
+      return NextResponse.json({ error: response.status }, { status: 400 });
     } catch (e) {
       console.log(e)
       return NextResponse.json({ error: e.response?.res?.text?.detail || 'Something went wrong, try again later.' }, { status: 500 });

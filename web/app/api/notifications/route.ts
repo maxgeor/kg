@@ -1,46 +1,160 @@
+var fs = require('fs');
+import { toHTML } from '@portabletext/to-html'
+import { urlFor } from '../../lib/sanity/images';
 import { NextResponse } from 'next/server';
+import { load } from 'cheerio';
 import mailchimp from "@mailchimp/mailchimp_marketing";
+
+interface SanityContent {
+  _type: 'knife' | 'news',
+  slug: {
+    _type: string, 
+    current: string
+  },
+  name?: string,
+  title?: string,
+  coverImage?: any,
+  description?: string
+  content: {
+    style: string,
+    _key: string,
+    _type: string,
+    children: [][],
+    markDefs: [][]
+  }[],
+}
+
+interface EmailTemplateDetails {
+  ctaUrl: string,
+}
+
+interface KnifeEmailTemplateDetails extends EmailTemplateDetails {
+  name: string,
+  imageUrl: string,
+  description: string,
+}
+
+interface NewsEmailTemplateDetails extends EmailTemplateDetails  {
+  title: string,
+  content: {
+    style: string,
+    _key: string,
+    _type: string,
+    children: [][],
+    markDefs: [][]
+  }[],
+}
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: process.env.MAILCHIMP_SERVER_PREFIX,
 });
 
-// data has to recieve
-  // notification type
-  // if new knife
-    // title
-    // imageUrl
-    // description
-    // slug
-  // if new news item
-    // title
-    // content
-    // slug
 
 export async function POST(request: Request) {
-  console.log("New thing added in Sanity!");
+  const newSanityContent: SanityContent = await request.json();
 
-  return NextResponse.json({ success: true }, { status: 200 });
+  const { _type: type, title, content, name, coverImage, description, slug } = newSanityContent;
+  
+  if (type === 'knife') {
+    const subject = `New Knife: ${name}` || 'New Knife'
+    const imageUrl = urlFor(coverImage).width(1000).height(1000).url();
+    const details = {
+      name: name,
+      imageUrl: imageUrl,
+      description: description,
+      ctaUrl: `https://www.kghandcrafted.com/knives/${slug?.current}`,
+    } as KnifeEmailTemplateDetails;
+    
+    const html = htmlFor('knife', details);
 
-  // check if knife or news was created
-  // trigger batch operation to send knife or news template and pass in the data
+    return sendEmail(subject, html)
+  }
 
-  // try {
-  //   const listId = process.env.MAILCHIMP_LIST_ID as string;
-  //   const response = await mailchimp.lists.addListMember(listId, {
-  //     email_address: email,
-  //     status: "subscribed",
-  //   });
-  //   console.log(response);
+  if (type === 'news') {
+    const subject = title || 'Update';
+    const details = {
+      title: title,
+      content: content,
+      ctaUrl: `https://www.kghandcrafted.com/news/${slug?.current}`,
+    } as NewsEmailTemplateDetails;
+    
+    const html = htmlFor('news', details);
 
-  //   if (response.status === 'subscribed') {
-  //     return NextResponse.json({ success: true }, { status: 200 });
-  //   } else {
-  //     return NextResponse.json({ error: response.status }, { status: 400 });
-  //   }
-  // } catch (e) {
-  //   console.log(e)
-  //   return NextResponse.json({ error: e.response?.res?.text?.detail || 'Something went wrong, try again later.' }, { status: 500 });
-  // }
+    return sendEmail(subject, html)
+  }
+
+  return NextResponse.json({ error: "Didn't recieve a knife or news from Sanity" }, { status: 400 });
+}
+
+
+function htmlFor(
+  template: 'knife' | 'news', 
+  details: KnifeEmailTemplateDetails | NewsEmailTemplateDetails
+) {
+  try {
+    return fs.open(`../../emails/${template}.html`, 'r+', (error, file) => {
+      if (error) {
+        return NextResponse.json(
+          { error: `Template for "${template}" doesn't exist` }, 
+          { status: 500 }
+        );
+      }
+
+      const $ = load(file);
+
+      if (template === 'knife') {
+        const { name, imageUrl, description, ctaUrl } = details;
+        
+        $('#name').text = name;
+        $('#image').attr("src", imageUrl);
+        $('#description').text = description;
+        $('#cta').attr("href", ctaUrl);
+    
+        return $.html();
+      }
+    
+      if (template === 'news') {
+        const { title, content, ctaUrl } = details;
+    
+        $('#title').text = title;
+        $('#content').text = toHTML(content).toString();
+        $('#cta').attr("href", ctaUrl);
+    
+        return $.html();
+      }
+    });
+  } catch(error) {
+    console.log(error);
+    return '';
+  }
+}
+
+async function sendEmail(subject: string, html: string) {
+  const listId = process.env.MAILCHIMP_LIST_ID as string;
+  
+  try {
+    const response = await mailchimp.campaigns.create({ 
+      type: "regular",
+      recipients: {
+        list_id: listId,
+      },
+      settings: {
+        subject_line: subject,
+        from_name: 'KG Handcrafted',
+        reply_to: 'kevin_g8405@hotmail.com',
+      },
+    });
+
+    const campaignId = response.id;
+
+    await mailchimp.campaigns.setContent(campaignId, { html });
+    await mailchimp.campaigns.send(campaignId);
+
+    console.log("email sent!")
+    return NextResponse.json({ success: true }, { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: error.message || 'Something went wrong, try again later.' }, { status: 400 });
+  }
 }
