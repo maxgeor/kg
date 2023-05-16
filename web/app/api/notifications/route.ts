@@ -93,7 +93,7 @@ function htmlFor(
   details: KnifeEmailTemplateDetails | NewsEmailTemplateDetails
 ) {
   try {
-    return fs.open(`../../emails/${template}.html`, 'r+', (error, file) => {
+    return fs.readFile(`../../emails/${template}.html`, 'utf8', (error, file) => {
       if (error) {
         return NextResponse.json(
           { error: `Template for "${template}" doesn't exist` }, 
@@ -105,22 +105,21 @@ function htmlFor(
 
       if (template === 'knife') {
         const { name, imageUrl, description, ctaUrl } = details;
-        
         $('#name').text = name;
         $('#image').attr("src", imageUrl);
         $('#description').text = description;
         $('#cta').attr("href", ctaUrl);
-    
+        
+        console.log($.html());
+
         return $.html();
       }
     
       if (template === 'news') {
         const { title, content, ctaUrl } = details;
-    
         $('#title').text = title;
         $('#content').text = toHTML(content).toString();
         $('#cta').attr("href", ctaUrl);
-    
         return $.html();
       }
     });
@@ -132,7 +131,7 @@ function htmlFor(
 
 async function sendEmail(subject: string, html: string) {
   const listId = process.env.MAILCHIMP_LIST_ID as string;
-  
+
   try {
     const response = await mailchimp.campaigns.create({ 
       type: "regular",
@@ -149,6 +148,10 @@ async function sendEmail(subject: string, html: string) {
     const campaignId = response.id;
 
     await mailchimp.campaigns.setContent(campaignId, { html });
+
+    const campaign = await mailchimp.campaigns.get(campaignId);
+    console.log(campaign)
+
     await mailchimp.campaigns.send(campaignId);
 
     console.log("email sent!")

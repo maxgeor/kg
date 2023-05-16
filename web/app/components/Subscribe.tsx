@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { subscribe } from "../actions";
 
 import Grid from "./Grid";
 import Image from "next/image";
@@ -12,7 +13,7 @@ export default function Subscribe() {
   const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
 
-  async function subscribe(e: React.SyntheticEvent) {
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault;
     if (!email) return setError("Add your email");
 
@@ -21,20 +22,13 @@ export default function Subscribe() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        body: JSON.stringify({ email }),
-        headers: { "content-type": "application/json" },
-      });
+      const { success, error } = await subscribe(email);
 
-      const data = await res.json();
-
-      if (data.success) {
+      if (success) {
         setEmail("");
-        setSubscribed(true);
-      } else {
-        setError("Something went wrong, please try again later");
+        return setSubscribed(true);
       }
+      setError(error);
     } catch (e) {
       setError((e as Error).message);
     }
@@ -53,7 +47,7 @@ export default function Subscribe() {
       </p>
       <form
         method="post"
-        onSubmit={(e) => subscribe(e)}
+        onSubmit={(e) => handleSubmit(e)}
         className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mt-3"
       >
         <label
