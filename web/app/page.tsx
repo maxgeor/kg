@@ -67,14 +67,16 @@ export default async function Home() {
       </Grid>
       {featuredKnives.length ? (
         <Grid>
-          <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5 z-10">
+          {/* <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5 z-10">
             Featured Work
-          </h2>
+          </h2> */}
           <ProfileList
             knives={featuredKnives}
-            cols="grid-cols-4 lg:grid-cols-3"
-            span="col-span-full lg:col-span-3"
-            itemCols={{ mobile: 4, desktop: 3 }}
+            // cols="grid-cols-4 lg:grid-cols-3"
+            cols="grid-cols-4 "
+            // span="col-span-full lg:col-span-3"
+            span="col-span-full"
+            // itemCols={{ mobile: 4, desktop: 3 }}
           />
         </Grid>
       ) : null}
