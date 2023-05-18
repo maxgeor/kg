@@ -71,7 +71,14 @@ export default function Subscribe() {
           className={`col-span-1 w-fit -m-1 text-white disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
           disabled={loading}
         >
-          <ArrowRight />
+          {/* <ArrowRight /> */}
+          <Image
+            src="/icons/arrow-right.svg"
+            alt="subscribe"
+            height={38}
+            width={38}
+            className="hidden sm:block"
+          />
         </button>
         {error ? (
           <p className="col-span-full absolute -bottom-10 text-sm text-red-400">

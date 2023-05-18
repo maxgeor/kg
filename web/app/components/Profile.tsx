@@ -9,6 +9,7 @@ export default function Profile({
   wrap,
   sheath,
   imageUrls,
+  showingIndex = true,
   description,
   className = "",
 }: {
@@ -18,6 +19,7 @@ export default function Profile({
   sheath: string;
   imageUrls: string[];
   description?: string;
+  showingIndex?: boolean;
   isSpecialProject?: boolean;
   className?: string;
 }) {
@@ -35,14 +37,16 @@ export default function Profile({
         className="md:order-last col-span-full md:col-span-2 relative aspect-square"
       />
       <div className="col-span-full md:col-span-1 flex flex-col gap-6">
-        <div className="flex justify-between">
-          <span className="mr-6">{paddedNumber(index)}</span>
+        <div className="flex justify-between -my-1">
+          {showingIndex ? (
+            <span className="mr-6">{paddedNumber(index + 1)}</span>
+          ) : null}
           <h3 className="col-span-full h-min w-full">{name}</h3>
         </div>
         {description && (
           <div className="max-w-prose -my-1">{description.trim()}</div>
         )}
-        <p>{`${wrap}, ${sheath}`}</p>
+        <p className="-my-1">{`${wrap}, ${sheath}`}</p>
       </div>
     </Grid>
     // <Grid gap="gap-6" className={`bg-black ${className}`}>

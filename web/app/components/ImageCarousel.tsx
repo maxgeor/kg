@@ -51,13 +51,13 @@ export default function ImageCarousel({
         />
       ))}
       <button
-        className="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2"
+        className="z-20 shrink-0 backdrop-opacity-75 hover:backdrop-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2"
         onClick={prev}
       >
         <ChevronCircleLeft />
       </button>
       <button
-        className="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2"
+        className="z-20 shrink-0 backdrop-opacity-75 hover:backdrop-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2"
         onClick={next}
       >
         <ChevronCircleRight />

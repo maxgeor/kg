@@ -1,4 +1,5 @@
 import type { Knife } from "../types/knife";
+import { paddedNumber } from "../utils/formatting";
 
 import { sanityClient as sanity } from "../lib/sanity/client";
 import groq from "groq";
@@ -26,7 +27,9 @@ export default async function SpecialProjects() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl sm:text-4xl tracking-[-0.07em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
+      <span>{paddedNumber(specialProjects.length)}</span>
+      {/* <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl tracking-[-0.07em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2"> */}
+      <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl tracking-[-0.085em] font-extralight -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
         One-off, experimental knives I don&apos;t plan on making any more of
       </h1>
       {specialProjects.length ? <ProfileList knives={specialProjects} /> : null}

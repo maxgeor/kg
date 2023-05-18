@@ -8,6 +8,7 @@ import Grid from "./components/Grid";
 import ProfileList from "./components/ProfileList";
 import Subscribe from "./components/Subscribe";
 import Gallery from "./components/Gallery";
+import { paddedNumber } from "./utils/formatting";
 
 async function getFeaturedKnives() {
   return await sanity.fetch(
@@ -50,34 +51,26 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-y-12 gap-x-6" className="relative border-white w-full ">
-        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl md:leading-[88px] font-light tracking-[-0.07em] -my-2 lg:-my-3 -ml-0.5 sm:-ml-1 md:-ml-1.5 max-w-[1400px]">
+        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl xl:text-6xl md:leading-[88px] xl:leading-[104px] font-extralight tracking-[-0.085em] -my-2 lg:-my-3 -ml-0.5 sm:-ml-1 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
-        <div className="h-full col-span-full lg:col-span-1 flex flex-col justify-between lg:order-first lg:pr-[72px]">
-          <div className="grid grid-cols-4 lg:flex lg:flex-col justify-between lg:justify-start gap-x-6 gap-y-12">
-            <p className="col-span-2 -my-1">
-              Functional, subtracted knives built with natural materials
-            </p>
-            {/* <p className="text-right sm:text-left col-span-2 sm:col-start-4 text-[10px] sm:col-end-5 leading-4 -my-0.5 uppercase tracking-wider">
-              Crafted in
-              <br className="lg:hidden" /> Canada
-            </p> */}
-          </div>
+        <div className=" flex gap-6 col-span-full lg:col-span-1 lg:order-first h-full lg:pr-[72px] -my-1">
+          <span>
+            {paddedNumber(featuredKnives.length + nonFeaturedKnivesData.length)}
+          </span>
+          <span>
+            Functional, subtracted knives built with natural materials
+          </span>
         </div>
       </Grid>
       {featuredKnives.length ? (
         <Grid>
-          <ProfileList
-            knives={featuredKnives}
-            span="col-span-full"
-            gap="gap-y-12 gap-x-6"
-          />
+          <ProfileList knives={featuredKnives} />
         </Grid>
       ) : null}
       <Grid>
-        <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5">
-          News
-        </h2>
+        {/* <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5"> */}
+        <h2 className="col-span-full lg:col-span-1 text-white -my-1">News</h2>
         <Grid
           span="col-span-full lg:col-span-3"
           cols="grid-cols-4 lg:grid-cols-3"

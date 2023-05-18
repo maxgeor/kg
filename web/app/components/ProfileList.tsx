@@ -25,17 +25,12 @@ const item = {
   },
 };
 
-export default function ProfileList({
-  knives,
-  span = "col-span-full",
-  gap = "gap-6",
-}) {
+export default function ProfileList({ knives }) {
   return (
     <motion.ul
       variants={container}
       className={`
-        ${span} ${gap}
-        grid grid-cols-4 gap-6 col-span-full
+        grid grid-cols-4 gap-y-12 gap-x-6 col-span-full
       `}
     >
       {knives?.map((knife, index) => (

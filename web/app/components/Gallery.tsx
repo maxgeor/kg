@@ -24,15 +24,14 @@ function GalleryList({ knives, openModal }) {
             onClick={() => openModal(index)}
           >
             {knife.isSpecialProject ? (
-              <div className="text-white group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 right-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
+              <div className="text-white group-hover:opacity-0 transform group-hover:-translate-y-1 absolute top-0 left-0 bg-black text-[10px] leading-6 uppercase tracking-wider px-2 transition-all duration-300 ease-in-out">
                 Special Project
               </div>
             ) : null}
-            <div className="absolute z-[2] transform top-0 right-0 h-px bg-white w-0 group-hover:w-full opacity-0 group-hover:opacity-100 transition-all ease-out duration-500"></div>
-            <h3 className="absolute z-[1] transform translate-x-3 group-hover:translate-x-0 top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 text-right transition-all duration-300 ease-out">
-              {knife.name}
+            <h3 className="bg-black w-full text-left absolute z-[1] transform top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 transition-all duration-300 ease-out">
+              <span className="mr-6">{paddedNumber(index + 1)}</span>
+              <span>{knife.name}</span>
             </h3>
-            <div className="absolute transform top-0 left-0 right-0 bg-black h-6 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></div>
             <Image
               src={knife.coverImageUrl}
               alt={knife.name || "knife"}
@@ -110,9 +109,10 @@ function GalleryModal({
         <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
           <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
-            <span className="absolute sm:fixed top-8 sm:top-6 left-6 sm:text-md -my-1.5 sm:-my-1  ">
-              {`${paddedNumber(spotlitKifeIndex)}/${paddedNumber(
-                knivesLength - 1
+            {/* <span className="absolute sm:fixed top-8 sm:top-6 left-6 sm:text-md -my-1.5 sm:-my-1  "> */}
+            <span className="absolute sm:fixed top-8 sm:top-6 left-6 -my-1.5 sm:-my-1  ">
+              {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
+                knivesLength
               )}`}
             </span>
             <CloseButton className="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
@@ -143,6 +143,7 @@ function GalleryModal({
             </nav>
             <Profile
               index={spotlitKifeIndex}
+              showingIndex={false}
               name={spotlitKnife.name}
               wrap={spotlitKnife.wrap}
               sheath={spotlitKnife.sheath}
