@@ -142,6 +142,7 @@ function GalleryModal({
               </div>
             </nav>
             <Profile
+              index={spotlitKifeIndex}
               name={spotlitKnife.name}
               wrap={spotlitKnife.wrap}
               sheath={spotlitKnife.sheath}
