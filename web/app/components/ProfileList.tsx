@@ -27,16 +27,14 @@ const item = {
 
 export default function ProfileList({
   knives,
-  cols = "grid-cols-4",
   span = "col-span-full",
-  isShowingIndex = false,
-  itemCols = { mobile: 4, desktop: 4 },
+  gap = "gap-6",
 }) {
   return (
     <motion.ul
       variants={container}
       className={`
-        ${cols} ${span}
+        ${span} ${gap}
         grid grid-cols-4 gap-6 col-span-full
       `}
     >
@@ -53,9 +51,6 @@ export default function ProfileList({
                 : [knife.coverImageUrl]
             }
             description={knife.description}
-            descriptionSpan="col-span-full lg:col-span-1"
-            cols={itemCols}
-            isShowingIndex={isShowingIndex}
           />
         </motion.li>
       ))}

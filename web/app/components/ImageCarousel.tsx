@@ -29,11 +29,11 @@ export default function ImageCarousel({
   return (
     <div
       className={`
-      flex overflow-x-hidden w-full ratio-square
-      ${className}
-    `}
+        flex overflow-hidden ratio-square h-full w-full gap-6
+        ${className}
+      `}
     >
-      {images.map((image: Image, index: number) => (
+      {[...images, ...images].map((image: Image, index: number) => (
         <Image
           key={image.url}
           src={image.url}
@@ -42,7 +42,7 @@ export default function ImageCarousel({
           height={1000}
           style={{
             maxWidth: "100%",
-            height: "auto",
+            height: "100%",
             objectFit: "cover",
             aspectRatio: "1/1",
             transform: `translateX(-${focusedImageIndex * 100}%)`,
@@ -63,5 +63,42 @@ export default function ImageCarousel({
         <ChevronCircleRight />
       </button>
     </div>
+    // <div
+    //   className={`
+    //     flex overflow-hidden ratio-square h-full w-full gap-6
+    //     ${className}
+    //   `}
+    // >
+    //   {[...images, ...images].map((image: Image, index: number) => (
+    //     <Image
+    //       key={image.url}
+    //       src={image.url}
+    //       alt={image.alt}
+    //       width={1000}
+    //       height={1000}
+    //       className="basis-1/3"
+    //       style={{
+    //         maxWidth: "100%",
+    //         height: "100%",
+    //         objectFit: "cover",
+    //         aspectRatio: "1/1",
+    //         transform: `translateX(-${focusedImageIndex * 100}%)`,
+    //       }}
+    //       priority
+    //     />
+    //   ))}
+    //   <button
+    //     className="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2"
+    //     onClick={prev}
+    //   >
+    //     <ChevronCircleLeft />
+    //   </button>
+    //   <button
+    //     className="z-20 shrink-0 opacity-[80%] hover:opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2"
+    //     onClick={next}
+    //   >
+    //     <ChevronCircleRight />
+    //   </button>
+    // </div>
   );
 }
