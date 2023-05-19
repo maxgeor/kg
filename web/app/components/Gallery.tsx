@@ -120,8 +120,8 @@ function GalleryModal({
       <Modal.Portal className="fixed inset-0 z-[30] h-screen">
         <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
-          <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
-            <span className="absolute sm:fixed top-8 sm:top-6 left-6 -my-1.5 sm:-my-1  ">
+          <div className="relative flex sm:items-center justify-center h-full max-h-[calc(100vh-400px)] w-full p-6 sm:p-[72px]">
+            <span className="hidden sm:block sm:fixed  top-6 left-6 sm:-my-1  ">
               {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
                 knivesLength
               )}`}
@@ -155,7 +155,7 @@ function GalleryModal({
             <Grid
               gap="gap-6"
               cols={"grid-cols-3"}
-              className={`bg-black h-min h-full md:max-h-none sm:max-w-4xl shadow-2xl`}
+              className={`bg-black h-min h-full md:max-h-none max-w-sm sm:max-w-4xl shadow-2xl`}
             >
               <ImageCarousel
                 images={images}

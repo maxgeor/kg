@@ -42,18 +42,18 @@ export default function Subscribe({
   }
 
   return (
-    <Grid cols={cols} span={span} className="text-md">
+    <Grid gap="gap-2" cols={cols} span={span}>
       <p className="col-span-full -my-1 mr-12">
         Subscribe and never miss a drop
       </p>
       <form
         method="post"
         onSubmit={(e) => handleSubmit(e)}
-        className="relative self-end col-span-full flex items-center md:grid grid-cols-4 lg:grid-cols-3 gap-6 -mt-3"
+        className="relative self-end col-span-full flex md:grid grid-cols-4 xl:grid-cols-3 gap-6"
       >
         <label
           htmlFor="email"
-          className="md:col-span-3 lg:col-span-2 peer group relative w-full"
+          className="h-fit md:col-span-3 xl:col-span-2 peer group relative w-full"
         >
           <input
             required
@@ -63,7 +63,7 @@ export default function Subscribe({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            className="w-full peer flex-grow placeholder:text-neutral-500 leading-8 h-8 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
+            className="w-full peer flex-grow placeholder:text-neutral-500 leading-6 h-6 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
           />
           <span className="z-10 h-px absolute bottom-0 left-0 bg-white w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
         </label>
