@@ -50,11 +50,11 @@ export default async function Home() {
 
   return (
     <>
-      <Grid gap="gap-y-12 gap-x-6" className="relative border-white w-full ">
-        <h1 className="col-span-full lg:col-span-3 text-3xl sm:text-4xl md:text-5xl xl:text-6xl md:leading-[88px] xl:leading-[104px] font-extralight tracking-[-0.085em] -my-2 lg:-my-3 -ml-0.5 sm:-ml-1 md:-ml-1.5 max-w-[1400px]">
+      <Grid gap="gap-6 gap-y-12" className="relative border-white w-full ">
+        <h1 className="col-span-full xl:col-span-3 text-3xl sm:text-5xl xl:text-6xl md:leading-[88px] xl:leading-[104px] font-extralight tracking-[-0.085em] -my-2 lg:-my-3 -ml-0.5 sm:-ml-1 md:-ml-1.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
-        <div className=" flex gap-6 col-span-full lg:col-span-1 lg:order-first h-full lg:pr-[72px] -my-1">
+        <div className="xl:order-first col-span-full xl:col-span-1 flex gap-6 h-full lg:pr-[72px] -my-1">
           <span>
             {paddedNumber(featuredKnives.length + nonFeaturedKnivesData.length)}
           </span>
@@ -69,11 +69,10 @@ export default async function Home() {
         </Grid>
       ) : null}
       <Grid>
-        {/* <h2 className="col-span-full lg:col-span-1 text-md text-white -my-0.5"> */}
-        <h2 className="col-span-full lg:col-span-1 text-white -my-1">News</h2>
+        <h2 className="col-span-full xl:col-span-1 text-white -my-1">News</h2>
         <Grid
-          span="col-span-full lg:col-span-3"
-          cols="grid-cols-4 lg:grid-cols-3"
+          span="col-span-full xl:col-span-3"
+          cols="grid-cols-4 xl:grid-cols-3"
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">

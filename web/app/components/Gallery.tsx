@@ -6,21 +6,22 @@ import React, { useState } from "react";
 import Grid from "./Grid";
 import Image from "next/image";
 import Profile from "./Profile";
+import ImageCarousel from "./ImageCarousel";
 import * as Modal from "@radix-ui/react-dialog";
 
 import { paddedNumber } from "../utils/formatting";
 
 function GalleryList({ knives, openModal }) {
   return (
-    <Grid tag="ul" gap="sm:gap-6" className="-mx-6 sm:mx-0">
+    <Grid tag="ul">
       {knives?.map((knife: Knife, index: number) => (
         <li
+          className="col-span-2 lg:col-span-1"
           key={knife._id}
           id={`knife-${index}`}
-          className="col-span-2 md:col-span-1"
         >
           <button
-            className="relative group flex flex-col gap-6 lg:brightness-[85%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300"
+            className="col-span-1 relative group flex flex-col gap-6 lg:brightness-[85%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300"
             onClick={() => openModal(index)}
           >
             {knife.isSpecialProject ? (
@@ -103,13 +104,23 @@ function GalleryModal({
 
   const spotlitKnife = knives[spotlitKifeIndex];
 
+  const images = (
+    spotlitKnife.galleryImageUrls
+      ? [spotlitKnife.coverImageUrl, ...spotlitKnife.galleryImageUrls]
+      : [spotlitKnife.coverImageUrl]
+  ).map((url, index) => {
+    return {
+      url,
+      alt: `${spotlitKnife.name} image ${index}`,
+    };
+  });
+
   return (
     <Modal.Root open={open} onOpenChange={setOpen}>
       <Modal.Portal className="fixed inset-0 z-[30] h-screen">
         <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
         <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
           <div className="relative flex sm:items-center justify-center h-full w-full p-6 sm:p-[72px]">
-            {/* <span className="absolute sm:fixed top-8 sm:top-6 left-6 sm:text-md -my-1.5 sm:-my-1  "> */}
             <span className="absolute sm:fixed top-8 sm:top-6 left-6 -my-1.5 sm:-my-1  ">
               {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
                 knivesLength
@@ -141,24 +152,34 @@ function GalleryModal({
                 />
               </div>
             </nav>
-            <Profile
-              index={spotlitKifeIndex}
-              showingIndex={false}
-              name={spotlitKnife.name}
-              wrap={spotlitKnife.wrap}
-              sheath={spotlitKnife.sheath}
-              imageUrls={
-                spotlitKnife.galleryImageUrls
-                  ? [
-                      spotlitKnife.coverImageUrl,
-                      ...spotlitKnife.galleryImageUrls,
-                    ]
-                  : [spotlitKnife.coverImageUrl]
-              }
-              description={spotlitKnife.description}
-              isSpecialProject={spotlitKnife.isSpecialProject}
-              className="h-min md:max-h-none sm:max-w-5xl shadow-2xl"
-            />
+            <Grid
+              gap="gap-6"
+              cols={"grid-cols-3"}
+              className={`bg-black h-min h-full md:max-h-none sm:max-w-4xl shadow-2xl`}
+            >
+              <ImageCarousel
+                images={images}
+                className={`
+                  col-span-full sm:col-span-2 relative aspect-square
+                `}
+              />
+              <div className="col-span-full sm:col-span-1 flex flex-col gap-6">
+                <div className="flex justify-between -my-1">
+                  <span className="sm:hidden mr-6">
+                    {paddedNumber(spotlitKifeIndex + 1)}
+                  </span>
+                  <h3 className="col-span-full h-min w-full">
+                    {spotlitKnife.name}
+                  </h3>
+                </div>
+                {spotlitKnife.description && (
+                  <div className="max-w-prose -my-1">
+                    {spotlitKnife.description.trim()}
+                  </div>
+                )}
+                <p className="-my-1">{`${spotlitKnife.wrap}, ${spotlitKnife.sheath}`}</p>
+              </div>
+            </Grid>
           </div>
         </Modal.Content>
       </Modal.Portal>

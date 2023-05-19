@@ -5,9 +5,14 @@ import { subscribe } from "../actions";
 
 import Grid from "./Grid";
 import Image from "next/image";
-import ArrowRight from "./icons/ArrowRight";
 
-export default function Subscribe() {
+export default function Subscribe({
+  span = "col-span-full xl:col-span-3",
+  cols = "grid-cols-4 xl:grid-cols-3",
+}: {
+  span?: string;
+  cols?: string;
+}) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,11 +42,7 @@ export default function Subscribe() {
   }
 
   return (
-    <Grid
-      span="col-span-full lg:col-span-3"
-      cols="grid-cols-4 lg:grid-cols-3"
-      className="text-md"
-    >
+    <Grid cols={cols} span={span} className="text-md">
       <p className="col-span-full -my-1 mr-12">
         Subscribe and never miss a drop
       </p>
@@ -71,13 +72,11 @@ export default function Subscribe() {
           className={`col-span-1 w-fit -m-1 text-white disabled:text-neutral-500 flex items-center shrink-0 text-xl transition duration-300`}
           disabled={loading}
         >
-          {/* <ArrowRight /> */}
           <Image
             src="/icons/arrow-right.svg"
             alt="subscribe"
             height={38}
             width={38}
-            className="hidden sm:block"
           />
         </button>
         {error ? (
