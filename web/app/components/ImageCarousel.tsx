@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ChevronCircleLeft from "./icons/ChevronCircleLeft";
 import ChevronCircleRight from "./icons/ChevronCircleRight";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Image {
   url: string;
@@ -16,6 +17,7 @@ export default function ImageCarousel({
   className?: string;
 }) {
   const [focusedImageIndex, setFocusedImageIndex] = useState(0);
+  const focusedImage = images[focusedImageIndex];
   const numberOfImages = images.length;
 
   const prev = () =>
@@ -29,38 +31,44 @@ export default function ImageCarousel({
   return (
     <div
       className={`
-        flex overflow-hidden ratio-square h-full w-full gap-6
+        w-full overflow-hidden
         ${className}
       `}
     >
-      {[...images, ...images].map((image: Image, index: number) => (
-        <Image
-          key={image.url}
-          src={image.url}
-          alt={image.alt}
-          width={1000}
-          height={1000}
-          style={{
-            maxWidth: "100%",
-            height: "100%",
-            objectFit: "cover",
-            aspectRatio: "1/1",
-            transform: `translateX(-${focusedImageIndex * 100}%)`,
-          }}
-          priority
-        />
-      ))}
+      <AnimatePresence key={focusedImage.url}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, x: -100 }}
+          className="w-full h-full"
+        >
+          <Image
+            src={focusedImage.url}
+            alt={focusedImage.alt}
+            width={1000}
+            height={1000}
+            className="max-w-full h-full w-full object-cover aspect-square"
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
       <button
-        className="z-20 shrink-0 backdrop-opacity-75 hover:backdrop-opacity-100 transition absolute top-1/2 left-2 transform -translate-y-1/2"
+        className={`
+          ${focusedImageIndex === 0 ? "hidden" : null}
+          group z-20 shrink-0 absolute top-0 bottom-0 left-0 px-2
+        `}
         onClick={prev}
       >
-        <ChevronCircleLeft />
+        <ChevronCircleLeft className="group-hover:scale-[107%] group-active:scale-[103%] opacity-[80%] group-hover:opacity-100 transition" />
       </button>
       <button
-        className="z-20 shrink-0 backdrop-opacity-75 hover:backdrop-opacity-100 transition absolute top-1/2 right-2 transform -translate-y-1/2"
+        className={`
+          ${focusedImageIndex + 1 === numberOfImages ? "hidden" : null}
+          group z-20 shrink-0 absolute top-0 bottom-0 right-0 px-2
+        `}
         onClick={next}
       >
-        <ChevronCircleRight />
+        <ChevronCircleRight className="group-hover:scale-[107%] group-active:scale-[103%] opacity-[80%] group-hover:opacity-100 transition" />
       </button>
     </div>
   );

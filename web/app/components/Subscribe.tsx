@@ -42,7 +42,7 @@ export default function Subscribe({
   }
 
   return (
-    <Grid gap="gap-2" cols={cols} span={span}>
+    <Grid gap="gap-2" cols={cols} span={span} className="text-base">
       <p className="col-span-full -my-1 mr-12">
         Subscribe and never miss a drop
       </p>
@@ -63,7 +63,7 @@ export default function Subscribe({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            className="w-full peer flex-grow placeholder:text-neutral-500 leading-6 h-6 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
+            className="w-full peer flex-grow placeholder:text-neutral-500 leading-7 h-7 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
           />
           <span className="z-10 h-px absolute bottom-0 left-0 bg-white w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
         </label>

@@ -5,9 +5,9 @@ import { Knife } from "../types/knife";
 import React, { useState } from "react";
 import Grid from "./Grid";
 import Image from "next/image";
-import Profile from "./Profile";
 import ImageCarousel from "./ImageCarousel";
 import * as Modal from "@radix-ui/react-dialog";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { paddedNumber } from "../utils/formatting";
 
@@ -85,6 +85,7 @@ function NextButton({ goToNext, isOnLastImage, className = "" }) {
     </button>
   );
 }
+
 function GalleryModal({
   open,
   setOpen,
@@ -118,70 +119,73 @@ function GalleryModal({
   return (
     <Modal.Root open={open} onOpenChange={setOpen}>
       <Modal.Portal className="fixed inset-0 z-[30] h-screen">
-        <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
-        <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
-          <div className="relative flex sm:items-center justify-center h-full max-h-[calc(100vh-400px)] w-full p-6 sm:p-[72px]">
-            <span className="hidden sm:block sm:fixed  top-6 left-6 sm:-my-1  ">
-              {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
-                knivesLength
-              )}`}
-            </span>
-            <CloseButton className="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
-            <PrevButton
-              goToPrev={prev}
-              isOnFirstImage={spotlitKifeIndex === 0}
-              className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
-            />
-            <NextButton
-              goToNext={next}
-              isOnLastImage={knivesLength === spotlitKifeIndex + 1}
-              className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
-            />
-            <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0">
-              <div className="flex justify-between relative w-full h-[72px]">
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="fixed inset-0 bg-black/[85%] z-[50] h-screen"
+          >
+            <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
+            <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
+              <div className="relative flex sm:items-center justify-center h-full sm:h-auto w-full p-6 sm:p-[72px]">
+                <span className="hidden sm:block sm:fixed  top-6 left-6 sm:-my-1  ">
+                  {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
+                    knivesLength
+                  )}`}
+                </span>
+                <CloseButton className="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
                 <PrevButton
                   goToPrev={prev}
                   isOnFirstImage={spotlitKifeIndex === 0}
-                  className="absolute left-2 transform top-1/2 -translate-y-1/2"
+                  className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
                 />
-                <CloseButton className="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
                 <NextButton
                   goToNext={next}
                   isOnLastImage={knivesLength === spotlitKifeIndex + 1}
-                  className="absolute right-2 transform top-1/2 -translate-y-1/2"
+                  className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
                 />
-              </div>
-            </nav>
-            <Grid
-              gap="gap-6"
-              cols={"grid-cols-3"}
-              className={`bg-black h-min h-full md:max-h-none max-w-sm sm:max-w-4xl shadow-2xl`}
-            >
-              <ImageCarousel
-                images={images}
-                className={`
-                  col-span-full sm:col-span-2 relative aspect-square
-                `}
-              />
-              <div className="col-span-full sm:col-span-1 flex flex-col gap-6">
-                <div className="flex justify-between -my-1">
-                  <span className="sm:hidden mr-6">
-                    {paddedNumber(spotlitKifeIndex + 1)}
-                  </span>
-                  <h3 className="col-span-full h-min w-full">
-                    {spotlitKnife.name}
-                  </h3>
-                </div>
-                {spotlitKnife.description && (
-                  <div className="max-w-prose -my-1">
-                    {spotlitKnife.description.trim()}
+                <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0">
+                  <div className="flex justify-between relative w-full h-[72px]">
+                    <PrevButton
+                      goToPrev={prev}
+                      isOnFirstImage={spotlitKifeIndex === 0}
+                      className="absolute left-2 transform top-1/2 -translate-y-1/2"
+                    />
+                    <CloseButton className="absolute transform top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
+                    <NextButton
+                      goToNext={next}
+                      isOnLastImage={knivesLength === spotlitKifeIndex + 1}
+                      className="absolute right-2 transform top-1/2 -translate-y-1/2"
+                    />
                   </div>
-                )}
-                <p className="-my-1">{`${spotlitKnife.wrap}, ${spotlitKnife.sheath}`}</p>
+                </nav>
+                <section className="flex flex-col lg:flex-row gap-6 w-full lg:max-h-[calc(100vh-144px))] max-w-sm sm:max-w-md lg:max-w-4xl">
+                  <ImageCarousel
+                    images={images}
+                    className="lg:basis-2/3 relative"
+                  />
+                  <div className="lg:basis-1/3 flex flex-col gap-6">
+                    <div className="flex justify-between -my-1">
+                      <span className="sm:hidden mr-6">
+                        {paddedNumber(spotlitKifeIndex + 1)}
+                      </span>
+                      <h3 className="col-span-full h-min w-full">
+                        {spotlitKnife.name}
+                      </h3>
+                    </div>
+                    {spotlitKnife.description && (
+                      <div className="max-w-prose -my-1">
+                        {spotlitKnife.description.trim()}
+                      </div>
+                    )}
+                    <p className="-my-1">{`${spotlitKnife.wrap}, ${spotlitKnife.sheath}`}</p>
+                  </div>
+                </section>
               </div>
-            </Grid>
-          </div>
-        </Modal.Content>
+            </Modal.Content>
+          </motion.div>
+        </AnimatePresence>
       </Modal.Portal>
     </Modal.Root>
   );
