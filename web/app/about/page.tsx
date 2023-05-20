@@ -28,14 +28,14 @@ export default async function About() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-start-2 lg:col-end-5 text-3xl sm:text-4xl tracking-[-0.07em] font-light -ml-1 -my-1.5 md:-my-2">
+      <h1 className="col-span-full lg:col-span-1 text-3xl sm:text-4xl md:text-5xl xl:text-7xl tracking-[-0.085em] font-extralight -ml-1 -my-1.5 md:-my-2">
         Kevin
         <br />
         Georgopoulos
       </h1>
       {sections?.map((section) => (
         <Grid key={section.title}>
-          <h2 className="col-span-full text-md lg:col-span-1 -my-0.5">
+          <h2 className="col-span-full lg:col-span-1 -my-0.5">
             {section.title}
           </h2>
           {section.imageUrl ? (

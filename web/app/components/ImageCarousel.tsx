@@ -39,6 +39,10 @@ export default function ImageCarousel({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.25,
+            ease: "easeOut",
+          }}
           exit={{ opacity: 0, x: -100 }}
           className="w-full h-full"
         >
@@ -59,7 +63,7 @@ export default function ImageCarousel({
         `}
         onClick={prev}
       >
-        <ChevronCircleLeft className="group-hover:scale-[107%] group-active:scale-[103%] opacity-[80%] group-hover:opacity-100 transition" />
+        <ChevronCircleLeft className="group-hover:scale-[103%] group-active:scale-[100%] opacity-[80%] group-hover:opacity-100 transition" />
       </button>
       <button
         className={`
@@ -68,7 +72,7 @@ export default function ImageCarousel({
         `}
         onClick={next}
       >
-        <ChevronCircleRight className="group-hover:scale-[107%] group-active:scale-[103%] opacity-[80%] group-hover:opacity-100 transition" />
+        <ChevronCircleRight className="group-hover:scale-[103%] group-active:scale-[100%] opacity-[80%] group-hover:opacity-100 transition" />
       </button>
     </div>
   );

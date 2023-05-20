@@ -51,7 +51,7 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-6 gap-y-12" className="relative border-white w-full ">
-        <h1 className="col-span-full xl:col-span-3 text-4xl sm:text-5xl xl:text-6xl md:leading-[88px] xl:leading-[104px] font-extralight tracking-[-0.085em] -my-2 lg:-my-3 -ml-0.5 sm:-ml-1 md:-ml-1.5 max-w-[1400px]">
+        <h1 className="col-span-full xl:col-span-3 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl sm:leading-[88px] lg:leading-[104px] font-extralight tracking-[-0.085em] -my-2.5 sm:-my-3 xl:-my-[18px] -ml-0.5 sm:-ml-1 md:-ml-1.5 xl:-ml-2.5 max-w-[1400px]">
           Hartsfield-inspired blades, carefully crafted, one at a time
         </h1>
         <div className="xl:order-first col-span-full xl:col-span-1 flex gap-6 h-full lg:pr-[72px] -my-1">
@@ -76,7 +76,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-2xl -my-1 lg:-my-2 -ml-[3px]">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-2xl md:text-3xl xl:text-4xl -my-1 lg:-my-2 -ml-[3px]">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">

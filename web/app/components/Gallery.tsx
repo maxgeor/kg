@@ -21,7 +21,7 @@ function GalleryList({ knives, openModal }) {
           id={`knife-${index}`}
         >
           <button
-            className="col-span-1 relative group flex flex-col gap-6 lg:brightness-[85%] hover:scale-[100.5%] hover:brightness-100 transition-all ease-out duration-300"
+            className="col-span-1 relative group flex flex-col gap-6 active:brightness-[80%] duration-150 transition ease-out"
             onClick={() => openModal(index)}
           >
             {knife.isSpecialProject ? (
@@ -160,12 +160,12 @@ function GalleryModal({
                     />
                   </div>
                 </nav>
-                <section className="flex flex-col lg:flex-row gap-6 w-full lg:max-h-[calc(100vh-144px))] max-w-sm sm:max-w-md lg:max-w-4xl">
+                <section className="flex flex-col lg:justify-center lg:flex-row gap-6 w-full  max-w-sm sm:max-w-md lg:max-w-none ">
                   <ImageCarousel
                     images={images}
-                    className="lg:basis-2/3 relative"
+                    className="lg:basis-[calc(100vh-144px)] aspect-square relative lg:max-h-[calc(100vh-144px)] lg:max-w-[calc(100vh-144px)]"
                   />
-                  <div className="lg:basis-1/3 flex flex-col gap-6">
+                  <div className="lg:basis-1/4 flex flex-col gap-6">
                     <div className="flex justify-between -my-1">
                       <span className="sm:hidden mr-6">
                         {paddedNumber(spotlitKifeIndex + 1)}

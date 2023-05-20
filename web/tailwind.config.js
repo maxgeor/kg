@@ -22,6 +22,7 @@ module.exports = {
       '4xl': ['60px', '64px'],
       '5xl': ['87px', '88px'],
       '6xl': ['104px', '104px'],
+      '7xl': ['125px', '128px'],
     },
   },
   plugins: [],

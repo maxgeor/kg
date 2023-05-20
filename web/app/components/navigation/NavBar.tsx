@@ -12,7 +12,7 @@ export default function NavBar() {
       <div className="relative grid grid-cols-4 gap-y-3 gap-x-6 p-6">
         <Link
           href="/"
-          className="-mt-[3px] -mr-2 sm:-mr-0 sm:-ml-1.5 h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start -mr-px sm:-ml-px"
+          className="-mt-[3px] -mr-2 sm:-mr-0 sm:-ml-[6px] h-full z-10 absolute sm:static top-6 right-6 text-lg leading-6 font-serif self-start"
         >
           <Image
             src="/logo.svg"
