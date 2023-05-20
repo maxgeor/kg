@@ -51,8 +51,12 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-6 gap-y-12" className="relative border-white w-full ">
-        <h1 className="col-span-full xl:col-span-3 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl sm:leading-[88px] lg:leading-[104px] font-extralight tracking-[-0.085em] -my-2.5 sm:-my-3 xl:-my-[18px] -ml-0.5 sm:-ml-1 md:-ml-1.5 xl:-ml-2.5 max-w-[1400px]">
-          Hartsfield-inspired blades, carefully crafted, one at a time
+        <h1 className="col-span-full xl:col-span-3 text-4xl sm:text-5xl lg:text-6xl  sm:leading-[88px] lg:leading-[104px] font-extralight tracking-[-0.085em] -my-2.5 sm:-my-3 xl:-my-[18px] -ml-0.5 sm:-ml-1 md:-ml-1.5 xl:-ml-2.5 max-w-[1400px]">
+          Hartsfield-
+          <br className="xl:hidden" />
+          inspired blades, <br />
+          carefully crafted,
+          <br /> one at a time
         </h1>
         <div className="xl:order-first col-span-full xl:col-span-1 flex gap-6 h-full lg:pr-[72px] -my-1">
           <span>
