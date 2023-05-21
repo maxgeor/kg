@@ -54,8 +54,7 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-6 gap-y-12" className="relative border-white w-full ">
-        {/* <h1 className="col-span-full xl:col-span-3 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl sm:leading-[88px] lg:leading-[104px] font-light sm:font-extralight tracking-[-0.07em] sm:tracking-[-0.085em] -my-2.5 sm:-my-3 lg:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 lg:-ml-2.5 max-w-[1400px]"> */}
-        <h1 className="col-span-full xl:col-span-3 text-3xl xs:text-4xl sm:text-5xl  sm:leading-[88px] font-light tracking-[-0.07em] -my-2.5 sm:-my-3 lg:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 lg:-ml-2.5 max-w-[1400px]">
+        <h1 className="col-span-full xl:col-span-3 text-3xl xs:text-4xl sm:text-5xl  sm:leading-[88px] font-light tracking-[-0.08em] -my-2.5 sm:-my-3 lg:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 lg:-ml-2.5 max-w-[1400px]">
           Hartsfield-
           <br className="xl:hidden" />
           inspired blades, <br />
@@ -84,7 +83,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-2xl md:text-3xl -my-1 md:-my-1.5 -ml-[3px]">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.08em] text-2xl md:text-3xl -my-1 md:-my-1.5 -ml-[3px]">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">

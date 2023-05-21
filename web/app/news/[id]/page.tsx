@@ -7,6 +7,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Grid from "../../components/Grid";
+import Subscribe from "@/app/components/Subscribe";
 import { PortableText } from "@portabletext/react";
 import { humanizedDate } from "@/app/utils/formatting";
 
@@ -47,7 +48,7 @@ export default async function NewsItem({ params }) {
           gap="gap-y-12 gap-x-6"
         >
           <p className="-my-1">{humanDate}</p>
-          <h1 className="col-span-full text-2xl md:text-3xl md:text-4xl font-light tracking-[-0.07em] -ml-1 -my-1.5 md:-my-2 md:-my-2.5 ">
+          <h1 className="col-span-full text-2xl md:text-3xl md:text-4xl font-light tracking-[-0.08em] -ml-1 -my-1.5 md:-my-2 md:-my-2.5 ">
             {newsItem.title}
           </h1>
           {newsItem.imageUrl ? (
@@ -63,6 +64,11 @@ export default async function NewsItem({ params }) {
           <article className=" max-w-prose prose prose-a:underline col-span-full -my-1">
             <PortableText value={newsItem.content} />
           </article>
+          <Subscribe
+            span="col-span-full md:col-span-3"
+            cols="grid-cols-4 md:grid-cols-3"
+            className="mt-12"
+          />
         </Grid>
       </Grid>
     </>

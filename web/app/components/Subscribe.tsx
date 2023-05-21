@@ -9,9 +9,11 @@ import Image from "next/image";
 export default function Subscribe({
   span = "col-span-full xl:col-span-3",
   cols = "grid-cols-4 xl:grid-cols-3",
+  className = "",
 }: {
   span?: string;
   cols?: string;
+  className?: string;
 }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -42,8 +44,7 @@ export default function Subscribe({
   }
 
   return (
-    // <Grid gap="gap-2" cols={cols} span={span} className="text-base">
-    <Grid gap="gap-2" cols={cols} span={span}>
+    <Grid gap="gap-2" cols={cols} span={span} className={className}>
       <p className="col-span-full -my-1 mr-12">
         Subscribe and never miss a drop
       </p>

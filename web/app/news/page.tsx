@@ -15,6 +15,7 @@ async function getNews() {
       'slug': slug.current,
       content,
       _createdAt,
+      "imageUrl": image.asset->url,
     }`
   );
 }
@@ -33,6 +34,7 @@ export default async function News() {
           date={newsItem._createdAt}
           slug={newsItem.slug}
           content={newsItem.content}
+          imageUrl={newsItem.imageUrl}
         />
       ))}
       <Subscribe span="col-span-full lg:col-start-2 lg:col-end-5" />
