@@ -63,7 +63,7 @@ export default function ImageCarousel({
         `}
         onClick={prev}
       >
-        <ChevronCircleLeft className="group-hover:scale-[103%] group-active:scale-[100%] opacity-[80%] group-hover:opacity-100 transition" />
+        <ChevronCircleLeft className="opacity-[75%] group-hover:opacity-100 group-active:opacity-75 transition" />
       </button>
       <button
         className={`
@@ -72,7 +72,7 @@ export default function ImageCarousel({
         `}
         onClick={next}
       >
-        <ChevronCircleRight className="group-hover:scale-[103%] group-active:scale-[100%] opacity-[80%] group-hover:opacity-100 transition" />
+        <ChevronCircleRight className="opacity-[75%] group-hover:opacity-100 group-active:opacity-75 transition" />
       </button>
     </div>
   );
