@@ -21,7 +21,7 @@ function GalleryList({ knives, openModal }) {
           id={`knife-${index}`}
         >
           <button
-            className="col-span-1 relative group flex flex-col gap-6 active:brightness-[80%] duration-100 transition ease-out"
+            className="col-span-1 relative group flex flex-col gap-6 active:brightness-[90%] duration-100 transition ease-out"
             onClick={() => openModal(index)}
           >
             {knife.isSpecialProject ? (

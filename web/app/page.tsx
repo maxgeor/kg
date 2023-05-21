@@ -1,9 +1,11 @@
 import type { Knife } from "./types/knife";
+import type { News } from "./types/news";
 
 import { sanityClient as sanity } from "./lib/sanity/client";
 import groq from "groq";
 
 import React from "react";
+import Link from "next/link";
 import Grid from "./components/Grid";
 import ProfileList from "./components/ProfileList";
 import Subscribe from "./components/Subscribe";
@@ -42,14 +44,32 @@ async function getNonFeaturedKnives() {
   );
 }
 
+async function getLatestNewsItem() {
+  return await sanity.fetch(
+    groq`*[_type == "news"] | order(_createdAt desc)[0] {
+      _id,
+      title,
+      'slug': slug.current,
+      content,
+      _createdAt,
+    }`
+  );
+}
+
 export default async function Home() {
   const featuredKnivesData = await getFeaturedKnives();
   const nonFeaturedKnivesData = await getNonFeaturedKnives();
+  const latestNewsItemData = await getLatestNewsItem();
 
-  const [featuredKnives, nonFeaturedKnives]: [
+  const [featuredKnives, nonFeaturedKnives, latestNewsItem]: [
     featuredKnives: Knife[],
-    nonFeaturedKnives: Knife[]
-  ] = await Promise.all([featuredKnivesData, nonFeaturedKnivesData]);
+    nonFeaturedKnives: Knife[],
+    latestNewsItem: News
+  ] = await Promise.all([
+    featuredKnivesData,
+    nonFeaturedKnivesData,
+    latestNewsItemData,
+  ]);
 
   return (
     <>
@@ -75,26 +95,29 @@ export default async function Home() {
           <ProfileList knives={featuredKnives} />
         </Grid>
       ) : null}
-      <Grid>
-        <h2 className="col-span-full xl:col-span-1 text-white -my-1">News</h2>
-        <Grid
-          span="col-span-full xl:col-span-3"
-          cols="grid-cols-4 xl:grid-cols-3"
-          gap="gap-y-12 gap-x-6"
-        >
-          <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.08em] text-2xl md:text-3xl -my-1 md:-my-1.5 -ml-[3px]">
-              Batch of 10 knives realeasing
-            </h2>
-            <p className="line-clamp-2 -my-1 max-w-prose">
-              I&apos;m teaming up with @thebeastman to make 10 tanaki-inspired
-              knives. Each will sell for $250. To buy, message me on Instagram
-              or email.
-            </p>
-          </div>
-          <Subscribe />
+      {latestNewsItem ? (
+        <Grid>
+          <h2 className="col-span-full xl:col-span-1 text-white -my-1">News</h2>
+          <Grid
+            span="col-span-full xl:col-span-3"
+            cols="grid-cols-4 xl:grid-cols-3"
+            gap="gap-y-12 gap-x-6"
+          >
+            <Link
+              href={`/news/${latestNewsItem.slug}`}
+              className="group flex flex-col gap-6 col-span-full"
+            >
+              <h2 className="group-hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.08em] text-2xl md:text-3xl -my-1 md:-my-1.5 -ml-[3px]">
+                {latestNewsItem.title}
+              </h2>
+              <p className="line-clamp-2 -my-1 max-w-prose">
+                {latestNewsItem.content[0]?.children[0]?.text}
+              </p>
+            </Link>
+            <Subscribe />
+          </Grid>
         </Grid>
-      </Grid>
+      ) : null}
       <Grid>
         <Gallery knives={nonFeaturedKnives} />
       </Grid>

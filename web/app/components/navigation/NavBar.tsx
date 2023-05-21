@@ -24,10 +24,17 @@ export default function NavBar() {
           <Image
             src="/logo.svg"
             alt="Logo"
+            height={40}
+            width={40}
+            className="hidden sm:block"
+          />
+          {/* <Image
+            src="/logo.svg"
+            alt="Logo"
             height={38}
             width={38}
             className="hidden sm:block"
-          />
+          /> */}
         </Link>
         <div className="col-span-2 sm:col-span-1 flex flex-col gap-y-3 self-start">
           <NavLink

@@ -10,12 +10,14 @@ export default function NewsItem({
   slug,
   content,
   imageUrl,
+  isShowingImage = true,
 }: {
   title: string;
   date: string;
   slug: string;
   content: any;
   imageUrl?: string;
+  isShowingImage?: boolean;
 }) {
   const firstParagraph = (content: [{ children: [{ text: string }] }]) =>
     content[0]?.children[0]?.text;
@@ -38,7 +40,7 @@ export default function NewsItem({
             {title}
           </h2>
           <p className="-my-1 max-w-prose">{firstParagraph(content)}</p>
-          {imageUrl ? (
+          {imageUrl && isShowingImage ? (
             <Image
               src={imageUrl}
               alt={title}
