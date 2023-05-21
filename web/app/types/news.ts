@@ -3,6 +3,6 @@ export type News = {
   title: string;
   slug: string;
   content: any;
-  _createdAt?: string;
+  _createdAt: string;
   imageUrl?: string;
 };
