@@ -24,6 +24,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
+      description: "Images will show up as 4:3 (wide)",
       type: 'image'
     },
     {
