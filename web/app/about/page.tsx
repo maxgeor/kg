@@ -28,7 +28,7 @@ export default async function About() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-span-1 text-3xl sm:text-4xl md:text-5xl xl:text-7xl tracking-[-0.085em] font-extralight -ml-1 -my-1.5 md:-my-2">
+      <h1 className="col-span-full lg:col-start-2 text-3xl sm:text-4xl md:text-5xl xl:text-6xl tracking-[-0.085em] font-extralight -ml-1 -my-1.5 md:-my-2">
         Kevin
         <br />
         Georgopoulos

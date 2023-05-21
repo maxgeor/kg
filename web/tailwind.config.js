@@ -24,6 +24,12 @@ module.exports = {
       '6xl': ['104px', '104px'],
       '7xl': ['125px', '128px'],
     },
+    extend: {
+      screens: {
+        'xs': "399px",
+      }
+
+    },
   },
   plugins: [],
 }

@@ -9,8 +9,8 @@ import ProfileList from "../components/ProfileList";
 import Grid from "../components/Grid";
 
 async function getSpecialProjects() {
-  return (await sanity.fetch(
-    groq`*[_type == "knife" && isSpecialProject]{
+  return await sanity.fetch(
+    groq`*[_type == "knife" && isSpecialProject] | order(_createdAt desc) {
       _id,
       name,
       wrap,
@@ -20,11 +20,11 @@ async function getSpecialProjects() {
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
     }`
-  )) as Knife[];
+  );
 }
 
 export default async function SpecialProjects() {
-  const specialProjects = await getSpecialProjects();
+  const specialProjects: Knife[] = await getSpecialProjects();
 
   return (
     <>

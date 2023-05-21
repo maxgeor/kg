@@ -64,7 +64,6 @@ export default function Subscribe({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            // className="w-full peer flex-grow placeholder:text-neutral-500 leading-7 h-7 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
             className="w-full peer flex-grow placeholder:text-neutral-500 leading-6 h-6 border-box bg-transparent border-neutral-500 border-b focus:outline-none "
           />
           <span className="z-10 h-px absolute bottom-0 left-0 bg-white w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
@@ -82,7 +81,7 @@ export default function Subscribe({
           />
         </button>
         {error ? (
-          <p className="col-span-full absolute -bottom-10 text-sm text-red-400">
+          <p className="col-span-full absolute -bottom-6 text-sm text-red-400">
             {error}
           </p>
         ) : null}

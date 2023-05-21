@@ -12,7 +12,7 @@ import { paddedNumber } from "./utils/formatting";
 
 async function getFeaturedKnives() {
   return await sanity.fetch(
-    groq`*[_type == "knife" && isFeatured]{
+    groq`*[_type == "knife" && isFeatured] {
       _id,
       name,
       wrap,
@@ -26,7 +26,10 @@ async function getFeaturedKnives() {
 
 async function getNonFeaturedKnives() {
   return await sanity.fetch(
-    groq`*[_type == "knife" && (!defined(isFeatured) || !isFeatured)]{
+    groq`
+      *[_type == "knife" && (!defined(isFeatured) || !isFeatured)] | 
+      order(_createdAt desc) 
+    {
       _id,
       name,
       wrap,
@@ -51,7 +54,7 @@ export default async function Home() {
   return (
     <>
       <Grid gap="gap-6 gap-y-12" className="relative border-white w-full ">
-        <h1 className="col-span-full xl:col-span-3 text-4xl sm:text-5xl lg:text-6xl  sm:leading-[88px] lg:leading-[104px] font-extralight tracking-[-0.085em] -my-2.5 sm:-my-3 xl:-my-[18px] -ml-0.5 sm:-ml-1 md:-ml-1.5 xl:-ml-2.5 max-w-[1400px]">
+        <h1 className="col-span-full xl:col-span-3 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl sm:leading-[88px] lg:leading-[104px] font-extralight tracking-[-0.085em] -my-2.5 sm:-my-3 xl:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 xl:-ml-2.5 max-w-[1400px]">
           Hartsfield-
           <br className="xl:hidden" />
           inspired blades, <br />
@@ -80,7 +83,7 @@ export default async function Home() {
           gap="gap-y-12 gap-x-6"
         >
           <div className="group flex flex-col gap-6 col-span-full">
-            <h2 className="hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-2xl md:text-3xl xl:text-4xl -my-1 lg:-my-2 -ml-[3px]">
+            <h2 className="hover:underline decoration-2 underline-offset-2 font-extralight tracking-[-0.085em] text-2xl md:text-3xl xl:text-4xl -my-1 lg:-my-2 -ml-[3px] xl:-ml-[5px]">
               Batch of 10 knives realeasing
             </h2>
             <p className="line-clamp-2 -my-1 max-w-prose">

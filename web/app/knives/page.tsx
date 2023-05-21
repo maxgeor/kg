@@ -8,7 +8,10 @@ import Gallery from "../components/Gallery";
 
 async function getKnives() {
   return (await sanity.fetch(
-    groq`*[_type == "knife" && (!defined(isSpecialProject) || !isSpecialProject)]{
+    groq`
+      *[_type == "knife" && (!defined(isSpecialProject) || !isSpecialProject)] | 
+      order(_createdAt desc) 
+    {
       _id,
       name,
       wrap,
