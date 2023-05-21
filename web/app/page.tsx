@@ -51,7 +51,6 @@ async function getLatestNewsItem() {
       title,
       'slug': slug.current,
       content,
-      _createdAt,
     }`
   );
 }
