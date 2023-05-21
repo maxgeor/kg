@@ -30,7 +30,7 @@ export default async function SpecialProjects() {
     <>
       <Grid>
         <span className="-my-1">{paddedNumber(specialProjects.length)}</span>
-        <h1 className="col-span-full xl:col-span-3 text-3xl sm:text-4xl tracking-[-0.085em] font-extralight -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
+        <h1 className="col-span-full xl:col-span-3 text-3xl sm:text-4xl tracking-[-0.07em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
           One-off, experimental knives I don&apos;t plan on making any more of
         </h1>
       </Grid>

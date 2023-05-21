@@ -31,10 +31,12 @@ export default function NewsItem({
           href={`/news/${slug}`}
           className="group flex flex-col gap-6 col-span-full"
         >
-          <h2 className="group-hover:underline decoration-2 underline-offset-2 font-extralight tracking-[-0.085em] text-2xl md:text-3xl xl:text-4xl -my-1 lg:-my-2 -ml-[3px] xl:-ml-[5px]">
+          <h2 className="group-hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.07em] text-2xl md:text-3xl -my-1 md:-my-1.5 -ml-[3px]">
             {title}
           </h2>
-          <p className="line-clamp-2 -my-1">{firstParagraph(content)}</p>
+          <p className="line-clamp-2 -my-1 max-w-prose">
+            {firstParagraph(content)}
+          </p>
         </Link>
       </Grid>
     </Grid>
