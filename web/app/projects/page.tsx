@@ -28,7 +28,7 @@ export default async function SpecialProjects() {
 
   return (
     <>
-      <Grid gap="gap-y-12 gap-x-6">
+      <Grid>
         <h1 className="col-span-full xl:col-span-3 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
           One-off, experimental knives I don&apos;t plan on making any more of
         </h1>
