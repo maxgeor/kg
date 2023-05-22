@@ -128,7 +128,7 @@ function GalleryModal({
           >
             <Modal.Overlay className="fixed inset-0 z-[40] h-full" />
             <Modal.Content className="fixed inset-0 z-[50] bg-black ">
-              <div className="flex sm:items-center justify-center relative h-full sm:h-screen w-full p-6 sm:p-[72px]">
+              <div className="flex lg:items-center justify-center relative h-full w-full p-6 sm:px-[72px] lg:p-[72px]">
                 <span className="hidden sm:block sm:fixed  top-6 left-6 sm:-my-1  ">
                   {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
                     knivesLength
@@ -160,12 +160,12 @@ function GalleryModal({
                     />
                   </div>
                 </nav>
-                <section className="flex flex-col sm:justify-center sm:flex-row gap-6 w-full max-w-sm sm:max-w-md sm:max-w-none h-screen overflow-y-auto pb-[72px]">
+                <section className="flex flex-col lg:justify-center lg:flex-row gap-6 w-full max-w-sm lg:max-w-md lg:max-w-none h-screen lg:h-fit overflow-y-auto lg:overflow-auto pb-[144px] lg:pb-0 h-min">
                   <ImageCarousel
                     images={images}
-                    className="shrink-0 min-h-[calc(100vw-48px)] h-fit sm:min-h-none sm:basis-[calc(100vh-144px)] aspect-square relative w-full sm:max-w-[calc(100vh-144px)] h-fit"
+                    className="shrink-0 sm:min-h-[0px] lg:basis-[calc(100vh-144px)] aspect-square relative w-full lg:max-w-[calc(100vh-144px)] lg:max-h-[calc(100vh-144px)] h-min"
                   />
-                  <div className="sm:basis-1/4 flex flex-col gap-6">
+                  <div className="lg:basis-1/4 flex flex-col gap-6">
                     <div className="flex justify-between -my-1">
                       <span className="sm:hidden mr-6">
                         {paddedNumber(spotlitKifeIndex + 1)}
