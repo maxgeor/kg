@@ -23,20 +23,22 @@ async function getNews() {
 export default async function News() {
   const news: News[] = await getNews();
 
-  if (!news) return <div>No news yet</div>;
-
   return (
     <>
-      {news.map((newsItem) => (
-        <NewsItem
-          key={newsItem._id}
-          title={newsItem.title}
-          date={newsItem._createdAt}
-          slug={newsItem.slug}
-          content={newsItem.content}
-          imageUrl={newsItem.imageUrl}
-        />
-      ))}
+      {news?.length ? (
+        news.map((newsItem) => (
+          <NewsItem
+            key={newsItem._id}
+            title={newsItem.title}
+            date={newsItem._createdAt}
+            slug={newsItem.slug}
+            content={newsItem.content}
+            imageUrl={newsItem.imageUrl}
+          />
+        ))
+      ) : (
+        <p className="col-span-full lg:col-span-1 -my-1">No news yet</p>
+      )}
       <Subscribe span="col-span-full lg:col-start-2 lg:col-end-5" />
     </>
   );
