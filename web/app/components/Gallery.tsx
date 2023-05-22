@@ -160,7 +160,7 @@ function GalleryModal({
                     />
                   </div>
                 </nav>
-                <section className="flex flex-col lg:justify-center lg:flex-row gap-6 w-full max-w-sm lg:max-w-md lg:max-w-none h-screen lg:h-fit overflow-y-auto lg:overflow-auto pb-[144px] lg:pb-0 h-min">
+                <section className="flex flex-col lg:justify-center lg:flex-row gap-6 w-full max-w-sm lg:max-w-md lg:max-w-none h-screen lg:h-fit overflow-y-auto lg:overflow-auto pb-[296px] lg:pb-0 h-min">
                   <ImageCarousel
                     images={images}
                     className="shrink-0 sm:min-h-[0px] lg:basis-[calc(100vh-144px)] aspect-square relative w-full lg:max-w-[calc(100vh-144px)] lg:max-h-[calc(100vh-144px)] h-min"
