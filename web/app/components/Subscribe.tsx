@@ -65,7 +65,7 @@ export default function Subscribe({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            className="w-full peer flex-grow placeholder:text-[#777] leading-6 h-6 border-box bg-transparent border-[#777] border-b focus:outline-none "
+            className="rounded-none w-full peer flex-grow placeholder:text-[#777] leading-6 h-6 border-box bg-transparent border-[#777] border-b focus:outline-none "
           />
           <span className="z-10 h-px absolute bottom-0 left-0 bg-white w-0 peer-focus:w-full transition-all duration-500 ease-out"></span>
         </label>
