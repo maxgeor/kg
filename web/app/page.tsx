@@ -94,14 +94,14 @@ export default async function Home() {
           <ProfileList knives={featuredKnives} />
         </Grid>
       ) : null}
-      {latestNewsItem ? (
-        <Grid>
-          <h2 className="col-span-full xl:col-span-1 text-white -my-1">News</h2>
-          <Grid
-            span="col-span-full xl:col-span-3"
-            cols="grid-cols-4 xl:grid-cols-3"
-            gap="gap-y-12 gap-x-6"
-          >
+      <Grid>
+        <h2 className="col-span-full xl:col-span-1 text-white -my-1">News</h2>
+        <Grid
+          span="col-span-full xl:col-span-3"
+          cols="grid-cols-4 xl:grid-cols-3"
+          gap="gap-y-12 gap-x-6"
+        >
+          {latestNewsItem ? (
             <Link
               href={`/news/${latestNewsItem.slug}`}
               className="group flex flex-col gap-6 col-span-full"
@@ -113,10 +113,11 @@ export default async function Home() {
                 {latestNewsItem.content[0]?.children[0]?.text}
               </p>
             </Link>
-            <Subscribe />
-          </Grid>
+          ) : null}
+          <Subscribe />
         </Grid>
-      ) : null}
+      </Grid>
+
       <Grid>
         <Gallery knives={nonFeaturedKnives} />
       </Grid>
