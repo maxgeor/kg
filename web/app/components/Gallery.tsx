@@ -188,12 +188,12 @@ function GalleryModal({
                     />
                   </div>
                 </nav>
-                <section className="flex flex-col lg:justify-center lg:flex-row gap-6 w-full max-w-sm lg:max-w-md lg:max-w-none h-screen lg:h-fit overflow-y-auto lg:overflow-auto pb-[296px] lg:pb-0 h-min">
+                <section className="flex flex-col justify-start lg:justify-center lg:flex-row gap-6 w-full max-w-sm lg:max-w-md lg:max-w-none overflow-y-auto lg:overflow-auto">
                   <ImageCarousel
                     images={images}
                     className="shrink-0 sm:min-h-[0px] lg:basis-[calc(100vh-144px)] aspect-square relative w-full lg:max-w-[calc(100vh-144px)] lg:max-h-[calc(100vh-144px)] h-min"
                   />
-                  <div className="lg:basis-1/4 flex flex-col gap-6">
+                  <div className="lg:basis-1/4 flex flex-col gap-6 pb-[72px] lg:pb-0 ">
                     <div className="flex justify-between -my-1">
                       <span className="sm:hidden mr-6">
                         {paddedNumber(spotlitKifeIndex + 1)}

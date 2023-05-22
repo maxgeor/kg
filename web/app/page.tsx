@@ -117,7 +117,6 @@ export default async function Home() {
           <Subscribe />
         </Grid>
       </Grid>
-
       <Grid>
         <Gallery knives={nonFeaturedKnives} />
       </Grid>
