@@ -8,7 +8,7 @@ export default {
       title: 'Title',
       description: "ex: Bio, Philosophy",
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'content',
@@ -16,7 +16,7 @@ export default {
       description: "ex: I'm a knife maker from the mountains of North Carolina...",
       type: 'array',
       of: [{type: 'block'}],
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'image',

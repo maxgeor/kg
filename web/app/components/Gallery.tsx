@@ -11,7 +11,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { paddedNumber } from "../utils/formatting";
 
-function GalleryList({ knives, openModal }) {
+function GalleryList({
+  knives,
+  openModal,
+}: {
+  knives: Knife[];
+  openModal: (index: number) => void;
+}) {
   return (
     <Grid tag="ul">
       {knives?.map((knife: Knife, index: number) => (
@@ -56,11 +62,19 @@ function CloseButton({ className = "" }) {
   );
 }
 
-function PrevButton({ goToPrev, isOnFirstImage, className = "" }) {
+function BackButton({
+  goBack,
+  isOnFirstImage,
+  className = "",
+}: {
+  goBack: () => void;
+  isOnFirstImage: boolean;
+  className?: string;
+}) {
   if (isOnFirstImage) return null;
 
   return (
-    <button className={`${className}`} onClick={goToPrev}>
+    <button className={`${className}`} onClick={goBack}>
       <Image
         src="/icons/chevron-left.svg"
         alt="Go to previous image"
@@ -71,7 +85,15 @@ function PrevButton({ goToPrev, isOnFirstImage, className = "" }) {
   );
 }
 
-function NextButton({ goToNext, isOnLastImage, className = "" }) {
+function NextButton({
+  goToNext,
+  isOnLastImage,
+  className = "",
+}: {
+  goToNext: () => void;
+  isOnLastImage: boolean;
+  className?: string;
+}) {
   if (isOnLastImage) return null;
 
   return (
@@ -92,16 +114,22 @@ function GalleryModal({
   knives,
   spotlitKifeIndex,
   setSpotlitKifeIndex,
+}: {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  knives: Knife[];
+  spotlitKifeIndex: number;
+  setSpotlitKifeIndex: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const knivesLength = knives.length;
 
-  const prev = () =>
+  const back = () =>
     setSpotlitKifeIndex(
-      (prevIndex) => (prevIndex - 1 + knivesLength) % knivesLength
+      (prevIndex: number) => (prevIndex - 1 + knivesLength) % knivesLength
     );
 
   const next = () =>
-    setSpotlitKifeIndex((prevIndex) => (prevIndex + 1) % knivesLength);
+    setSpotlitKifeIndex((prevIndex: number) => (prevIndex + 1) % knivesLength);
 
   const spotlitKnife = knives[spotlitKifeIndex];
 
@@ -135,8 +163,8 @@ function GalleryModal({
                   )}`}
                 </span>
                 <CloseButton className="hidden sm:block fixed bottom-3 sm:bottom-auto transform left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 sm:top-3 sm:right-3" />
-                <PrevButton
-                  goToPrev={prev}
+                <BackButton
+                  goBack={back}
                   isOnFirstImage={spotlitKifeIndex === 0}
                   className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 left-2.5 transform sm:-translate-y-1/2"
                 />
@@ -147,8 +175,8 @@ function GalleryModal({
                 />
                 <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0 z-50">
                   <div className="flex justify-between relative w-full h-[72px]">
-                    <PrevButton
-                      goToPrev={prev}
+                    <BackButton
+                      goBack={back}
                       isOnFirstImage={spotlitKifeIndex === 0}
                       className="absolute left-2 transform top-1/2 -translate-y-1/2"
                     />
@@ -191,7 +219,15 @@ function GalleryModal({
   );
 }
 
-export default function Gallery({ knives }) {
+export default function Gallery({
+  knives,
+  listKnives,
+  modalKnives,
+}: {
+  knives: Knife[];
+  listKnives?: Knife[];
+  modalKnives?: Knife[];
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [spotlightKnifeIndex, setSpotlightKnifeIndex] = useState(0);
 
@@ -202,9 +238,9 @@ export default function Gallery({ knives }) {
 
   return knives ? (
     <>
-      <GalleryList knives={knives} openModal={openModal} />
+      <GalleryList knives={listKnives || knives} openModal={openModal} />
       <GalleryModal
-        knives={knives}
+        knives={modalKnives || knives}
         open={isModalOpen}
         setOpen={setIsModalOpen}
         spotlitKifeIndex={spotlightKnifeIndex}

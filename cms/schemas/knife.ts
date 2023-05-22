@@ -7,18 +7,18 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'slug',
       title: 'Slug',
       description: "The end of this knife's unique link (ex: kghandcrafted/knives/this-is-the-slug)",
       type: 'slug',
-      validation: Rule => Rule.required(),
+      validation: (Rule: any) => Rule.required(),
       options: {
         source: 'name',
         maxLength: 200,
-        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
+        slugify: (input: any) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
       }
     },
     {
@@ -30,13 +30,13 @@ export default {
       name: 'wrap',
       title: 'Wrap',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'sheath',
       title: 'Sheath',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'isFeatured',
@@ -53,7 +53,7 @@ export default {
       title: 'Cover Image',
       description: "Use a square image (you can crop after uploading)",
       type: 'image',
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'galleryImages',

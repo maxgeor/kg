@@ -7,18 +7,18 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'slug',
       title: 'Slug',
       description: "The end of this news item's unique link (ex: kghandcrafted/news/this-is-the-slug)",
       type: 'slug',
-      validation: Rule => Rule.required(),
+      validation: (Rule: any) => Rule.required(),
       options: {
         source: 'title',
         maxLength: 200,
-        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
+        slugify: (input: any) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
       }
     },
     {
@@ -32,7 +32,7 @@ export default {
       name: 'content',
       type: 'array', 
       of: [{type: 'block'}],
-      validation: Rule => Rule.required()
+      validation: (Rule: any) => Rule.required()
     }
   ]
 }
