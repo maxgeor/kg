@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Grid from "./components/Grid";
 import NavBar from "./components/navigation/NavBar";
 
+import TestModal from "./components/TestModal";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -33,6 +35,7 @@ export default function RootLayout({
             className="pt-0 px-6 pb-24 -mt-6"
           >
             {children}
+            <TestModal />
           </Grid>
         </Grid>
       </body>

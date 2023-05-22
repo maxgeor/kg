@@ -118,7 +118,7 @@ function GalleryModal({
 
   return (
     <Modal.Root open={open} onOpenChange={setOpen}>
-      <Modal.Portal className="fixed inset-0 z-[30] h-screen">
+      <Modal.Portal>
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -126,9 +126,9 @@ function GalleryModal({
             exit={{ opacity: 0, scale: 0.95 }}
             className="fixed inset-0 bg-black/[85%] z-[50] h-screen"
           >
-            <Modal.Overlay className="fixed inset-0 bg-black z-[40] h-full" />
-            <Modal.Content className="overflow-y-scroll flex items-center justify-center fixed inset-0 z-[50] h-full">
-              <div className="relative flex sm:items-center justify-center h-full sm:h-auto w-full p-6 sm:p-[72px]">
+            <Modal.Overlay className="fixed inset-0 z-[40] h-full" />
+            <Modal.Content className="fixed inset-0 z-[50] bg-black ">
+              <div className="flex sm:items-center justify-center relative h-full sm:h-screen w-full p-6 sm:p-[72px]">
                 <span className="hidden sm:block sm:fixed  top-6 left-6 sm:-my-1  ">
                   {`${paddedNumber(spotlitKifeIndex + 1)}/${paddedNumber(
                     knivesLength
@@ -145,7 +145,7 @@ function GalleryModal({
                   isOnLastImage={knivesLength === spotlitKifeIndex + 1}
                   className="hidden sm:block fixed bottom-3 sm:bottom-auto sm:top-1/2 right-2.5 transform sm:-translate-y-1/2"
                 />
-                <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0">
+                <nav className="sm:hidden bg-black/[85%] w-full fixed bottom-0 left-0 right-0 z-50">
                   <div className="flex justify-between relative w-full h-[72px]">
                     <PrevButton
                       goToPrev={prev}
@@ -160,12 +160,12 @@ function GalleryModal({
                     />
                   </div>
                 </nav>
-                <section className="flex flex-col lg:justify-center lg:flex-row gap-6 w-full  max-w-sm sm:max-w-md lg:max-w-none ">
+                <section className="flex flex-col sm:justify-center sm:flex-row gap-6 w-full max-w-sm sm:max-w-md sm:max-w-none h-screen overflow-y-auto pb-[72px]">
                   <ImageCarousel
                     images={images}
-                    className="lg:basis-[calc(100vh-144px)] aspect-square relative lg:max-h-[calc(100vh-144px)] lg:max-w-[calc(100vh-144px)]"
+                    className="shrink-0 min-h-[calc(100vw-48px)] h-fit sm:min-h-none sm:basis-[calc(100vh-144px)] aspect-square relative w-full sm:max-w-[calc(100vh-144px)] h-fit"
                   />
-                  <div className="lg:basis-1/4 flex flex-col gap-6">
+                  <div className="sm:basis-1/4 flex flex-col gap-6">
                     <div className="flex justify-between -my-1">
                       <span className="sm:hidden mr-6">
                         {paddedNumber(spotlitKifeIndex + 1)}

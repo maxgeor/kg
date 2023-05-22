@@ -44,14 +44,14 @@ export default function ImageCarousel({
             ease: "easeOut",
           }}
           exit={{ opacity: 0, x: -100 }}
-          className="w-full h-full"
+          className="w-full"
         >
           <Image
             src={focusedImage.url}
             alt={focusedImage.alt}
             width={1000}
             height={1000}
-            className="max-w-full h-full w-full object-cover aspect-square"
+            className="max-w-full w-full object-cover aspect-square"
             priority
           />
         </motion.div>
