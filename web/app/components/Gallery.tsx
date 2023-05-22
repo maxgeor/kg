@@ -27,7 +27,7 @@ function GalleryList({
           id={`knife-${index}`}
         >
           <button
-            className="col-span-1 relative group flex flex-col gap-6 active:brightness-[90%] duration-100 transition ease-out"
+            className="col-span-1 relative group flex flex-col gap-6 active:brightness-[85%] duration-100 transition ease-out"
             onClick={() => openModal(index)}
           >
             {knife.isSpecialProject ? (
@@ -188,7 +188,7 @@ function GalleryModal({
                     />
                   </div>
                 </nav>
-                <section className="flex flex-col justify-start lg:justify-center lg:flex-row gap-6 w-full max-w-sm lg:max-w-md lg:max-w-none overflow-y-auto lg:overflow-auto">
+                <section className="flex flex-col justify-start lg:justify-center lg:flex-row gap-6 w-full max-w-sm sm:max-w-md lg:max-w-none overflow-y-auto lg:overflow-auto">
                   <ImageCarousel
                     images={images}
                     className="shrink-0 sm:min-h-[0px] lg:basis-[calc(100vh-144px)] aspect-square relative w-full lg:max-w-[calc(100vh-144px)] lg:max-h-[calc(100vh-144px)] h-min"
