@@ -84,6 +84,7 @@ export default function Subscribe({
             alt="subscribe"
             height={38}
             width={38}
+            priority
           />
         </button>
         {error ? (

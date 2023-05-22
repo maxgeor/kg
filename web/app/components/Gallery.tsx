@@ -57,7 +57,13 @@ function GalleryList({
 function CloseButton({ className = "" }) {
   return (
     <Modal.Close className={className}>
-      <Image src="/icons/x-lg.svg" alt="close" height={48} width={48} />
+      <Image
+        src="/icons/x-lg.svg"
+        alt="close"
+        height={48}
+        width={48}
+        priority
+      />
     </Modal.Close>
   );
 }
@@ -80,6 +86,7 @@ function BackButton({
         alt="Go to previous image"
         height={48}
         width={48}
+        priority
       />
     </button>
   );
@@ -103,6 +110,7 @@ function NextButton({
         alt="Go to next image"
         height={48}
         width={48}
+        priority
       />
     </button>
   );
