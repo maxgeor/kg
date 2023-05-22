@@ -68,7 +68,7 @@ export default function ImageCarousel({
       <button
         className={`
           ${focusedImageIndex + 1 === numberOfImages ? "hidden" : null}
-          group z-20 shrink-0 absolute top-0 bottom-0 right-0 px-2
+          group z-20 shrink-0 absolute top-0 bottom-0 right-0 px-2 
         `}
         onClick={next}
       >
