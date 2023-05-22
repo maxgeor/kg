@@ -32,7 +32,7 @@ export default async function SpecialProjects() {
         <h1 className="col-span-full xl:col-span-3 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
           One-off, experimental knives I don&apos;t plan on making any more of
         </h1>
-        <span className="lg:order-first -my-1">
+        <span className="xl:order-first -my-1">
           {paddedNumber(specialProjects.length)}
         </span>
       </Grid>
