@@ -17,7 +17,7 @@ export default function Contact() {
           or send an email.
         </p>
       </div>
-      <div className="md:order-first col-span-full md:col-span-1 flex flex-col gap-y-3">
+      <div className="md:order-first col-span-full md:col-span-1 flex flex-col gap-y-3 -my-1">
         <table cellPadding={0} cellSpacing={0}>
           <tbody>
             <tr>
