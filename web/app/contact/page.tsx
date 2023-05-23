@@ -21,8 +21,8 @@ export default function Contact() {
         <table cellPadding={0} cellSpacing={0}>
           <tbody>
             <tr>
-              <td className="w-3 pr-3 ">i:</td>
-              <td>
+              <td className="w-3 pr-3 pb-1">i:</td>
+              <td className="pb-1">
                 <Link
                   href="https://www.instagram.com/kg.handcrafted/"
                   target="_blank"
@@ -33,7 +33,7 @@ export default function Contact() {
               </td>
             </tr>
             <tr>
-              <td className="w-3 pr-3 ">e:</td>
+              <td className="w-3 pr-3">e:</td>
               <td>kevin_g8405@hotmail.com</td>
             </tr>
           </tbody>
