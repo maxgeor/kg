@@ -4,7 +4,8 @@ export default function Grid({
   children,
   tag = "div",
   span = "col-span-full",
-  cols = "grid-cols-4",
+  // cols = "grid-cols-4",
+  cols = "grid-cols-4 sm:grid-cols-5",
   gap = "gap-6",
   className = "",
 }: {

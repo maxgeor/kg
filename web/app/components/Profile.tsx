@@ -12,7 +12,8 @@ export default function Profile({
   showingIndex = true,
   description,
   carouselClasses = "col-span-full sm:col-span-2",
-  textClasses = "col-span-full sm:col-span-2 xl:col-span-1 lg:pr-[72px]",
+  // textClasses = "col-span-full sm:col-span-2 xl:col-span-1 lg:pr-[72px]",
+  textClasses = "col-span-full sm:col-span-2 xl:col-span-1 ",
   className = "",
 }: {
   index: number;
@@ -35,24 +36,22 @@ export default function Profile({
   });
 
   return (
-    <Grid gap="gap-6" className={`bg-black ${className}`}>
+    <Grid cols="grid-cols-5" gap="gap-6" className={`bg-black ${className}`}>
+      {showingIndex ? <span>{paddedNumber(index + 1)}</span> : null}
       <ImageCarousel
         images={images}
         className={`
           ${carouselClasses}
-          relative aspect-square xl:order-last
+          relative aspect-square col-span-2 xl:col-span-2 
         `}
       />
       <div
         className={`
           ${textClasses}
-          flex flex-col gap-6 
+          flex flex-col gap-6
         `}
       >
-        <div className="flex justify-between -my-1">
-          {showingIndex ? (
-            <span className="mr-6">{paddedNumber(index + 1)}</span>
-          ) : null}
+        <div className="col-span-2 xl:col-span-2 flex justify-between -my-1">
           <h3 className="col-span-full h-min w-full">{name}</h3>
         </div>
         {description && (
@@ -61,5 +60,31 @@ export default function Profile({
         <p className="-my-1">{`${wrap}, ${sheath}`}</p>
       </div>
     </Grid>
+    // <Grid gap="gap-6" className={`bg-black ${className}`}>
+    //   <ImageCarousel
+    //     images={images}
+    //     className={`
+    //       ${carouselClasses}
+    //       relative aspect-square xl:order-last
+    //     `}
+    //   />
+    //   <div
+    //     className={`
+    //       ${textClasses}
+    //       flex flex-col gap-6
+    //     `}
+    //   >
+    //     <div className="flex justify-between -my-1">
+    //       {showingIndex ? (
+    //         <span className="mr-6">{paddedNumber(index + 1)}</span>
+    //       ) : null}
+    //       <h3 className="col-span-full h-min w-full">{name}</h3>
+    //     </div>
+    //     {description && (
+    //       <div className="max-w-prose -my-1">{description.trim()}</div>
+    //     )}
+    //     <p className="-my-1">{`${wrap}, ${sheath}`}</p>
+    //   </div>
+    // </Grid>
   );
 }
