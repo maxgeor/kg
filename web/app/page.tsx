@@ -72,7 +72,10 @@ export default async function Home() {
 
   return (
     <>
-      <Grid gap="gap-6 gap-y-12" className="relative border-white w-full ">
+      <Grid
+        gap="relative lg:static gap-6 gap-y-12"
+        className="relative border-white w-full "
+      >
         {/* <h1 className="col-span-full xl:col-span-3 text-3xl xs:text-4xl sm:text-5xl  sm:leading-[88px] font-light tracking-[-0.08em] -my-2.5 sm:-my-3 lg:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 lg:-ml-2.5 max-w-[1400px]"> */}
         <h1 className="col-span-full xl:col-span-4 text-3xl xs:text-4xl sm:text-5xl  sm:leading-[88px] font-light tracking-[-0.08em] -my-2.5 sm:-my-3 lg:-my-3.5 -ml-0.5 sm:-ml-1 md:-ml-1.5 lg:-ml-2.5 max-w-[1400px]">
           Hartsfield-
@@ -82,14 +85,38 @@ export default async function Home() {
           <br /> one at a time
         </h1>
         {/* <div className="xl:order-first col-span-full xl:col-span-1 flex gap-6 h-full lg:pr-[72px] -my-1"> */}
-        <div className="xl:order-first col-span-full xl:col-span-1 flex gap-6 h-full -my-1  lg:pr-[72px]">
+
+        {/* <div className="xl:order-first col-span-full xl:col-span-1 flex lg:flex-col lg:justify-between gap-6 h-full -my-1  lg:pr-[72px]">
           <span>
             {paddedNumber(featuredKnives.length + nonFeaturedKnivesData.length)}
           </span>
           <span>
-            Functional, subtracted knives built with natural materials
+            Functional,
+            <br /> subtracted knives
+            <br /> built with natural materials
+          </span>
+        </div> */}
+
+        {/* <div className="xl:border-t xl:order-first col-span-full xl:col-span-1 flex lg:flex-col lg:justify-between gap-6 h-full -my-1  lg:mr-[72px]"> */}
+        <div className=" xl:order-first col-span-full xl:col-span-1 flex lg:flex-col lg:justify-between gap-6 h-full -my-1  lg:mr-[72px]">
+          <div className="absolute lg:static bottom-0 right-0">
+            {paddedNumber(featuredKnives.length + nonFeaturedKnivesData.length)}
+          </div>
+          <span className="absolute lg:static top-0 right-0  text-right lg:text-left">
+            Functional,
+            <br /> subtracted knives
+            <br /> built with natural materials
           </span>
         </div>
+
+        {/* <div className="xl:order-first col-span-full xl:col-span-1 flex lg:flex-col lg:justify-between gap-6 h-full -my-1  lg:pr-[72px]">
+          <span>
+            {paddedNumber(featuredKnives.length + nonFeaturedKnivesData.length)}
+          </span>
+          <span className="lg:order-first">
+            Functional, subtracted knives built with natural materials
+          </span>
+        </div> */}
       </Grid>
       {featuredKnives.length ? (
         <Grid>
