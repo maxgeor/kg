@@ -78,7 +78,7 @@ export default async function Home() {
       >
         <h1 className="col-span-full lg:col-span-4 text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-light tracking-[-0.08em] -my-2 md:-my-2.5 lg:-my-3 -ml-1 lg:-ml-2.5">
           Hartsfield-
-          <br className="2xl:hidden" />
+          <br className="xl:hidden" />
           inspired blades <br />
           carefully crafted
           <br /> one at a time
