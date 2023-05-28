@@ -39,7 +39,7 @@ export default async function News() {
       ) : (
         <p className="col-span-full lg:col-span-1 -my-1">No news yet</p>
       )}
-      <Subscribe span="col-span-full lg:col-start-2 lg:col-end-5" />
+      <Subscribe span="col-span-full lg:col-start-2 " />
     </>
   );
 }

@@ -34,7 +34,7 @@ export default function NewsItem({
       >
         <Link
           href={`/news/${slug}`}
-          className="group flex flex-col gap-6 col-span-full lg:col-span-2"
+          className="group flex flex-col gap-6 col-span-full lg:col-span-3"
         >
           <h2 className="group-hover:underline decoration-2 underline-offset-2 font-light tracking-[-0.08em] text-2xl md:text-3xl -my-1 md:-my-1.5 -ml-[3px]">
             {title}
