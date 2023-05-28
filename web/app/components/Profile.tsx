@@ -45,20 +45,20 @@ export default function Profile({
         images={images}
         className={`
           ${carouselClasses}
-          relative aspect-square col-span-2 xl:col-span-2 
+          relative aspect-square col-span-2
         `}
       />
       <div
         className={`
           ${textClasses}
-          flex flex-col gap-6
+          flex flex-col gap-6 col-span-2 lg:col-span-1
         `}
       >
-        <div className="col-span-2 xl:col-span-2 flex justify-between -my-1">
+        <div className=" flex justify-between -my-1">
           {showingIndex ? (
             <span className="lg:hidden mr-6">{paddedNumber(index + 1)}</span>
           ) : null}
-          <h3 className="col-span-full h-min w-full">{name}</h3>
+          <h3 className="h-min w-full">{name}</h3>
         </div>
         {description && (
           <div className="max-w-prose -my-1">{description.trim()}</div>

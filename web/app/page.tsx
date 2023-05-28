@@ -87,7 +87,7 @@ export default async function Home() {
           <div className="sm:pt-6 lg:pt-0">
             {paddedNumber(featuredKnives.length + nonFeaturedKnivesData.length)}
           </div>
-          <span className="sm:-mb-1.5 lg:mb-0 sm:text-right lg:text-left sm:max-w-[120px] md:max-w-[150px]">
+          <span className="sm:-mb-1.5 lg:-mb-2 sm:text-right lg:text-left sm:max-w-[120px] md:max-w-[150px]">
             Functional
             <br className="hidden sm:inline-block" /> subtracted
             <br className="hidden sm:inline-block" /> knives built with
