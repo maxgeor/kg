@@ -28,11 +28,13 @@ export default async function About() {
 
   return (
     <>
-      <h1 className="col-span-full lg:col-start-2 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-1 -my-1.5 sm:-my-2">
-        Kevin
-        <br />
-        Georgopoulos
-      </h1>
+      <Grid className="border-t-4 pt-5 sm:pt-6">
+        <h1 className="col-span-full lg:col-start-2 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-1 -my-2 sm:-my-2.5">
+          Kevin
+          <br />
+          Georgopoulos
+        </h1>
+      </Grid>
       {sections?.map((section) => (
         <Grid key={section.title}>
           <h2 className="col-span-full lg:col-span-1 -my-0.5">

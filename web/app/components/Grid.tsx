@@ -5,7 +5,7 @@ export default function Grid({
   tag = "div",
   span = "col-span-full",
   // cols = "grid-cols-4",
-  cols = "grid-cols-4 sm:grid-cols-5",
+  cols = "grid-cols-4 lg:grid-cols-5",
   gap = "gap-6",
   className = "",
 }: {

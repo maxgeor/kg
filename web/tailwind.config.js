@@ -22,10 +22,10 @@ module.exports = {
       xl: ['35px', '36px'],
       '2xl': ['42px', '44px'],
       '3xl': ['50px', '52px'],
-      '4xl': ['60px', '64px'],
+      '4xl': ['60px', '60px'],
       '5xl': ['87px', '88px'],
-      '6xl': ['104px', '104px'],
-      '7xl': ['125px', '128px'],
+      '6xl': ['104px', '100px'],
+      '7xl': ['125px', '120px'],
     },
     extend: {
       screens: {

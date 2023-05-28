@@ -12,7 +12,6 @@ export default function Profile({
   showingIndex = true,
   description,
   carouselClasses = "col-span-full sm:col-span-2",
-  // textClasses = "col-span-full sm:col-span-2 xl:col-span-1 lg:pr-[72px]",
   textClasses = "col-span-full sm:col-span-2 xl:col-span-1 ",
   className = "",
 }: {
@@ -36,8 +35,12 @@ export default function Profile({
   });
 
   return (
-    <Grid cols="grid-cols-5" gap="gap-6" className={`bg-black ${className}`}>
-      {showingIndex ? <span>{paddedNumber(index + 1)}</span> : null}
+    <Grid gap="gap-6" className={`bg-black ${className}`}>
+      {showingIndex ? (
+        <span className="hidden lg:inline-block">
+          {paddedNumber(index + 1)}
+        </span>
+      ) : null}
       <ImageCarousel
         images={images}
         className={`
@@ -52,6 +55,9 @@ export default function Profile({
         `}
       >
         <div className="col-span-2 xl:col-span-2 flex justify-between -my-1">
+          {showingIndex ? (
+            <span className="lg:hidden mr-6">{paddedNumber(index + 1)}</span>
+          ) : null}
           <h3 className="col-span-full h-min w-full">{name}</h3>
         </div>
         {description && (

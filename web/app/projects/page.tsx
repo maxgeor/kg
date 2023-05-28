@@ -28,11 +28,11 @@ export default async function SpecialProjects() {
 
   return (
     <>
-      <Grid>
-        <h1 className="col-span-full xl:col-span-3 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-0.5 md:-ml-1 -my-1.5 md:-my-2">
+      <Grid className="relative border-t-4 pt-6">
+        <h1 className="mr-12 sm:mr-24 lg:mr-0 col-span-full lg:col-span-4 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-1 -my-2 sm:-my-2.5">
           One-off, experimental knives I don&apos;t plan on making any more of
         </h1>
-        <span className="xl:order-first -my-1">
+        <span className="absolute lg:static top-5 right-0 lg:order-first -my-1">
           {paddedNumber(specialProjects.length)}
         </span>
       </Grid>

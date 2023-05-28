@@ -7,8 +7,8 @@ import Grid from "./Grid";
 import Image from "next/image";
 
 export default function Subscribe({
-  span = "col-span-full xl:col-span-3",
-  cols = "grid-cols-4 xl:grid-cols-3",
+  span = "col-span-full",
+  cols = "grid-cols-4",
   className = "",
 }: {
   span?: string;
@@ -56,11 +56,11 @@ export default function Subscribe({
       <form
         method="post"
         onSubmit={(e) => handleSubmit(e)}
-        className="relative self-end col-span-full flex md:grid grid-cols-4 xl:grid-cols-3 gap-6 -mb-1.5"
+        className="relative self-end col-span-full flex md:grid grid-cols-4 gap-6 -mb-1.5"
       >
         <label
           htmlFor="email"
-          className="h-fit md:col-span-3 xl:col-span-2 peer group relative w-full"
+          className="h-fit md:col-span-3 lg:col-span-3 peer group relative w-full"
         >
           <input
             required
