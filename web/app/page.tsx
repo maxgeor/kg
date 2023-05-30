@@ -73,7 +73,7 @@ export default async function Home() {
   return (
     <>
       <Grid
-        gap="gap-6 sm:gap-y-0 border-t-[3px] sm:border-t-4 pt-5 sm:pt-6"
+        gap="gap-6 sm:gap-y-0 border-t-[3px] md:border-t-4 pt-5 md:pt-6"
         className="relative lg:static border-white w-full"
       >
         <h1 className="col-span-full lg:col-span-4 text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-light tracking-[-0.08em] -my-2 md:-my-2.5 lg:-my-3 -ml-1 lg:-ml-2.5">

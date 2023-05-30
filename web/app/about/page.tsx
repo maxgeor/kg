@@ -28,7 +28,7 @@ export default async function About() {
 
   return (
     <>
-      <Grid className="border-t-[3px] sm:border-t-4 pt-5 sm:pt-6">
+      <Grid className="border-t-[3px] md:border-t-4 pt-5 md:pt-6">
         <h1 className="col-span-full lg:col-start-2 text-3xl sm:text-4xl tracking-[-0.08em] font-light -ml-1 -my-2 sm:-my-2.5">
           Kevin
           <br />
