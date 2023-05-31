@@ -36,8 +36,7 @@ function GalleryList({
               </div>
             ) : null}
             <h3 className="bg-black w-full text-left absolute z-[1] transform top-0 left-0 right-0 opacity-0 group-hover:opacity-100 leading-6 transition-all duration-300 ease-out">
-              <span className="mr-6">{paddedNumber(index + 1)}</span>
-              <span>{knife.name}</span>
+              {knife.name}
             </h3>
             <Image
               src={knife.coverImageUrl}
