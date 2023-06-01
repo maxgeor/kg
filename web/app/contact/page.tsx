@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Contact() {
   return (
     <>
-      <div className="col-span-full md:col-span-3">
+      <div className="col-span-full lg:col-span-4">
         <p className="-my-1">
           To buy a knife or connect,{" "}
           <Link
@@ -17,7 +17,7 @@ export default function Contact() {
           or send an email.
         </p>
       </div>
-      <div className="md:order-first col-span-full md:col-span-1 flex flex-col gap-y-3 -my-1">
+      <div className="lg:order-first col-span-full lg:col-span-1 flex flex-col gap-y-3 -my-1">
         <table cellPadding={0} cellSpacing={0}>
           <tbody>
             <tr>

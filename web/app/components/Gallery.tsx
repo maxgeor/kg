@@ -9,7 +9,6 @@ import ImageCarousel from "./ImageCarousel";
 import CloseIcon from "./icons/CloseIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import ChevronRightIcon from "./icons/ChevronRightIcon";
-
 import * as Modal from "@radix-ui/react-dialog";
 import { motion, AnimatePresence } from "framer-motion";
 
