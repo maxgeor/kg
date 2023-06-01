@@ -19,7 +19,8 @@ async function getAboutPageContent() {
       title,
       content,
       "imageUrl": image.asset->url,
-    }`
+    }`,
+    { next: { tags: ["about"] } }
   );
 }
 

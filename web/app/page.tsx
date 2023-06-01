@@ -22,7 +22,8 @@ async function getFeaturedKnives() {
       description,
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
-    }`
+    }`,
+    { next: { tags: ["knives"] } }
   );
 }
 
@@ -40,7 +41,8 @@ async function getNonFeaturedKnives() {
       isSpecialProject,
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
-    }`
+    }`,
+    { next: { tags: ["knives"] } }
   );
 }
 
@@ -51,7 +53,8 @@ async function getLatestNewsItem() {
       title,
       'slug': slug.current,
       content,
-    }`
+    }`,
+    { next: { tags: ["news"] } }
   );
 }
 

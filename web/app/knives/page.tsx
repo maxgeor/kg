@@ -7,7 +7,7 @@ import React from "react";
 import Gallery from "../components/Gallery";
 
 async function getKnives() {
-  return (await sanity.fetch(
+  return await sanity.fetch(
     groq`
       *[_type == "knife" && (!defined(isSpecialProject) || !isSpecialProject)] | 
       order(_createdAt desc) 
@@ -20,12 +20,13 @@ async function getKnives() {
       isSpecialProject,
       "coverImageUrl": coverImage.asset->url,
       "galleryImageUrls": galleryImages[].asset->url,
-    }`
-  )) as Knife[];
+    }`,
+    { next: { tags: ["knives"] } }
+  );
 }
 
 export default async function Knives() {
-  const knives = await getKnives();
+  const knives: Knife[] = await getKnives();
 
   return <Gallery knives={knives} />;
 }

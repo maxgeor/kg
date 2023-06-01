@@ -16,7 +16,8 @@ async function getNews() {
       content,
       _createdAt,
       "imageUrl": image.asset->url,
-    }`
+    }`,
+    { next: { tags: ["news"] } }
   );
 }
 
