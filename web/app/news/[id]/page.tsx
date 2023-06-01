@@ -32,7 +32,7 @@ export default async function NewsItem({ params }) {
   return (
     <>
       <Grid
-        cols="grid-cols-1 md:grid-cols-4"
+        cols="grid-cols-1 md:grid-cols-4 lg:grid-cols-5"
         gap="gap-y-12 md:gap-y-24 gap-x-6 -mt-12 md:mt-0"
       >
         <nav className="col-span-full md:col-span-1 flex gap-3 -my-1 h-fit">
@@ -43,12 +43,12 @@ export default async function NewsItem({ params }) {
           <p className="text-[#777] truncate">{newsItem.title}</p>
         </nav>
         <Grid
-          span="col-span-full md:col-span-3"
-          cols="grid-cols-1 md:grid-cols-3"
+          span="col-span-full md:col-span-3 lg:col-span-4"
+          cols="grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
           gap="gap-y-12 gap-x-6"
         >
           <p className="-my-1">{humanDate}</p>
-          <h1 className="col-span-full text-2xl md:text-3xl md:text-4xl font-light tracking-[-0.08em] -ml-1 -my-1.5 md:-my-2 md:-my-2.5 ">
+          <h1 className="max-w-prose col-span-full text-2xl md:text-3xl lg:text-4xl font-light tracking-[-0.08em] -ml-1 -my-1.5 md:-my-2 lg:-my-2.5 ">
             {newsItem.title}
           </h1>
           {newsItem.imageUrl ? (
@@ -57,7 +57,7 @@ export default async function NewsItem({ params }) {
               alt={newsItem.title}
               width={1000}
               height={1000}
-              className="object-cover aspect-video height-auto w-full h-full col-span-full lg:col-span-2"
+              className="object-cover aspect-video height-auto w-full h-full col-span-full lg:col-span-3"
               priority
             />
           ) : null}
@@ -65,8 +65,8 @@ export default async function NewsItem({ params }) {
             <PortableText value={newsItem.content} />
           </article>
           <Subscribe
-            span="col-span-full md:col-span-3"
-            cols="grid-cols-4 md:grid-cols-3"
+            span="col-span-full md:col-span-4"
+            cols="grid-cols-1 md:grid-cols-3"
             className="mt-12"
           />
         </Grid>

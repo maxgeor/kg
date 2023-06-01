@@ -1,5 +1,6 @@
 "use client";
 
+import type { Knife } from "../../types/knife";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -25,7 +26,7 @@ const item = {
   },
 };
 
-export default function ProfileList({ knives }) {
+export default function ProfileList({ knives }: { knives: Knife[] }) {
   return (
     <motion.ul
       variants={container}

@@ -7,7 +7,7 @@ import groq from "groq";
 import React from "react";
 import Link from "next/link";
 import Grid from "./components/Grid";
-import ProfileList from "./components/ProfileList";
+import ProfileList from "./components/knife/ProfileList";
 import Subscribe from "./components/Subscribe";
 import Gallery from "./components/Gallery";
 import { paddedNumber } from "./utils/formatting";

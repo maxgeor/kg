@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Profile from "../Profile";
+import Profile from "./Profile";
 import * as Modal from "@radix-ui/react-dialog";
 
 export default function Card({

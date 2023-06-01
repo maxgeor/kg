@@ -5,7 +5,7 @@ import { sanityClient as sanity } from "../lib/sanity/client";
 import groq from "groq";
 
 import React from "react";
-import ProfileList from "../components/ProfileList";
+import ProfileList from "../components/knife/ProfileList";
 import Grid from "../components/Grid";
 
 async function getSpecialProjects() {

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ChevronCircleRight({
+export default function ChevronCircleRightIcon({
   iconColor = "#FFF",
   backgroundColor = "#000",
   className,

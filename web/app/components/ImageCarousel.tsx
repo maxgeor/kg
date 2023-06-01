@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import ChevronCircleLeft from "./icons/ChevronCircleLeft";
-import ChevronCircleRight from "./icons/ChevronCircleRight";
+import ChevronCircleLeftIcon from "./icons/ChevronCircleLeftIcon";
+import ChevronCircleRightIcon from "./icons/ChevronCircleRightIcon";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface Image {
-  url: string;
-  alt: string;
-}
 
 export default function ImageCarousel({
   images,
   className,
 }: {
-  images: Image[];
+  images: {
+    url: string;
+    alt: string;
+  }[];
   className?: string;
 }) {
   const [focusedImageIndex, setFocusedImageIndex] = useState(0);
@@ -63,7 +61,7 @@ export default function ImageCarousel({
         `}
         onClick={prev}
       >
-        <ChevronCircleLeft className="opacity-[75%] group-hover:opacity-100 group-active:opacity-75 transition" />
+        <ChevronCircleLeftIcon className="opacity-[75%] group-hover:opacity-100 group-active:opacity-75 transition" />
       </button>
       <button
         className={`
@@ -72,7 +70,7 @@ export default function ImageCarousel({
         `}
         onClick={next}
       >
-        <ChevronCircleRight className="opacity-[75%] group-hover:opacity-100 group-active:opacity-75 transition" />
+        <ChevronCircleRightIcon className="opacity-[75%] group-hover:opacity-100 group-active:opacity-75 transition" />
       </button>
     </div>
   );

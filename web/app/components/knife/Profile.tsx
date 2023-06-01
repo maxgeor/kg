@@ -1,7 +1,7 @@
 import React from "react";
-import Grid from "./Grid";
-import ImageCarousel from "./ImageCarousel";
-import { paddedNumber } from "../utils/formatting";
+import Grid from "../Grid";
+import ImageCarousel from "../ImageCarousel";
+import { paddedNumber } from "../../utils/formatting";
 
 export default function Profile({
   index,

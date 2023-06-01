@@ -6,6 +6,10 @@ import React, { useState } from "react";
 import Grid from "./Grid";
 import Image from "next/image";
 import ImageCarousel from "./ImageCarousel";
+import CloseIcon from "./icons/CloseIcon";
+import ChevronLeftIcon from "./icons/ChevronLeftIcon";
+import ChevronRightIcon from "./icons/ChevronRightIcon";
+
 import * as Modal from "@radix-ui/react-dialog";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -56,13 +60,14 @@ function GalleryList({
 function CloseButton({ className = "" }) {
   return (
     <Modal.Close className={className}>
-      <Image
+      {/* <Image
         src="/icons/x-lg.svg"
         alt="close"
         height={48}
         width={48}
         priority
-      />
+      /> */}
+      <CloseIcon />
     </Modal.Close>
   );
 }
@@ -80,13 +85,14 @@ function BackButton({
 
   return (
     <button className={`${className}`} onClick={goBack}>
-      <Image
+      {/* <Image
         src="/icons/chevron-left.svg"
         alt="Go to previous image"
         height={48}
         width={48}
         priority
-      />
+      /> */}
+      <ChevronLeftIcon />
     </button>
   );
 }
@@ -104,13 +110,7 @@ function NextButton({
 
   return (
     <button className={`justify-self-end ${className}`} onClick={goToNext}>
-      <Image
-        src="/icons/chevron-right.svg"
-        alt="Go to next image"
-        height={48}
-        width={48}
-        priority
-      />
+      <ChevronRightIcon />
     </button>
   );
 }
