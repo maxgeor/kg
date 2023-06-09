@@ -8,7 +8,9 @@ export async function subscribe(email: string) {
     server: process.env.MAILCHIMP_SERVER_PREFIX,
   });
 
-  if (!email) return { error: 'Email is required' };
+  if (!email) {
+    return { error: 'Email is required' }
+  }
 
   try {
     const listId = process.env.MAILCHIMP_LIST_ID as string;
