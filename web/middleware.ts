@@ -2,7 +2,6 @@ import { NextResponse } from "next/server"
 
 export function middleware(request: Request) {
     const origin = request.headers.get('origin') || ""
-    console.log(origin)
 
     const response = NextResponse.next()
 
